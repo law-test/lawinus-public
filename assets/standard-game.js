@@ -26,14 +26,12 @@ async function initialize() {
     renderStorage();
   }
   function renderStorage() {
-    $('sg-storage').textContent = storageEnabled
-      ? '로그인 없이 이 브라우저에 급수와 풀이 상태를 저장합니다. 다른 기기와 동기화되지 않습니다.'
-      : '브라우저 저장이 제한되어 이 탭에서만 진행합니다. 탭을 닫으면 급수와 풀이 상태가 사라질 수 있습니다.';
+    $('sg-storage').hidden = storageEnabled;
+    $('sg-storage').textContent = storageEnabled ? '' : '저장할 수 없어 이 탭에서만 진행합니다.';
   }
   function renderProgress() {
     const GRADES=gradesForTrack(track), units=track==='statute'?'문항':'판례';
     $('sg-progress-title').textContent=`도전 ${kingName(track)}! · 나의 급수`;
-    $('sg-stage-note').textContent=track==='statute'?'조문왕 급수는 민법위키 학습단계입니다. 공식 기출 급수 및 판례집 급수와 구별합니다.':'발간 대한민국 표준판례의 누적 급수입니다.';
     $('sg-exam-heading').textContent=`도전 ${kingName(track)}!`;
     const highest = state.passedGrades.length ? GRADES[Math.max(...state.passedGrades)].label : null;
     $('sg-earned').textContent = highest ? `${highest} 취득 · ${GRADES[state.unlockedIndex].label}까지 도전 가능` : '취득 전 · 5급부터 도전';
@@ -84,7 +82,6 @@ async function initialize() {
     content.append(title, meta, body, book);
     if (record.articleRefs?.length) { const ref = document.createElement('p'); ref.className = 'sg-case-ref'; ref.textContent = `관련 조문: ${record.articleRefs.join(' · ')}`; content.append(ref); }
     const destination = officialLink(record), link = document.createElement('a'); link.href = destination.href; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = destination.label; content.append(link);
-    if (!record.officialUrl) { const note = document.createElement('p'); note.className = 'sg-case-ref'; note.textContent = '개별 원문 주소는 연결하지 않았습니다. 사건번호로 공식 자료를 확인해 주세요.'; content.append(note); }
     details.append(content); return details;
   }
   function renderExam() {
@@ -125,6 +122,7 @@ async function initialize() {
     $('sg-result-description').textContent = `${result.correctCount} / 10문제 정답. ${result.timedOut ? '10분이 지나 자동으로 채점했습니다. ' : ''}${next}`;
     $('sg-pass-choice').hidden = !result.passed; $('sg-king-choice').hidden = !result.perfect;
     $('sg-king-choice').querySelector('h3').textContent=`10문제 모두 정답! ${king}입니다.`;
+    $('sg-king-choice').querySelector('p').textContent=`${king}상장을 PDF로 받을 수 있습니다.`;
     $('sg-king-create').textContent=`${king}상 만들기`;
     $('sg-pass-choice-status').textContent = '';
     const container = $('sg-result-details'); container.replaceChildren();
@@ -148,7 +146,7 @@ async function initialize() {
     if (!result?.passed || (kind === 'king' && !result.perfect)) return;
     closeCertificate(); certificateKind = kind; certificateResult = result;
     const grade=gradesForTrack(result.track)[result.gradeIndex],king=kingName(result.track);
-    $('sg-certificate-title').textContent = kind === 'king' ? `${king} 학습 상장 만들기` : `${king} ${grade.label} PDF 학습 합격증 만들기`;
+    $('sg-certificate-title').textContent = kind === 'king' ? `${king}상장 만들기` : `${king} ${grade.label} PDF 합격증 만들기`;
     $('sg-certificate').hidden = false; $('sg-certificate').scrollIntoView({ block: 'start', behavior: 'auto' }); $('sg-name').focus();
   }
   function finishExam() {
@@ -252,8 +250,7 @@ async function initialize() {
     const bank = await response.json(); records = validateCaseBank(bank); byId = new Map(records.map(record => [record.id, record])); bankReady = true;ready.case=true;
     const statuteResponse=await fetch(new URL('./standard_statutes.json',import.meta.url));if(!statuteResponse.ok)throw new Error('조문 워크북 문항을 읽지 못했습니다.');
     statuteRecords=validateStatuteBank(await statuteResponse.json());statuteById=new Map(statuteRecords.map(record=>[record.id,record]));ready.statute=true;
-    $('sg-bank-source').textContent = '출처: 발간 대한민국 표준판례 1,800판례와 워크북 v026 조문 496문항. 오픈북 자료에 발간 위치와 공식 원문 또는 공식 검색 링크를 표시합니다.';
-    status('1,800판례와 496조문 문항을 읽었습니다. 두 게임의 5급부터 시작하거나 취득한 급수를 복습하세요.'); renderAll();
+    status('게임을 선택하고 도전하세요.'); renderAll();
     if (state.session?.status === 'running' && remainingMs(state.session) <= 0) finishExam();
   } catch (error) { $('sg-load-status').classList.add('sg-error'); status(error.message); }
 }
