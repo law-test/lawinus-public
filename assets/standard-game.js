@@ -82,21 +82,11 @@ async function initialize() {
     }
     return { href: `https://www.law.go.kr/LSW/precSc.do?query=${encodeURIComponent(record.caseNumber || '')}`, label: '국가법령정보센터에서 사건번호 검색 ↗' };
   }
-  function bookReference(record, { hideCaseIdentity = false } = {}) {
-    const reference = document.createElement('div'); reference.className = 'sg-book-reference';
-    if (!record) return reference;
-    const book = document.createElement('p'); book.className = 'sg-case-ref';
-    const edition = String(record.isStatute ? String(record.bookSource || '').split('·')[0] : record.bookSource || '').replace(/\bv\d+\b/gi, '').replace(/^발간\s*/u, '').replace(/\s+/g, ' ').trim();
-    book.textContent = ['책 참조', record.subject, record.gradeLabel, edition].filter(Boolean).join(' · ');
-    reference.append(book);
-    if (!hideCaseIdentity) {
-      const identifier = document.createElement('p'); identifier.className = 'sg-case-ref';
-      identifier.textContent = record.isStatute
-        ? [record.sourceLaw, record.articleNo, record.paragraph ? `제${record.paragraph}항` : '', record.item ? `제${record.item}호` : ''].filter(Boolean).join(' ')
-        : record.citation || record.caseNumber || '';
-      if (identifier.textContent) reference.append(identifier);
-    }
-    return reference;
+  function courtCaseNumber(record) {
+    const caseNumber = String(record?.caseNumber || '').trim();
+    const statedCourt = String(record?.citation || '').match(/^\s*([가-힣]+(?:법원|재판소)|헌재)/u)?.[1];
+    const court = statedCourt === '헌재' ? '헌법재판소' : statedCourt || (/^\d+헌/u.test(caseNumber) ? '헌법재판소' : '대법원');
+    return `${court} ${caseNumber}`;
   }
   function reviewMaterial(record) {
     const details = document.createElement('details'); details.className = 'sg-openbook';
@@ -146,9 +136,9 @@ async function initialize() {
       fieldset.append(legend);
       if (track === 'case') {
         const number = document.createElement('p'); number.className = 'sg-case-number';
-        const strong = document.createElement('strong'); strong.textContent = `${lookup(question.id)?.caseNumber || ''}.`; number.append(strong); fieldset.append(number);
+        const strong = document.createElement('strong'); strong.textContent = courtCaseNumber(lookup(question.id)); number.append(strong); fieldset.append(number);
       }
-      fieldset.append(prompt, label, bookReference(lookup(question.id))); container.append(fieldset);
+      fieldset.append(prompt, label); container.append(fieldset);
     });
     $('sg-submit').disabled = session.status !== 'running'; $('sg-submit').hidden = session.status !== 'running';
     renderAnswerCount(); if (session.status === 'graded') renderResult(session.result);
@@ -234,7 +224,7 @@ async function initialize() {
         const blank = document.createElement('option'); blank.value = ''; blank.textContent = '선택해 주세요'; select.append(blank);
         item.options.forEach(option => { const element = document.createElement('option'); element.value = option.id; element.textContent = option.label; select.append(element); });
         wrapper.append(label, select); const feedback = document.createElement('p'); feedback.className = 'sg-practice-feedback'; feedback.id = `sg-${practiceMode}-feedback-${index}`;
-        fieldset.append(legend, prompt, wrapper, feedback, bookReference(record, { hideCaseIdentity: true })); container.append(fieldset);
+        fieldset.append(legend, prompt, wrapper, feedback); container.append(fieldset);
       });
       $(`sg-${practiceMode}-form`).hidden = false; $(`sg-${practiceMode}-form`).querySelector('button[type="submit"]').hidden = false;
       $(`sg-${practiceMode}-result`).textContent = `${GRADES[selectedGrade].label} · 5문제`;
