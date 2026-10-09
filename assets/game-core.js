@@ -115,6 +115,7 @@ export function beginExam(progress, bank, gradeIndex, { now = Date.now(), random
   assert(gradeValid(gradeIndex,grades) && gradeIndex <= state.unlockedIndex, '아직 열리지 않은 급수입니다. 이전 급수부터 합격해 주세요.');
   assert(state.session?.status !== 'running', '진행 중인 급수게임을 먼저 채점해 주세요.');
   const selected = selectCases(bank, gradeIndex, QUESTION_COUNT, random, state.previousCaseIds, grades);
+  selected.sort((a, b) => SUBJECT_QUOTAS.findIndex(quota => quota.subject === a.subject) - SUBJECT_QUOTAS.findIndex(quota => quota.subject === b.subject));
   const sessionId = id || globalThis.crypto?.randomUUID?.() || `exam-${now}-${Math.random().toString(36).slice(2)}`;
   assert(!state.settledIds.includes(sessionId), '이미 채점한 학습 기록입니다.');
   state.session = {
@@ -159,7 +160,7 @@ export function settleExam(progress, sessionId, now = Date.now()) {
   return { state, result, alreadyGraded: false };
 }
 export function makePracticeRound(bank, gradeIndex, mode, { random = Math.random, previousIds = [] } = {}) {
-  assert(['matching', 'source'].includes(mode), '복습게임 종류가 올바르지 않습니다.');
+  assert(mode === 'source', '복습게임 종류가 올바르지 않습니다.');
   const available = selectCases(bank, gradeIndex, Math.min(50, bankCases(bank).filter(record => Number(record.gradeThreshold) <= GRADES[gradeIndex].count && playable(record)).length), random, previousIds);
   const titleSeen = new Set(), numberSeen = new Set();
   const unique = available.filter(record => {
@@ -168,8 +169,8 @@ export function makePracticeRound(bank, gradeIndex, mode, { random = Math.random
   });
   assert(unique.length >= 5, '서로 구별할 수 있는 판례 5개가 필요합니다.');
   const fresh = unique.filter(record => !previousIds.includes(record.id)), selected = (fresh.length >= 5 ? fresh : unique).slice(0, 5);
-  const options = shuffle(selected.map(record => ({ id: record.id, label: mode === 'matching' ? record.title : record.caseNumber })), random);
-  return { mode, gradeIndex, items: selected.map(record => ({ id: record.id, prompt: mode === 'matching' ? record.caseNumber : record.summary, options: clone(options), recordId: record.id })) };
+  const options = shuffle(selected.map(record => ({ id: record.id, label: record.caseNumber })), random);
+  return { mode, gradeIndex, items: selected.map(record => ({ id: record.id, prompt: record.summary, options: clone(options), recordId: record.id })) };
 }
 export function gradePractice(round, answers) {
   const details = round.items.map(item => ({ id: item.id, correct: answers[item.id] === item.id }));

@@ -1,4 +1,4 @@
-import { GRADES, STATUTE_GRADES, gradesForTrack, PROGRESS_KEY, STATUTE_PROGRESS_KEY, validateCaseBank, validateStatuteBank, restoreProgress, freshProgress, beginExam, updateAnswer, settleExam, remainingMs, makePracticeRound, gradePractice, buildCertificatePdf, validateIdentity } from './game-core.js';
+import { GRADES, STATUTE_GRADES, gradesForTrack, PROGRESS_KEY, STATUTE_PROGRESS_KEY, validateCaseBank, validateStatuteBank, restoreProgress, freshProgress, beginExam, updateAnswer, settleExam, remainingMs, makePracticeRound, gradePractice, buildCertificatePdf, validateIdentity } from './game-core.js?v=20261010-book';
 
 const $ = id => document.getElementById(id);
 const root = $('game-main');
@@ -9,7 +9,7 @@ async function initialize() {
   const profiles = {case:freshProgress('case'),statute:freshProgress('statute')}, storageKeys={case:PROGRESS_KEY,statute:STATUTE_PROGRESS_KEY}, ready={case:false,statute:false};
   const kingName = value => value==='statute'?'조문왕':'판례왕';
   const lookup = id => statuteById.get(id)||byId.get(id);
-  const practices = { matching: null, source: null }, previousPracticeIds = { matching: [], source: [] };
+  const practices = { source: null }, previousPracticeIds = { source: [] };
   let fontPromise;
   const status = message => { $('sg-load-status').textContent = message; };
   function readLatest(target=track) {
@@ -28,6 +28,18 @@ async function initialize() {
   function renderStorage() {
     $('sg-storage').hidden = storageEnabled;
     $('sg-storage').textContent = storageEnabled ? '' : '저장할 수 없어 이 탭에서만 진행합니다.';
+  }
+  function mainExamRunning() {
+    return ['case', 'statute'].some(target => readLatest(target).session?.status === 'running');
+  }
+  function clearSourcePractice() {
+    practices.source = null;
+    $('sg-source-questions').replaceChildren(); $('sg-source-form').hidden = true; $('sg-source-result').textContent = '';
+  }
+  function renderPracticeAvailability() {
+    const running = mainExamRunning();
+    if (running) clearSourcePractice();
+    $('sg-start-source').disabled = !bankReady || running;
   }
   function renderProgress() {
     const GRADES=gradesForTrack(track), units=track==='statute'?'문항':'판례';
@@ -52,7 +64,7 @@ async function initialize() {
     selector.disabled = !ready[track] || state.session?.status === 'running';
     $('sg-start').disabled = !ready[track] || state.session?.status === 'running';
     $('sg-start').textContent = `${GRADES[selectedGrade].label} 10문제 새로 시작`;
-    $('sg-start-matching').disabled = !bankReady; $('sg-start-source').disabled = !bankReady;
+    renderPracticeAvailability();
     renderStorage(); renderTimer();
   }
   function renderTimer() {
@@ -62,7 +74,7 @@ async function initialize() {
     $('sg-timer').textContent = running ? `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}` : state.session?.status === 'graded' ? '채점 완료' : '10:00';
     $('sg-timer').parentElement.classList.toggle('sg-timer-low', running && ms <= 60000);
     $('sg-timer-label').textContent = running ? `${kingName(track)} ${GRADES[state.session.gradeIndex].label} 진행 중` : '10분 · 헌3/민4/형3';
-    $('sg-timer-note').textContent = running ? '자료 읽기·다른 게임 중에도 시간은 계속 흐릅니다.' : '자료를 읽는 동안에도 시간이 흐릅니다.';
+    $('sg-timer-note').textContent = running ? '책을 찾는 동안에도 시간은 계속 흐릅니다.' : '실물책을 참고해 풀어 보세요.';
   }
   function officialLink(record) {
     if (record.officialUrl) {
@@ -70,9 +82,25 @@ async function initialize() {
     }
     return { href: `https://www.law.go.kr/LSW/precSc.do?query=${encodeURIComponent(record.caseNumber || '')}`, label: '국가법령정보센터에서 사건번호 검색 ↗' };
   }
-  function readingMaterial(record) {
+  function bookReference(record, { hideCaseIdentity = false } = {}) {
+    const reference = document.createElement('div'); reference.className = 'sg-book-reference';
+    if (!record) return reference;
+    const book = document.createElement('p'); book.className = 'sg-case-ref';
+    const edition = String(record.isStatute ? String(record.bookSource || '').split('·')[0] : record.bookSource || '').replace(/\bv\d+\b/gi, '').replace(/^발간\s*/u, '').replace(/\s+/g, ' ').trim();
+    book.textContent = ['책 참조', record.subject, record.gradeLabel, edition].filter(Boolean).join(' · ');
+    reference.append(book);
+    if (!hideCaseIdentity) {
+      const identifier = document.createElement('p'); identifier.className = 'sg-case-ref';
+      identifier.textContent = record.isStatute
+        ? [record.sourceLaw, record.articleNo, record.paragraph ? `제${record.paragraph}항` : '', record.item ? `제${record.item}호` : ''].filter(Boolean).join(' ')
+        : record.citation || record.caseNumber || '';
+      if (identifier.textContent) reference.append(identifier);
+    }
+    return reference;
+  }
+  function reviewMaterial(record) {
     const details = document.createElement('details'); details.className = 'sg-openbook';
-    const summary = document.createElement('summary'); summary.textContent = record?.isStatute?'오픈북 조문 지문 읽기':'오픈북 자료 읽기'; details.append(summary);
+    const summary = document.createElement('summary'); summary.textContent = '채점한 원문과 근거 확인'; details.append(summary);
     const content = document.createElement('div'); content.className = 'sg-openbook-content';
     if (!record) { content.textContent = '이 기록에 연결된 자료가 현재 자료은행에 없습니다.'; details.append(content); return details; }
     const title = document.createElement('p'); title.className = 'sg-case-title'; title.textContent = record.title;
@@ -84,17 +112,28 @@ async function initialize() {
     const destination = officialLink(record), link = document.createElement('a'); link.href = destination.href; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = destination.label; content.append(link);
     details.append(content); return details;
   }
+  function sourceQuestionText(record, original) {
+    let text = String(original || '');
+    const number = record?.caseNumber || '', shortNumber = /^\d{4}/.test(number) ? number.slice(2) : number;
+    for (const identifier of [record?.citation, number, shortNumber].filter(Boolean)) {
+      const pattern = Array.from(identifier).map(char => char.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('\\s*');
+      text = text.replace(new RegExp(pattern, 'gu'), '');
+    }
+    return text.replace(/[ \t]{2,}/g, ' ').trim();
+  }
+  const displayedPrompt = (prompt, questionTrack) => questionTrack === 'case' ? String(prompt).replace('______', '(A)') : prompt;
   function renderExam() {
     const session = state.session;
     $('sg-exam-form').hidden = !session;
     $('sg-result').hidden = session?.status !== 'graded';
+    if (session?.status === 'running') $('sg-result-details').replaceChildren();
     const container = $('sg-questions'); container.replaceChildren();
     if (!session) return;
     session.questions.forEach((question, index) => {
       const fieldset = document.createElement('fieldset'); fieldset.className = 'sg-question';
       const legend = document.createElement('legend'); legend.textContent = `${question.subject||lookup(question.id)?.subject||'법학'} · 문제 ${index + 1} · 10점`;
-      const prompt = document.createElement('p'); prompt.className = 'sg-prompt'; prompt.textContent = question.prompt;
-      const label = document.createElement('label'); label.className = 'sg-answer-label'; label.textContent = '빈칸 답';
+      const prompt = document.createElement('p'); prompt.className = 'sg-prompt'; prompt.textContent = displayedPrompt(question.prompt, track);
+      const label = document.createElement('label'); label.className = 'sg-answer-label'; label.textContent = track === 'case' ? '정답 (A)' : '빈칸 답';
       const input = document.createElement('input'); input.type = 'text'; input.maxLength = 160; input.autocomplete = 'off'; input.spellcheck = false;
       input.id = `sg-answer-${index}`; input.dataset.question = question.id; input.value = session.userAnswers[question.id] || ''; input.disabled = session.status !== 'running';
       label.htmlFor = input.id; label.append(input);
@@ -104,7 +143,12 @@ async function initialize() {
         if (Date.now() >= latest.session.deadlineAt) { state = latest; finishExam(); return; }
         write(updateAnswer(latest, session.id, question.id, input.value)); renderAnswerCount();
       });
-      fieldset.append(legend, prompt, label, readingMaterial(lookup(question.id))); container.append(fieldset);
+      fieldset.append(legend);
+      if (track === 'case') {
+        const number = document.createElement('p'); number.className = 'sg-case-number';
+        const strong = document.createElement('strong'); strong.textContent = `${lookup(question.id)?.caseNumber || ''}.`; number.append(strong); fieldset.append(number);
+      }
+      fieldset.append(prompt, label, bookReference(lookup(question.id))); container.append(fieldset);
     });
     $('sg-submit').disabled = session.status !== 'running'; $('sg-submit').hidden = session.status !== 'running';
     renderAnswerCount(); if (session.status === 'graded') renderResult(session.result);
@@ -129,11 +173,11 @@ async function initialize() {
     result.details.forEach((detail, index) => {
       const card = document.createElement('div'); card.className = 'sg-review';
       const heading = document.createElement('h4'); heading.className = detail.correct ? 'sg-review-correct' : 'sg-review-wrong'; heading.textContent = `문제 ${index + 1} · ${detail.correct ? '정답 · 10점' : '오답 또는 미응답 · 0점'}`;
-      const prompt = document.createElement('p'); prompt.textContent = detail.prompt;
+      const prompt = document.createElement('p'); prompt.textContent = displayedPrompt(detail.prompt, result.track);
       const answers = document.createElement('p'); answers.className = 'sg-review-answers'; answers.textContent = `내 답: ${detail.answer.trim() || '미응답'} / 정답: ${detail.acceptedAnswers.join(' 또는 ')}`;
       const explanation = document.createElement('p'); explanation.textContent = detail.explanation;
       const source = document.createElement('p'); source.className = 'sg-small'; source.textContent = detail.source;
-      card.append(heading, prompt, answers, explanation, source); container.append(card);
+      card.append(heading, prompt, answers, explanation, source, reviewMaterial(lookup(detail.id))); container.append(card);
     });
   }
   function closeCertificate() {
@@ -168,36 +212,41 @@ async function initialize() {
     if(nextTrack!==track){track=nextTrack;state=readLatest(track);profiles[track]=state;selectedGrade=state.unlockedIndex;closeCertificate();renderProgress();renderExam();}
     mode = nextMode;
     document.querySelectorAll('[data-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
-    ['exam', 'matching', 'source'].forEach(key => { $(`sg-${key}`).hidden = key === 'exam' ? !['exam','statute'].includes(mode) : key !== mode; });
+    ['exam', 'source'].forEach(key => { $(`sg-${key}`).hidden = key === 'exam' ? !['exam','statute'].includes(mode) : key !== mode; });
     $('sg-exam').setAttribute('aria-labelledby',mode==='statute'?'sg-mode-statute':'sg-mode-exam');
   }
   function startPractice(practiceMode) {
+    if (practiceMode !== 'source') return;
     try {
+      if (mainExamRunning()) { renderPracticeAvailability(); return; }
       const latest = readLatest(); selectedGrade = Math.min(Number($('sg-grade').value), latest.unlockedIndex); state = latest;
       const round = makePracticeRound(records, selectedGrade, practiceMode, { previousIds: previousPracticeIds[practiceMode] });
       practices[practiceMode] = round; previousPracticeIds[practiceMode] = round.items.map(item => item.id);
       const container = $(`sg-${practiceMode}-questions`); container.replaceChildren();
       round.items.forEach((item, index) => {
         const fieldset = document.createElement('fieldset'); fieldset.className = 'sg-question';
-        const legend = document.createElement('legend'); legend.textContent = `${practiceMode === 'matching' ? '짝' : '문제'} ${index + 1}`;
-        const prompt = document.createElement('p'); prompt.className = 'sg-prompt'; prompt.textContent = item.prompt;
+        const record = byId.get(item.id);
+        const legend = document.createElement('legend'); legend.textContent = `문제 ${index + 1}`;
+        const prompt = document.createElement('p'); prompt.className = 'sg-prompt'; prompt.textContent = sourceQuestionText(record, item.prompt);
         const wrapper = document.createElement('div'); wrapper.className = 'sg-practice-select';
-        const label = document.createElement('label'), select = document.createElement('select'); select.id = `sg-${practiceMode}-answer-${index}`; select.dataset.practiceId = item.id;
-        label.htmlFor = select.id; label.textContent = practiceMode === 'matching' ? '이 판례의 쟁점 제목' : '이 요지의 판례 사건번호';
+        const label = document.createElement('label'), select = document.createElement('select'); select.id = `sg-${practiceMode}-answer-${index}`;
+        label.htmlFor = select.id; label.textContent = '이 지문의 판례 사건번호';
         const blank = document.createElement('option'); blank.value = ''; blank.textContent = '선택해 주세요'; select.append(blank);
         item.options.forEach(option => { const element = document.createElement('option'); element.value = option.id; element.textContent = option.label; select.append(element); });
         wrapper.append(label, select); const feedback = document.createElement('p'); feedback.className = 'sg-practice-feedback'; feedback.id = `sg-${practiceMode}-feedback-${index}`;
-        fieldset.append(legend, prompt, wrapper, feedback, readingMaterial(byId.get(item.id))); container.append(fieldset);
+        fieldset.append(legend, prompt, wrapper, feedback, bookReference(record, { hideCaseIdentity: true })); container.append(fieldset);
       });
-      $(`sg-${practiceMode}-form`).hidden = false; $(`sg-${practiceMode}-result`).textContent = `${GRADES[selectedGrade].label} 범위에서 새로 뽑은 5${practiceMode === 'matching' ? '쌍' : '문제'}입니다.`;
+      $(`sg-${practiceMode}-form`).hidden = false; $(`sg-${practiceMode}-form`).querySelector('button[type="submit"]').hidden = false;
+      $(`sg-${practiceMode}-result`).textContent = `${GRADES[selectedGrade].label} · 5문제`;
       renderTimer();
     } catch (error) { $(`sg-${practiceMode}-result`).textContent = error.message; }
   }
   function submitPractice(practiceMode, event) {
     event.preventDefault(); const round = practices[practiceMode]; if (!round) return;
-    const answers = Object.fromEntries(Array.from($(`sg-${practiceMode}-form`).querySelectorAll('select[data-practice-id]')).map(select => [select.dataset.practiceId, select.value]));
+    const answers = Object.fromEntries(round.items.map((item, index) => [item.id, $(`sg-${practiceMode}-answer-${index}`).value]));
     const result = gradePractice(round, answers);
-    result.details.forEach((detail, index) => { const record = byId.get(detail.id), feedback = $(`sg-${practiceMode}-feedback-${index}`); feedback.textContent = `${detail.correct ? '정답' : '오답 또는 미응답'} · ${record.caseNumber} · ${record.title}`; feedback.className = `sg-practice-feedback ${detail.correct ? 'sg-review-correct' : 'sg-review-wrong'}`; });
+    result.details.forEach((detail, index) => { const record = byId.get(detail.id), feedback = $(`sg-${practiceMode}-feedback-${index}`); feedback.textContent = `${detail.correct ? '정답' : '오답 또는 미응답'} · ${record.caseNumber} · ${record.title}`; feedback.className = `sg-practice-feedback ${detail.correct ? 'sg-review-correct' : 'sg-review-wrong'}`; const prior=feedback.parentElement.querySelector('.sg-openbook');if(prior)prior.remove();feedback.after(reviewMaterial(record));$(`sg-${practiceMode}-answer-${index}`).disabled=true; });
+    $(`sg-${practiceMode}-form`).querySelector('button[type="submit"]').hidden = true;
     $(`sg-${practiceMode}-result`).textContent = `${result.total}개 중 ${result.correctCount}개 정답입니다. 근거 자료를 읽고 연결을 다시 확인해 보세요.`;
   }
   function renderAll() { renderProgress(); renderExam(); switchMode(mode); }
@@ -210,12 +259,13 @@ async function initialize() {
     try {
       const latest = readLatest(), chosen = Number($('sg-grade').value);
       if (!Number.isInteger(chosen) || chosen > latest.unlockedIndex) throw new Error('잠긴 급수는 선택할 수 없습니다.');
-      write(beginExam(latest, track==='statute'?statuteRecords:records, chosen)); selectedGrade = chosen; closeCertificate(); switchMode(track==='statute'?'statute':'exam'); renderAll(); status(`${kingName(track)} ${gradesForTrack(track)[chosen].label} 헌3/민4/형3, 10문제를 시작했습니다. 10분 뒤 자동 채점합니다.`);
+      write(beginExam(latest, track==='statute'?statuteRecords:records, chosen)); clearSourcePractice(); selectedGrade = chosen; closeCertificate(); switchMode(track==='statute'?'statute':'exam'); renderAll(); status(`${kingName(track)} ${gradesForTrack(track)[chosen].label} 헌3/민4/형3, 10문제를 시작했습니다. 10분 뒤 자동 채점합니다.`);
     } catch (error) { status(error.message); }
   });
   $('sg-exam-form').addEventListener('submit', event => { event.preventDefault(); finishExam(); });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => switchMode(button.dataset.mode)));
-  ['matching', 'source'].forEach(key => { $(`sg-start-${key}`).addEventListener('click', () => startPractice(key)); $(`sg-${key}-form`).addEventListener('submit', event => submitPractice(key, event)); });
+  $('sg-start-source').addEventListener('click', () => startPractice('source'));
+  $('sg-source-form').addEventListener('submit', event => submitPractice('source', event));
   $('sg-pass-yes').addEventListener('click', () => openCertificate('pass'));
   $('sg-pass-no').addEventListener('click', () => { closeCertificate(); $('sg-pass-choice-status').textContent = '합격증을 만들지 않았습니다. 급수 합격은 그대로 유지됩니다.'; });
   $('sg-king-create').addEventListener('click', () => openCertificate('king'));
@@ -241,8 +291,9 @@ async function initialize() {
     if (!target || !storageEnabled) return;
     profiles[target]=restoreProgress(event.newValue,target);
     if(target===track){state=profiles[target];selectedGrade = Math.min(selectedGrade, state.unlockedIndex); closeCertificate(); renderAll(); status('다른 탭의 학습 기록을 반영했습니다.');}
+    renderPracticeAvailability();
   });
-  function expireTracks(){renderTimer();for(const target of ['case','statute']){const latest=readLatest(target);profiles[target]=latest;if(latest.session?.status==='running'&&remainingMs(latest.session)<=0){if(target===track){state=latest;finishExam();}else{try{write(settleExam(latest,latest.session.id).state,target);}catch(_){}}}}}
+  function expireTracks(){renderTimer();for(const target of ['case','statute']){const latest=readLatest(target);profiles[target]=latest;if(latest.session?.status==='running'&&remainingMs(latest.session)<=0){if(target===track){state=latest;finishExam();}else{try{write(settleExam(latest,latest.session.id).state,target);}catch(_){}}}}renderPracticeAvailability();}
   setInterval(expireTracks,500);document.addEventListener('visibilitychange',expireTracks);
   profiles.case=readLatest('case');profiles.statute=readLatest('statute');state=profiles.case;selectedGrade = state.unlockedIndex; renderAll();
   try {
