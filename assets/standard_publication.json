@@ -1,0 +1,81 @@
+{
+  "schema": "standard-publication/v1",
+  "title": "대한민국표준판례",
+  "statement_user_confirmed": true,
+  "publicationDate": null,
+  "checkedAt": "2026-10-09",
+  "edition": "본문 v033 · 워크북 v026",
+  "totalCases": 1800,
+  "subjects": {
+    "헌법": 360,
+    "민법": 900,
+    "형법": 540
+  },
+  "gradeCounts": {
+    "50": 50,
+    "150": 150,
+    "300": 300,
+    "500": 500,
+    "1000": 1000,
+    "1800": 1800
+  },
+  "books": [
+    {
+      "title": "대한민국표준판례 5급편",
+      "version": "v033",
+      "filename": "대한민국표준판례_5급편_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 4급편",
+      "version": "v033",
+      "filename": "대한민국표준판례_4급편_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 3급편",
+      "version": "v033",
+      "filename": "대한민국표준판례_3급편_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 2급편",
+      "version": "v033",
+      "filename": "대한민국표준판례_2급편_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 1급편",
+      "version": "v033",
+      "filename": "대한민국표준판례_1급편_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 특급편",
+      "version": "v033",
+      "filename": "대한민국표준판례_특급편_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 헌법",
+      "version": "v033",
+      "filename": "대한민국표준판례_헌법_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 민법",
+      "version": "v033",
+      "filename": "대한민국표준판례_민법_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 형법",
+      "version": "v033",
+      "filename": "대한민국표준판례_형법_v033.pdf"
+    },
+    {
+      "title": "대한민국표준판례 워크북",
+      "version": "v026",
+      "filename": "대한민국표준판례_워크북_v026.pdf"
+    }
+  ],
+  "note": "사용자가 발간 사실을 확인한 책입니다. 발간일은 별도 확인 전까지 표시하지 않습니다.",
+  "questionCounts": {
+    "발간 워크북 문항": 496,
+    "발간 판례 판단 문장으로 구성한 연습": 1304
+  },
+  "officialLinkCount": 1315,
+  "officialLinkNote": "보존된 국가법령정보센터 식별번호로 연결합니다. 전체 링크의 당일 응답을 전수 검사한 것은 아닙니다."
+}
