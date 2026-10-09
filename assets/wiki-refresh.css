@@ -2,7 +2,7 @@
 body.clarity-fix{background:#f8f5ff!important;color:#292039}
 body.clarity-fix header{background:linear-gradient(120deg,#25113e,#5c258c)!important;border:0;box-shadow:0 6px 24px #37115722!important}
 body.clarity-fix .hwrap{padding:18px 24px;max-width:1320px}
-body.clarity-fix .logo{color:#fff!important;letter-spacing:-.6px;font-size:24px;font-style:normal}
+body.clarity-fix .logo{color:#fff!important;background:none!important;border:0!important;box-shadow:none!important;letter-spacing:-.6px;font-size:24px;font-style:normal}
 body.clarity-fix .logo small{color:#dfc8f9;font-size:12px;margin-left:10px;font-weight:500}
 body.clarity-fix .search input{border-color:#b694d7!important;background:#fff!important;border-radius:9px 0 0 9px!important}
 body.clarity-fix .search button{border-color:#ac7ee1!important;background:#9c68dc!important;border-radius:0 9px 9px 0!important}
