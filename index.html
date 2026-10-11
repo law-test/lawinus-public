@@ -963,8 +963,8 @@ section.art.law-subject-article-mode>.pager{display:none}
 </style>
 <link rel="stylesheet" href="assets/responsive-fixes.css">
 <link rel="stylesheet" href="assets/wiki-refresh.css?v=20261011-ui">
-<link rel="stylesheet" href="assets/article-standard-cases.css?v=20261011-ui">
-<script defer src="assets/article-standard-cases.js?v=20261011-ui"></script>
+<link rel="stylesheet" href="assets/article-standard-cases.css?v=20261011-merged">
+<script defer src="assets/article-standard-cases.js?v=20261011-merged"></script>
 </head>
 <body class="clarity-fix"><a class="skip-link" href="#content">본문 바로가기</a>
 <div aria-hidden="true" class="ui-progress"><i></i></div><button aria-label="맨 위로" class="ui-top" type="button">↑</button>
@@ -20972,6 +20972,10 @@ function lawAtomRowsToItems(rows){
     applyLimitedList(sec,'.paper.flat.case','cases','판례');
     applyLimitedList(sec,'.paperslot .paper,.law-subject-papers .paper,.civil-procedure-papers .paper,.commercial-law-papers .paper,section.art.law-subject-article-mode>.paper.flat:not(.case)','papers','논문');
   }
+  document.addEventListener('civilwiki-cases-updated',function(event){
+    var sec=event.detail&&event.detail.section;
+    if(sec&&sec.isConnected&&sec.matches('section.art'))applyLimitedLists(sec);
+  });
   async function renderPapers(slot){
     if(slot.dataset.ready||slot.dataset.loading)return;
     var topics=(slot.dataset.topics||'').split('|').filter(Boolean);
