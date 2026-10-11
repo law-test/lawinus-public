@@ -4,7 +4,16 @@
     const bar=document.querySelector('.menubar'),header=document.querySelector('header');
     const toc=document.getElementById('articleContents'),toggle=document.getElementById('navtoggle');
     if(toggle&&toc) {
-      const sync=()=>toggle.setAttribute('aria-expanded',String(toc.classList.contains('open')));
+      const sync=()=>{
+        const open=toc.classList.contains('open');
+        toggle.setAttribute('aria-expanded',String(open));
+        if(open&&innerWidth<=768)requestAnimationFrame(()=>{
+          if(!toc.classList.contains('open')||innerWidth>768)return;
+          toc.scrollTop=0;
+          const top=scrollY+toc.getBoundingClientRect().top-(header?.getBoundingClientRect().bottom||0)-12;
+          window.scrollTo({top:Math.max(0,top),behavior:'instant'});
+        });
+      };
       new MutationObserver(sync).observe(toc,{attributes:true,attributeFilter:['class']}); sync();
     }
     if(!bar||!header)return;

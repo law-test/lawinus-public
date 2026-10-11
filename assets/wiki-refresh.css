@@ -33,6 +33,7 @@ body.clarity-fix :is(.mdrop a,.ddrop a,.plus-feature-nav a,.plus-entry-card,.qui
 body.clarity-fix .layout{max-width:1320px;gap:24px;padding:24px;background:transparent}
 body.clarity-fix .layout>nav{background:#fff!important;border:1px solid #e3d6ef!important;border-radius:14px!important;padding:14px;width:250px;top:calc(var(--wiki-header-height,145px) + 12px);max-height:calc(100dvh - var(--wiki-header-height,145px) - 24px);box-shadow:0 6px 22px #55258508!important}
 body.clarity-fix nav .art-link.active{background:#efe4ff!important;color:#6029a1!important;border-radius:7px!important}
+body.clarity-fix nav .art-link.active .atom-nav-badge{background:#e2d3f6;color:#6029a1;border-color:#b99ddc}
 body.clarity-fix main{background:transparent!important}
 body.clarity-fix main>section.art.on{background:#fff!important;border:1px solid #e3d6ef!important;border-radius:16px!important;padding:28px!important;box-shadow:0 8px 28px #55258508!important}
 body.clarity-fix h1{color:#39214f!important;border-left-color:#8b4dd0!important}
