@@ -38,7 +38,7 @@
     if (revision.law_revision_id) return revision.law_revision_id;
     if (revision.sourceVersionDate) return '공식 페이지 판본 ' + revision.sourceVersionDate;
     if (revision.standangabe && revision.standangabe.length) return revision.standangabe.join(' / ');
-    return revision.ratifiedDate ? '비준 ' + revision.ratifiedDate : '수집 시점의 공식 제공 원문';
+    return revision.ratifiedDate ? '비준 ' + revision.ratifiedDate : '공식 제공 원문';
   }
   function recordCard(row) {
     var details = node('details', null, 'foreign-record');
@@ -56,7 +56,7 @@
       translated.lang = 'ko';
       details.appendChild(translated);
     }
-    details.appendChild(node('p', '원문 검토일 ' + row.reviewedAt + ' · 기준일 ' + row.asof + ' · ' + revisionLabel(row), 'foreign-meta'));
+    details.appendChild(node('p', '기준일 ' + row.asof + ' · ' + revisionLabel(row), 'foreign-meta'));
     var url = safeSourceUrl(row.sourceUrl);
     if (url) {
       var link = node('a', '공식 출처 원문 확인');
@@ -76,12 +76,12 @@
     var records = byArticle[key] || [];
     var panel = node('details', null, 'foreign-correspondence');
     panel.dataset.foreignKey = key;
-    panel.appendChild(node('summary', records.length ? '외국 대응 조문 · 원문 ' + records.length + '건' : '외국 대응 조문 · 검토 대기'));
-    panel.appendChild(node('p', '같은 주제나 유사한 기능을 비교하는 자료입니다. 일대일로 동일한 법리·요건·효과를 가진다는 뜻은 아닙니다.', 'foreign-meta'));
-    panel.appendChild(node('p', data.coverage.status + ' · 검토일 ' + data.reviewedAt, 'foreign-meta'));
-    if (records.length) records.forEach(function (row) { panel.appendChild(recordCard(row)); });
-    else panel.appendChild(node('p', data.coverage.defaultUnmappedMessage, 'foreign-unreviewed'));
-    panel.appendChild(node('p', data.coverage.usScope, 'foreign-meta'));
+    panel.appendChild(node('summary', records.length ? '외국 대응 조문 · 원문 ' + records.length + '건' : '외국 대응 조문'));
+    if (records.length) {
+      panel.appendChild(node('p', '같은 주제나 유사한 기능을 비교하는 자료입니다. 일대일로 동일한 법리·요건·효과를 가진다는 뜻은 아닙니다.', 'foreign-meta'));
+      records.forEach(function (row) { panel.appendChild(recordCard(row)); });
+      panel.appendChild(node('p', data.coverage.usScope, 'foreign-meta'));
+    } else panel.appendChild(node('p', '연결된 외국 조문이 없습니다.', 'foreign-unreviewed'));
     if (after && after.parentNode === target) after.insertAdjacentElement('afterend', panel);
     else target.appendChild(panel);
   }

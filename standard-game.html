@@ -4,25 +4,25 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="도전 판례왕! 도전 조문왕! 10분 10문제 오픈북 게임에 도전하고 합격증과 왕상장을 받아 보세요.">
   <title>도전 판례왕! · 도전 조문왕! | 민법위키</title>
-  <link rel="stylesheet" href="assets/standard-game.css?v=20261020-hub">
+  <link rel="stylesheet" href="assets/standard-game.css?v=20261020-clean">
   <script src="assets/vendor/game-pdf-lib.min.js" defer></script>
   <script src="assets/vendor/game-fontkit.umd.min.js" defer></script>
-  <script type="module" src="assets/standard-game.js?v=20261020-hub"></script>
+  <script type="module" src="assets/standard-game.js?v=20261020-clean"></script>
 </head>
 <body>
   <a class="skip" href="#game-main">게임으로 바로가기</a>
-  <header class="sg-header"><a class="sg-brand" href="index.html">民 <span>민법위키</span></a><nav aria-label="주 메뉴"><a href="index.html#학습게임">← CBT 게임센터</a><a href="index.html">조문·판례 읽기</a><a href="standard-game.html" aria-current="page">급수 도전</a></nav></header>
+  <header class="sg-header"><a class="sg-brand" href="index.html">民 <span>민법위키</span></a><nav aria-label="주 메뉴"><a href="index.html#학습게임">← CBT 게임센터</a><a href="index.html">조문·판례 읽기</a><a href="standard-game.html" aria-current="page">학습게임</a></nav></header>
   <main id="game-main">
     <section class="sg-intro"><h1>도전 판례왕! · 도전 조문왕!</h1><p>실물책을 참고해 문제를 풀어 보세요.</p><div class="sg-chips"><span>10분 · 10문제</span><span>헌법 3 · 민법 4 · 형법 3</span><span>오픈북 · 실물책</span><span>60점 합격</span></div></section>
     <section class="sg-mode-selection" aria-label="게임 선택"><div class="sg-modes"><button type="button" id="sg-mode-exam" data-mode="exam" aria-pressed="true" aria-controls="sg-exam">판례왕</button><button type="button" id="sg-mode-statute" data-mode="statute" aria-pressed="false" aria-controls="sg-exam">조문왕</button><button type="button" id="sg-mode-source" data-mode="source" aria-pressed="false" aria-controls="sg-source">출처찾기</button></div><p id="sg-mode-summary" class="sg-mode-summary" role="status">판례왕 · 10분 10문제 · 60점부터 합격</p></section>
-    <section class="sg-progress-panel" aria-label="나의 급수"><div class="sg-progress-heading"><h2 id="sg-progress-title">도전 판례왕! · 나의 급수</h2><p id="sg-earned">5급부터 시작합니다.</p></div><ol class="sg-grade-steps" id="sg-grade-steps"></ol><p id="sg-storage" class="sg-small" hidden></p></section>
+    <section class="sg-progress-panel" id="sg-progress-panel" aria-label="나의 급수"><div class="sg-progress-heading"><h2 id="sg-progress-title">도전 판례왕! · 나의 급수</h2><p id="sg-earned">5급부터 시작합니다.</p></div><ol class="sg-grade-steps" id="sg-grade-steps"></ol><p id="sg-storage" class="sg-small" hidden></p></section>
     <div id="sg-load-status" class="sg-status" role="status">게임을 준비하고 있습니다.</div>
     <section class="sg-game-shell" aria-label="학습게임">
-      <div class="sg-global-controls"><label for="sg-grade">이번 급수<select id="sg-grade" disabled></select></label><div class="sg-timer"><span id="sg-timer-label">급수게임 제한 시간</span><strong id="sg-timer" aria-live="off">10:00</strong><span id="sg-timer-note">책을 찾는 동안에도 시간이 흐릅니다.</span></div></div>
+      <div class="sg-global-controls"><label for="sg-grade">이번 급수<select id="sg-grade" disabled></select></label><div class="sg-timer"><span id="sg-timer-label">게임 제한 시간</span><strong id="sg-timer" aria-live="off">10:00</strong><span id="sg-timer-note">책을 찾는 동안에도 시간이 흐릅니다.</span></div></div>
       <section id="sg-exam" aria-labelledby="sg-mode-exam">
         <div class="sg-mode-heading"><div><h2 id="sg-exam-heading">도전 판례왕!</h2></div><button id="sg-start" type="button" class="sg-primary" disabled>5급 10문제 시작</button></div>
         <form id="sg-exam-form" hidden><div id="sg-questions"></div><div class="sg-submit-row"><span id="sg-answer-count">0 / 10문제 작성</span><button type="submit" id="sg-submit" class="sg-primary">답안 제출 · 채점</button></div></form>
-        <section id="sg-result" class="sg-result" aria-label="급수게임 결과" hidden><h2 id="sg-result-title"></h2><p id="sg-result-description" role="status"></p><div class="sg-certificate-choice" id="sg-pass-choice" hidden><h3>PDF 합격증을 만들까요?</h3><p>이름과 생년은 선택 후 입력합니다.</p><div class="sg-button-row"><button type="button" id="sg-pass-yes" class="sg-primary">예 (Y) · 만들기</button><button type="button" id="sg-pass-no">아니요 (N)</button></div><p id="sg-pass-choice-status" class="sg-small" role="status"></p></div><div class="sg-certificate-choice" id="sg-king-choice" hidden><h3>10문제 모두 정답! 판례왕입니다.</h3><p>판례왕상장을 PDF로 받을 수 있습니다.</p><button type="button" id="sg-king-create">판례왕 상장 만들기</button></div><h3 class="sg-review-title">답과 근거 다시 보기</h3><div id="sg-result-details"></div></section>
+        <section id="sg-result" class="sg-result" aria-label="학습게임 결과" hidden><h2 id="sg-result-title"></h2><p id="sg-result-description" role="status"></p><div class="sg-certificate-choice" id="sg-pass-choice" hidden><h3>PDF 합격증을 만들까요?</h3><p>이름과 생년은 선택 후 입력합니다.</p><div class="sg-button-row"><button type="button" id="sg-pass-yes" class="sg-primary">예 (Y) · 만들기</button><button type="button" id="sg-pass-no">아니요 (N)</button></div><p id="sg-pass-choice-status" class="sg-small" role="status"></p></div><div class="sg-certificate-choice" id="sg-king-choice" hidden><h3>10문제 모두 정답! 판례왕입니다.</h3><p>판례왕상장을 PDF로 받을 수 있습니다.</p><button type="button" id="sg-king-create">판례왕 상장 만들기</button></div><h3 class="sg-review-title">답과 근거 다시 보기</h3><div id="sg-result-details"></div></section>
       </section>
       <section id="sg-source" aria-labelledby="sg-mode-source" hidden><div class="sg-mode-heading"><div><h2>이 판례 지문의 출처는?</h2><p>실물책에서 지문에 해당하는 사건번호를 찾아보세요.</p></div><button type="button" id="sg-start-source" disabled>5문제 새로 뽑기</button></div><form id="sg-source-form" hidden><div id="sg-source-questions"></div><div class="sg-submit-row"><span>복습 결과는 급수 진급에 반영하지 않습니다.</span><button type="submit" class="sg-primary">출처 확인하기</button></div></form><p id="sg-source-result" role="status"></p></section>
     </section>

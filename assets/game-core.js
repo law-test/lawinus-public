@@ -4,12 +4,9 @@ export const GRADES = Object.freeze([
   { label: '3급', count: 300 }, { label: '2급', count: 500 },
   { label: '1급', count: 1000 }, { label: '특급', count: 1800 }
 ]);
-export const STATUTE_GRADES = Object.freeze([
-  { label: '5급', count: 50 }, { label: '4급', count: 150 },
-  { label: '3급', count: 300 }, { label: '2급', count: 400 }, { label: '1급', count: 496 }
-]);
+export const STATUTE_QUESTION_COUNT = 496;
 export const SUBJECT_QUOTAS = Object.freeze([{subject:'헌법',count:3},{subject:'민법',count:4},{subject:'형법',count:3}]);
-export const gradesForTrack = track => track === 'statute' ? STATUTE_GRADES : GRADES;
+export const gradesForTrack = track => track === 'statute' ? [] : GRADES;
 export const EXAM_DURATION_MS = 10 * 60 * 1000;
 export const QUESTION_COUNT = 10;
 export const PROGRESS_KEY = 'lawinus-standard-game-v1';
@@ -43,9 +40,8 @@ export function validateCaseBank(bank) {
 }
 export function validateStatuteBank(bank) {
   const records = bankCases(bank);
-  assert(records.length === 496 && new Set(records.map(record=>record.id)).size === 496, '발간 워크북 조문 496문항을 모두 읽지 못했습니다.');
-  assert(records.every(record=>playable(record) && record.isStatute && record.originalStatement === record.summary && record.question.prompt.replace('______',record.question.answers[0]) === record.originalStatement), '조문 빈칸과 원문 복원 결과가 일치하지 않습니다.');
-  for(const grade of STATUTE_GRADES) assert(records.filter(record=>record.gradeThreshold<=grade.count).length===grade.count, `${grade.label} 조문 학습 범위가 올바르지 않습니다.`);
+  assert(records.length === STATUTE_QUESTION_COUNT && new Set(records.map(record=>record.id)).size === STATUTE_QUESTION_COUNT, '조문 496문항을 불러오지 못했습니다.');
+  assert(records.every(record=>playable(record) && record.isStatute && record.originalStatement === record.summary && record.question.prompt.replace('______',record.question.answers[0]) === record.originalStatement), '조문 문제를 확인할 수 없습니다. 다시 불러와 주세요.');
   return records;
 }
 export function shuffle(values, random = Math.random) {
@@ -75,8 +71,27 @@ export function selectCases(bank, gradeIndex, count = QUESTION_COUNT, random = M
   }
   return shuffle(fresh.length >= count ? fresh : pool, random).slice(0, count);
 }
+export function selectStatutes(bank, count = QUESTION_COUNT, random = Math.random, previousIds = []) {
+  const seen = new Set(), previous = new Set(previousIds);
+  const pool = bankCases(bank).filter(record => {
+    if (!playable(record) || !record.isStatute || seen.has(record.id)) return false;
+    seen.add(record.id); return true;
+  });
+  assert(pool.length >= count, '출제할 수 있는 조문 문제가 부족합니다.');
+  if (count === QUESTION_COUNT) {
+    const selected = SUBJECT_QUOTAS.flatMap(quota => {
+      const eligible = pool.filter(record => record.subject === quota.subject), unused = eligible.filter(record => !previous.has(record.id));
+      assert(eligible.length >= quota.count, `${quota.subject} ${quota.count}문항을 확보하지 못했습니다.`);
+      return shuffle(unused.length >= quota.count ? unused : eligible, random).slice(0, quota.count);
+    });
+    return shuffle(selected, random);
+  }
+  const fresh = pool.filter(record => !previous.has(record.id));
+  return shuffle(fresh.length >= count ? fresh : pool, random).slice(0, count);
+}
 export function freshProgress(track = 'case') {
-  return { schema: 'lawinus-standard-game/1', track: track === 'statute' ? 'statute' : 'case', unlockedIndex: 0, passedGrades: [], session: null, previousCaseIds: [], settledIds: [], history: [] };
+  const state = { schema: 'lawinus-standard-game/1', track: track === 'statute' ? 'statute' : 'case', session: null, previousCaseIds: [], settledIds: [], history: [] };
+  return state.track === 'case' ? { ...state, unlockedIndex: 0, passedGrades: [] } : state;
 }
 function unlockedFromPassed(passed, grades = GRADES) {
   let index = 0;
@@ -90,36 +105,46 @@ export function restoreProgress(raw, expectedTrack) {
   const track = parsed.track === 'statute' ? 'statute' : 'case';
   if(expectedTrack && track !== expectedTrack) return freshProgress(expectedTrack);
   const state = freshProgress(track), grades = gradesForTrack(track);
+  if (track === 'case') {
   state.passedGrades = [...new Set((Array.isArray(parsed.passedGrades) ? parsed.passedGrades : []).filter(index=>gradeValid(index,grades)))].sort((a, b) => a - b);
   // Only a contiguous sequence opens the next challenge; a damaged maximum cannot skip a grade.
   let contiguous = 0;
   while (state.passedGrades.includes(contiguous) && contiguous < grades.length) contiguous++;
   state.passedGrades = state.passedGrades.filter(index => index < contiguous);
   state.unlockedIndex = unlockedFromPassed(state.passedGrades, grades);
+  }
   state.previousCaseIds = (Array.isArray(parsed.previousCaseIds) ? parsed.previousCaseIds : []).filter(id => typeof id === 'string').slice(0, QUESTION_COUNT);
   state.settledIds = (Array.isArray(parsed.settledIds) ? parsed.settledIds : []).filter(id => typeof id === 'string').slice(-100);
-  state.history = (Array.isArray(parsed.history) ? parsed.history : []).filter(record => typeof record?.id === 'string' && gradeValid(record.gradeIndex,grades) && Number.isInteger(record.score) && record.score >= 0 && record.score <= 100).slice(-30);
+  state.history = (Array.isArray(parsed.history) ? parsed.history : []).filter(record => typeof record?.id === 'string' && (track === 'statute' || gradeValid(record.gradeIndex,grades)) && Number.isInteger(record.score) && record.score >= 0 && record.score <= 100).slice(-30).map(record => track === 'statute' ? { id:record.id, score:record.score, completedAt:record.completedAt } : record);
   const session = parsed.session;
-  if (session && typeof session.id === 'string' && gradeValid(session.gradeIndex,grades) && session.gradeIndex <= state.unlockedIndex &&
+  if (session && typeof session.id === 'string' && (track === 'statute' || gradeValid(session.gradeIndex,grades) && session.gradeIndex <= state.unlockedIndex) &&
     ['running', 'graded'].includes(session.status) && Number.isFinite(session.startedAt) && session.deadlineAt === session.startedAt + EXAM_DURATION_MS &&
     Array.isArray(session.questions) && session.questions.length === QUESTION_COUNT && new Set(session.questions.map(question => question.id)).size === QUESTION_COUNT &&
     session.questions.every(question => typeof question.id === 'string' && typeof question.prompt === 'string' && Array.isArray(question.answers) && question.answers.every(answer => typeof answer === 'string'))) {
     state.session = clone(session);
+    state.session.track = track;
+    if (track === 'statute') {
+      delete state.session.gradeIndex;
+      if (state.session.result && typeof state.session.result === 'object') {
+        state.session.result.track = track;
+        for (const key of ['gradeIndex','nextGradeIndex','promoted']) delete state.session.result[key];
+      }
+    }
     state.session.userAnswers = Object.fromEntries(session.questions.map(question => [question.id, typeof session.userAnswers?.[question.id] === 'string' ? session.userAnswers[question.id].slice(0, 160) : '']));
     if (session.status === 'graded' && (!session.result || !Number.isInteger(session.result.score) || !Array.isArray(session.result.details))) state.session = null;
   }
   return state;
 }
-export function beginExam(progress, bank, gradeIndex, { now = Date.now(), random = Math.random, id } = {}) {
+export function beginExam(progress, bank, gradeIndex = 0, { now = Date.now(), random = Math.random, id } = {}) {
   const state = restoreProgress(progress), grades = gradesForTrack(state.track);
-  assert(gradeValid(gradeIndex,grades) && gradeIndex <= state.unlockedIndex, '아직 열리지 않은 급수입니다. 이전 급수부터 합격해 주세요.');
-  assert(state.session?.status !== 'running', '진행 중인 급수게임을 먼저 채점해 주세요.');
-  const selected = selectCases(bank, gradeIndex, QUESTION_COUNT, random, state.previousCaseIds, grades);
+  if (state.track === 'case') assert(gradeValid(gradeIndex,grades) && gradeIndex <= state.unlockedIndex, '아직 열리지 않은 급수입니다. 이전 급수부터 합격해 주세요.');
+  assert(state.session?.status !== 'running', '진행 중인 게임을 먼저 채점해 주세요.');
+  const selected = state.track === 'statute' ? selectStatutes(bank, QUESTION_COUNT, random, state.previousCaseIds) : selectCases(bank, gradeIndex, QUESTION_COUNT, random, state.previousCaseIds, grades);
   selected.sort((a, b) => SUBJECT_QUOTAS.findIndex(quota => quota.subject === a.subject) - SUBJECT_QUOTAS.findIndex(quota => quota.subject === b.subject));
   const sessionId = id || globalThis.crypto?.randomUUID?.() || `exam-${now}-${Math.random().toString(36).slice(2)}`;
   assert(!state.settledIds.includes(sessionId), '이미 채점한 학습 기록입니다.');
   state.session = {
-    id: sessionId, track: state.track, gradeIndex, startedAt: now, deadlineAt: now + EXAM_DURATION_MS, status: 'running',
+    id: sessionId, track: state.track, ...(state.track === 'case' ? { gradeIndex } : {}), startedAt: now, deadlineAt: now + EXAM_DURATION_MS, status: 'running',
     questions: selected.map(record => ({ id: record.id, subject:record.subject, prompt: record.question.prompt, answers: [...record.question.answers], explanation: record.question.explanation || '', source: record.question.source || record.bookSource || '' })),
     userAnswers: Object.fromEntries(selected.map(record => [record.id, '']))
   };
@@ -145,18 +170,20 @@ export function settleExam(progress, sessionId, now = Date.now()) {
     correct: isCorrectAnswer(session.userAnswers[question.id], question.answers), explanation: question.explanation, source: question.source
   }));
   const correctCount = details.filter(detail => detail.correct).length, score = correctCount * 10, passed = score >= 60;
-  const wasCurrent = session.gradeIndex === state.unlockedIndex;
+  const wasCurrent = state.track === 'case' && session.gradeIndex === state.unlockedIndex;
+  if (state.track === 'case') {
   if (passed && !state.passedGrades.includes(session.gradeIndex)) state.passedGrades.push(session.gradeIndex);
   state.passedGrades.sort((a, b) => a - b);
   state.unlockedIndex = unlockedFromPassed(state.passedGrades,grades);
+  }
   const result = {
-    id: sessionId, track: state.track, gradeIndex: session.gradeIndex, score, correctCount, questionCount: QUESTION_COUNT, passed, perfect: correctCount === QUESTION_COUNT,
-    promoted: passed && wasCurrent && session.gradeIndex < grades.length - 1,
-    nextGradeIndex: state.unlockedIndex, completedAt: now, timedOut: now >= session.deadlineAt, details
+    id: sessionId, track: state.track, score, correctCount, questionCount: QUESTION_COUNT, passed, perfect: correctCount === QUESTION_COUNT,
+    ...(state.track === 'case' ? { gradeIndex:session.gradeIndex, promoted:passed && wasCurrent && session.gradeIndex < grades.length - 1, nextGradeIndex:state.unlockedIndex } : {}),
+    completedAt: now, timedOut: now >= session.deadlineAt, details
   };
   session.status = 'graded'; session.result = result;
   state.settledIds.push(sessionId); state.settledIds = state.settledIds.slice(-100);
-  state.history.push({ id: sessionId, gradeIndex: session.gradeIndex, score, completedAt: now }); state.history = state.history.slice(-30);
+  state.history.push({ id: sessionId, ...(state.track === 'case' ? {gradeIndex:session.gradeIndex} : {}), score, completedAt: now }); state.history = state.history.slice(-30);
   return { state, result, alreadyGraded: false };
 }
 export function makePracticeRound(bank, gradeIndex, mode, { random = Math.random, previousIds = [] } = {}) {
@@ -192,16 +219,17 @@ export function seoulDateLabel(timestamp) {
 export async function buildCertificatePdf(PDFLib, fontkit, fontBytes, { kind, name, birthYear, result, now = Date.now() }) {
   const track=result?.track==='statute'?'statute':'case', grades=gradesForTrack(track), king=track==='statute'?'조문왕':'판례왕';
   assert(['pass', 'king'].includes(kind), '기록 종류가 올바르지 않습니다.');
-  assert(result && gradeValid(result.gradeIndex,grades) && result.questionCount === QUESTION_COUNT && result.passed && result.score >= 60 && result.score <= 100, '합격한 학습 결과가 필요합니다.');
+  assert(result && (track === 'statute' || gradeValid(result.gradeIndex,grades)) && result.questionCount === QUESTION_COUNT && result.passed && result.score >= 60 && result.score <= 100, '합격한 학습 결과가 필요합니다.');
   if (kind === 'king') assert(result.perfect && result.correctCount === QUESTION_COUNT && result.score === 100, `${king} 상장은 10문제 모두 정답일 때 만들 수 있습니다.`);
-  const identity = validateIdentity(name, birthYear, now), grade = grades[result.gradeIndex];
+  const identity = validateIdentity(name, birthYear, now), grade = track === 'case' ? grades[result.gradeIndex] : null;
   const pdf = await PDFLib.PDFDocument.create(); pdf.registerFontkit(fontkit);
   // Keep the full Korean font: this fontkit subset can omit Hangul glyphs in viewers.
   const font = await pdf.embedFont(fontBytes, { subset: false });
   const charset = new Set(font.getCharacterSet());
   assert(Array.from(identity.name).every(char => charset.has(char.codePointAt(0))), '이름의 일부 문자를 PDF 글꼴에서 표시할 수 없습니다. 한글 또는 영문 표기를 확인해 주세요.');
   const page = pdf.addPage([595.28, 841.89]), ink = PDFLib.rgb(0.12, 0.11, 0.16);
-  pdf.setTitle(kind === 'king' ? `민법위키 ${king} 학습 상장` : `민법위키 ${king} ${grade.label} 학습 합격증`);
+  const gradeLabel = grade ? ' '+grade.label : '';
+  pdf.setTitle(kind === 'king' ? `민법위키 ${king} 학습 상장` : `민법위키 ${king}${gradeLabel} 학습 합격증`);
   pdf.setAuthor('민법위키'); pdf.setCreator('민법위키 학습게임'); pdf.setCreationDate(new Date(now)); pdf.setModificationDate(new Date(now));
   const draw = (text, x, y, size) => page.drawText(text, { x, y, size, font, color: ink });
   const center = (text, y, size) => draw(text, (595.28 - font.widthOfTextAtSize(text, size)) / 2, y, size);
@@ -216,18 +244,17 @@ export async function buildCertificatePdf(PDFLib, fontkit, fontBytes, { kind, na
   };
   draw('민법위키 학습 결과', 75, 745, 12);
   center(kind === 'king' ? '상     장' : '합 격 증', 662, 36);
-  draw(kind === 'king' ? `${king}상` : `${king} ${grade.label} 학습 합격`, 75, 570, 21);
+  draw(kind === 'king' ? `${king}상` : `${king}${gradeLabel} 학습 합격`, 75, 570, 21);
   const nameSize = fit(identity.name, 335, 25, 12);
   draw(identity.name, 520 - font.widthOfTextAtSize(identity.name, nameSize), 529, nameSize);
   const yearText = `${identity.birthYear}년생`;
   draw(yearText, 520 - font.widthOfTextAtSize(yearText, 16), 502, 16);
-  const scope = track==='statute' ? `표준판례 워크북 조문 ${grade.label} 학습단계 누적 ${grade.count}문항` : `대한민국 표준판례 ${grade.label} 누적 ${grade.count.toLocaleString('ko-KR')}개`;
+  const scope = track==='statute' ? `전체 조문 학습문제 ${STATUTE_QUESTION_COUNT}문항` : `대한민국 표준판례 ${grade.label} 누적 ${grade.count.toLocaleString('ko-KR')}개`;
   const body = kind === 'king'
     ? `위 사람은 ${scope} 범위의 헌법 3문제, 민법 4문제, 형법 3문제인 10분 10문제 오픈북 학습에서 모든 문제에 정답을 기록하였으므로 ${king} 학습 상장을 드립니다.`
     : `위 사람은 ${scope} 범위의 헌법 3문제, 민법 4문제, 형법 3문제인 10분 10문제 오픈북 학습에서 60점 이상의 합격 기준을 충족하였으므로 이 학습 합격증을 드립니다.`;
   const lines = wrap(body, 445, 17); lines.forEach((line, index) => draw(line, 75, 429 - index * 31, 17));
   center(`학습 결과 ${result.score}점 / 10문제 중 ${result.correctCount}개 정답`, 244, 15);
-  if(track==='statute') center('조문 급수는 민법위키 학습단계이며 공식 기출 급수가 아닙니다.',279,10);
   center(seoulDateLabel(result.completedAt || now), 216, 17);
   center('민 법 위 키', 144, 29);
   center('학습용 기록 - 공인 자격 또는 대회 수상 증명서가 아닙니다.', 79, 10);

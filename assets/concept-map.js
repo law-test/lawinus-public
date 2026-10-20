@@ -98,14 +98,14 @@ function makeData(){
   const active=subjects.filter(s=>display.some(c=>c.subject===s));
   const topicNames={};for(const s of active)topicNames[s]=[...new Set(display.filter(c=>c.subject===s).map(topicOf))];
   for(const s of active){const a=active.length===1?{x:0,y:0,z:0}:anchors[s];add({id:`subject:${s}`,name:s,type:'subject',subject:s,color:colors[s],fx:a.x,fy:a.y,fz:a.z,...a});
-    topicNames[s].forEach((t,i)=>{const angle=i/topicNames[s].length*Math.PI*2,center={x:a.x+105*Math.cos(angle),y:a.y+62*Math.sin(angle),z:a.z+62*Math.sin(angle*1.5)};topicCenters.set(`${s}:${t}`,center);add({id:`topic:${s}:${t}`,name:t,type:'topic',subject:s,color:colors[s],topic:t,fx:center.x,fy:center.y,fz:center.z,...center});links.push({source:`subject:${s}`,target:`topic:${s}:${t}`,relation:'분야 분류'});});
+    topicNames[s].forEach((t,i)=>{const angle=i/topicNames[s].length*Math.PI*2,center={x:a.x+105*Math.cos(angle),y:a.y+62*Math.sin(angle),z:a.z+62*Math.sin(angle*1.5)};topicCenters.set(`${s}:${t}`,center);add({id:`topic:${s}:${t}`,name:t,type:'topic',subject:s,color:colors[s],topic:t,fx:center.x,fy:center.y,fz:center.z,...center});links.push({source:`subject:${s}`,target:`topic:${s}:${t}`,relation:'학습 분야'});});
   }
   for(const c of display){
     if(nodes.length>=395)break;
     const topic=topicOf(c),center=topicCenters.get(`${c.subject}:${topic}`),article=c.articleRefs[0],articleId=`article:${article}`;
-    if(!known.has(articleId)){add({id:articleId,name:article,type:'article',subject:c.subject,color:colors[c.subject],article,topic,...point(articleId,center,34)});links.push({source:`topic:${c.subject}:${topic}`,target:articleId,relation:'조문 체계상 분류'});}
+    if(!known.has(articleId)){add({id:articleId,name:article,type:'article',subject:c.subject,color:colors[c.subject],article,topic,...point(articleId,center,34)});links.push({source:`topic:${c.subject}:${topic}`,target:articleId,relation:'관련 개념'});}
     add({id:c.id,name:c.title,type:'case',subject:c.subject,color:colors[c.subject],case:c,topic,...point(c.id,center,65)});
-    links.push({source:articleId,target:c.id,relation:'발간본 대표 조문'});
+    links.push({source:articleId,target:c.id,relation:'관련 조문'});
   }
   if(state.dimension===2)for(const n of nodes){n.z=0;if('fz' in n)n.fz=0;}
   if(state.selected&&!known.has(state.selected))state.selected=null;
@@ -116,7 +116,7 @@ function makeData(){
   state.data={nodes,links};
   if($('map-context'))$('map-context').hidden=true;$('map-reset').textContent='선택 초기화';
   $('map-total').textContent=`선택 범위 ${pool.length.toLocaleString()}판례`;
-  $('map-visible').textContent=`${nodes.filter(n=>n.type==='case').length}판례 · ${nodes.length}노드 · ${links.length}연결`;
+  $('map-visible').textContent=`${nodes.filter(n=>n.type==='case').length}판례 표시`;
   return state.data;
 }
 function makeArticleData(){
@@ -126,12 +126,12 @@ function makeArticleData(){
     {id:lawId,name:parts.law,type:'subject',law:parts.law,article:key,subject,color,x:-140,y:0,z:0,fx:-140,fy:0,fz:0},
     {id:articleId,name:key,type:'article',article:key,subject,color,x:0,y:0,z:0,fx:0,fy:0,fz:0}
   ],links=[{source:lawId,target:articleId,relation:'법률 조문'}];
-  for(const record of display){nodes.push({id:record.id,name:record.title,type:'case',subject:record.subject,color:colors[record.subject],case:record,topic:topicOf(record),...point(record.id,{x:100,y:0,z:0},75)});links.push({source:articleId,target:record.id,relation:'발간본 대표 조문'});}
+  for(const record of display){nodes.push({id:record.id,name:record.title,type:'case',subject:record.subject,color:colors[record.subject],case:record,topic:topicOf(record),...point(record.id,{x:100,y:0,z:0},75)});links.push({source:articleId,target:record.id,relation:'관련 조문'});}
   if(state.dimension===2)for(const node of nodes){node.z=0;if('fz' in node)node.fz=0;}
   const known=new Set(nodes.map(node=>node.id));if(!known.has(state.selected))state.selected=articleId;state.hover=null;
   highlight.clear();neighborIds.clear();highlight.add(state.selected);markNeighbors(state.selected,links);state.data={nodes,links};
   if($('map-context')){$('map-context').hidden=false;$('map-context').textContent=key;}$('map-reset').textContent='전체 지도 보기';
-  $('map-total').textContent=`선택 범위 ${pool.length.toLocaleString()}판례`;$('map-visible').textContent=`${matches.length}관련 판례 · ${nodes.length}노드 · ${links.length}연결`;
+  $('map-total').textContent=`선택 범위 ${pool.length.toLocaleString()}판례`;$('map-visible').textContent=`관련 판례 ${matches.length}건`;
   return state.data;
 }
 function endpoint(x){return typeof x==='object'?x.id:x;}
@@ -158,7 +158,7 @@ function nodeObject(n){
   return group;
 }
 function initGraph(){
-  if(typeof window.ForceGraph3D!=='function')throw new Error('지도 라이브러리를 불러오지 못했습니다.');
+  if(typeof window.ForceGraph3D!=='function')throw new Error('지도를 불러오지 못했습니다.');
   const graph=new window.ForceGraph3D($('graph'),{controlType:'orbit',rendererConfig:{antialias:true,alpha:true}});
   state.graph=graph;
   // The bundled node-drag handler emits pointerup without a pointerId.
@@ -168,7 +168,7 @@ function initGraph(){
     .linkDirectionalParticles(l=>isHighlightedLink(l)?2:0).linkDirectionalParticleSpeed(.003).linkDirectionalParticleColor(()=> '#dec0ff').linkDirectionalParticleWidth(1.5)
     .linkLabel(l=>esc(l.relation)).warmupTicks(reduced?95:35).cooldownTicks(230).d3AlphaDecay(.032).d3VelocityDecay(.43)
     .onNodeClick(n=>selectNode(n)).onNodeHover(n=>{state.hover=n?.id??null;$('graph').style.cursor=n?'pointer':'grab';});
-  graph.d3Force('charge').strength(-28);graph.d3Force('link').distance(l=>l.relation==='분야 분류'?110:l.relation==='조문 체계상 분류'?42:state.articleFocus?60:17).strength(.55);
+  graph.d3Force('charge').strength(-28);graph.d3Force('link').distance(l=>l.relation==='학습 분야'?110:l.relation==='관련 개념'?42:state.articleFocus?60:17).strength(.55);
   const geometry=new THREE.BufferGeometry(),points=[];let seed=13579;for(let i=0;i<850;i++){seed=(seed*16807)%2147483647;const x=(seed/2147483647-.5)*2900;seed=(seed*16807)%2147483647;const y=(seed/2147483647-.5)*1900;seed=(seed*16807)%2147483647;const z=(seed/2147483647-.5)*2300;points.push(x,y,z);}
   geometry.setAttribute('position',new THREE.Float32BufferAttribute(points,3));graph.scene().add(new THREE.Points(geometry,new THREE.PointsMaterial({color:'#9d7bc8',size:1.2,transparent:true,opacity:.45,depthWrite:false})));
   graph.cameraPosition({x:0,y:70,z:620});
@@ -220,7 +220,7 @@ function renderReader(n){
     html=`<span class="reader-tag">${esc(c.subject)} · ${esc(c.gradeLabel)}부터</span><h2 class="reader-title">${esc(c.title)}</h2><p class="reader-cite">${esc(c.citation||c.caseNumber)}<br>선고일 ${esc(c.date)}</p><section class="reader-section"><h3>핵심 판단</h3><p>${esc(c.summary)}</p></section><section class="reader-section"><h3>관련 조문</h3><div class="reader-keywords">${c.articleRefs.map(a=>`<a href="${esc(articleLink(a))}" target="_blank" rel="noopener">${esc(a)} ↗</a>`).join('')}</div></section><section class="reader-section"><a class="reader-link" target="_blank" rel="noopener" href="${esc(c.officialUrl||searchLink(c))}">${c.officialUrl?'공식 원문 열기':'국가법령정보센터에서 찾기'} ↗</a><p class="reader-source">${esc(String(c.bookSource||'').replace(/\bv\d+\b/gi,'').trim())}</p></section>${related.length?`<section class="reader-section"><h3>같은 조문을 다루는 판례</h3>${relatedButtons(related)}</section>`:''}`;
   }else{
     const pool=inScope(),candidates=pool.filter(c=>n.law?articleMatches(c,n.article):n.type==='subject'?c.subject===n.subject:n.type==='topic'?c.subject===n.subject&&topicOf(c)===n.topic:articleMatches(c,n.article));
-    html=`<span class="reader-tag">${n.type==='article'?'조문':n.law?'법률':n.type==='topic'?'개념 · 편집상 분류':'학습 영역'}</span><h2 class="reader-title">${esc(n.name)}</h2><p class="reader-cite">관련 판례 ${candidates.length.toLocaleString()}건</p>${n.type==='article'?`<a class="reader-link article-source-link" href="${esc(articleSourceLink(n.article))}" target="_blank" rel="noopener">조문 원문 읽기 ↗</a><a class="reader-link article-back-link" href="${esc(articleBackLink(n.article))}">조문으로 돌아가기 →</a>`:''}<section class="reader-section"><h3>연결된 판례</h3>${candidates.length?relatedButtons(candidates,12):'<p class="empty-message">연결된 표준판례가 없습니다.</p>'}</section>`;
+    html=`<span class="reader-tag">${n.type==='article'?'조문':n.law?'법률':n.type==='topic'?'개념':'학습 영역'}</span><h2 class="reader-title">${esc(n.name)}</h2><p class="reader-cite">관련 판례 ${candidates.length.toLocaleString()}건</p>${n.type==='article'?`<a class="reader-link article-source-link" href="${esc(articleSourceLink(n.article))}" target="_blank" rel="noopener">조문 원문 읽기 ↗</a><a class="reader-link article-back-link" href="${esc(articleBackLink(n.article))}">조문으로 돌아가기 →</a>`:''}<section class="reader-section"><h3>연결된 판례</h3>${candidates.length?relatedButtons(candidates,12):'<p class="empty-message">연결된 표준판례가 없습니다.</p>'}</section>`;
   }
   $('map-reader').innerHTML=html;$('map-reader').scrollTop=0;if($('map-selection-status'))$('map-selection-status').textContent=`선택: ${n.type==='case'?n.case.caseNumber+' · ':''}${n.name}`;
 }
@@ -246,7 +246,7 @@ function layoutFallback(){
   for(const n of state.data.nodes){n.x2=n.x||n.fx||0;n.y2=n.y||n.fy||0;}
   for(let tick=0;tick<45;tick++){
     const lookup=new Map(state.data.nodes.map(n=>[n.id,n]));
-    for(const l of state.data.links){const s=lookup.get(endpoint(l.source)),t=lookup.get(endpoint(l.target));if(!s||!t)continue;const dx=t.x2-s.x2,dy=t.y2-s.y2,d=Math.hypot(dx,dy)||1,target=l.relation==='분야 분류'?100:32,k=(d-target)/d*.045;if(t.type!=='subject'&&t.type!=='topic'){t.x2-=dx*k;t.y2-=dy*k;}}
+    for(const l of state.data.links){const s=lookup.get(endpoint(l.source)),t=lookup.get(endpoint(l.target));if(!s||!t)continue;const dx=t.x2-s.x2,dy=t.y2-s.y2,d=Math.hypot(dx,dy)||1,target=l.relation==='학습 분야'?100:32,k=(d-target)/d*.045;if(t.type!=='subject'&&t.type!=='topic'){t.x2-=dx*k;t.y2-=dy*k;}}
     for(const n of state.data.nodes){if(n.type==='case'){n.x2+=(hash(n.id)%100-50)*.012;n.y2+=((hash(n.id)>>>8)%100-50)*.012;}}
   }fitFallback();drawFallback();
 }

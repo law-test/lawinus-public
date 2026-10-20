@@ -1,4 +1,4 @@
-import { GRADES, STATUTE_GRADES, gradesForTrack, PROGRESS_KEY, STATUTE_PROGRESS_KEY, validateCaseBank, validateStatuteBank, restoreProgress, freshProgress, beginExam, updateAnswer, settleExam, remainingMs, makePracticeRound, gradePractice, buildCertificatePdf, validateIdentity } from './game-core.js?v=20261010-book';
+import { GRADES, STATUTE_QUESTION_COUNT, gradesForTrack, PROGRESS_KEY, STATUTE_PROGRESS_KEY, validateCaseBank, validateStatuteBank, restoreProgress, freshProgress, beginExam, updateAnswer, settleExam, remainingMs, makePracticeRound, gradePractice, buildCertificatePdf, validateIdentity } from './game-core.js?v=20261020-clean';
 
 const $ = id => document.getElementById(id);
 const root = $('game-main');
@@ -43,28 +43,35 @@ async function initialize() {
     $('sg-start-source').disabled = !bankReady || running;
   }
   function renderProgress() {
-    const GRADES=gradesForTrack(track), units=track==='statute'?'문항':'판례';
-    $('sg-progress-title').textContent=`도전 ${kingName(track)}! · 나의 급수`;
+    const statute = track === 'statute', GRADES=gradesForTrack(track);
+    $('sg-progress-panel').setAttribute('aria-label',statute?'조문왕 학습 기록':'나의 급수');
+    $('sg-progress-title').textContent=statute?'조문왕 · 학습 기록':'도전 판례왕! · 나의 급수';
     $('sg-exam-heading').textContent=`도전 ${kingName(track)}!`;
+    const list = $('sg-grade-steps'), selector = $('sg-grade');
+    list.hidden=statute;selector.parentElement.hidden=statute;list.replaceChildren();selector.replaceChildren();
+    if (statute) {
+      const last=state.history.at(-1);
+      $('sg-earned').textContent=last?`최근 ${last.score}점 · ${state.history.length}회 기록`:`전체 ${STATUTE_QUESTION_COUNT}문항에서 출제`;
+      selectedGrade=0;
+    } else {
     const highest = state.passedGrades.length ? GRADES[Math.max(...state.passedGrades)].label : null;
     $('sg-earned').textContent = highest ? `${highest} 취득 · ${GRADES[state.unlockedIndex].label}까지 도전 가능` : '취득 전 · 5급부터 도전';
-    const list = $('sg-grade-steps'); list.classList.toggle('sg-statute-steps',track==='statute');list.replaceChildren();
     GRADES.forEach((grade, index) => {
       const item = document.createElement('li'), label = document.createElement('strong'), count = document.createElement('span'), progress = document.createElement('span');
-      label.textContent = grade.label; count.textContent = `누적 ${grade.count.toLocaleString('ko-KR')}${units}`;
+      label.textContent = grade.label; count.textContent = `누적 ${grade.count.toLocaleString('ko-KR')}판례`;
       progress.textContent = state.passedGrades.includes(index) ? '취득 · 복습 가능' : index === state.unlockedIndex ? '도전 가능' : '이전 급수 합격 후';
       item.className = state.passedGrades.includes(index) ? 'sg-grade-earned' : index === state.unlockedIndex ? 'sg-grade-current' : 'sg-grade-locked';
       item.append(label, count, progress); list.append(item);
     });
-    const selector = $('sg-grade'); selector.replaceChildren();
     GRADES.forEach((grade, index) => {
       const option = document.createElement('option'); option.value = String(index); option.disabled = index > state.unlockedIndex;
-      option.textContent = `${grade.label} · 누적 ${grade.count.toLocaleString('ko-KR')}${units}${option.disabled ? ' · 잠김' : state.passedGrades.includes(index) ? ' · 복습' : ' · 도전'}`; selector.append(option);
+      option.textContent = `${grade.label} · 누적 ${grade.count.toLocaleString('ko-KR')}판례${option.disabled ? ' · 잠김' : state.passedGrades.includes(index) ? ' · 복습' : ' · 도전'}`; selector.append(option);
     });
     selectedGrade = Math.min(selectedGrade, state.unlockedIndex); selector.value = String(selectedGrade);
     selector.disabled = !ready[track] || state.session?.status === 'running';
+    }
     $('sg-start').disabled = !ready[track] || state.session?.status === 'running';
-    $('sg-start').textContent = `${GRADES[selectedGrade].label} 10문제 새로 시작`;
+    $('sg-start').textContent = `${statute?'':GRADES[selectedGrade].label+' '}10문제 새로 시작`;
     renderPracticeAvailability();
     renderStorage(); renderTimer();
   }
@@ -74,7 +81,7 @@ async function initialize() {
     const seconds = Math.ceil(ms / 1000);
     $('sg-timer').textContent = running ? `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}` : state.session?.status === 'graded' ? '채점 완료' : '10:00';
     $('sg-timer').parentElement.classList.toggle('sg-timer-low', running && ms <= 60000);
-    $('sg-timer-label').textContent = running ? `${kingName(track)} ${GRADES[state.session.gradeIndex].label} 진행 중` : '10분 · 헌3/민4/형3';
+    $('sg-timer-label').textContent = running ? `${kingName(track)}${track==='case'?' '+GRADES[state.session.gradeIndex].label:''} 진행 중` : '10분 · 헌3/민4/형3';
     $('sg-timer-note').textContent = running ? '책을 찾는 동안에도 시간은 계속 흐릅니다.' : '실물책을 참고해 풀어 보세요.';
   }
   function officialLink(record) {
@@ -151,9 +158,10 @@ async function initialize() {
   function renderResult(result) {
     if (!result) return;
     const GRADES=gradesForTrack(result.track), king=kingName(result.track);
-    $('sg-result-title').textContent = `${king} ${GRADES[result.gradeIndex].label} ${result.score}점 · ${result.passed ? '합격' : '다시 도전'}`;
+    const statute=result.track==='statute';
+    $('sg-result-title').textContent = `${king}${statute?'':' '+GRADES[result.gradeIndex].label} ${result.score}점 · ${result.passed ? '합격' : '다시 도전'}`;
     $('sg-result-title').className = result.passed ? 'sg-passed' : 'sg-failed';
-    const next = result.promoted ? `${GRADES[result.nextGradeIndex].label} 도전이 열렸습니다.` : result.passed && result.gradeIndex === GRADES.length-1 ? `최고 단계인 ${GRADES.at(-1).label}을 유지합니다.` : result.passed ? '취득한 급수를 복습했습니다.' : '같은 급수에서 새 문제로 다시 도전해 보세요.';
+    const next = statute ? '전체 조문 문제에서 새 문제로 다시 도전해 보세요.' : result.promoted ? `${GRADES[result.nextGradeIndex].label} 도전이 열렸습니다.` : result.passed && result.gradeIndex === GRADES.length-1 ? `최고 단계인 ${GRADES.at(-1).label}을 유지합니다.` : result.passed ? '취득한 급수를 복습했습니다.' : '같은 급수에서 새 문제로 다시 도전해 보세요.';
     $('sg-result-description').textContent = `${result.correctCount} / 10문제 정답. ${result.timedOut ? '10분이 지나 자동으로 채점했습니다. ' : ''}${next}`;
     $('sg-pass-choice').hidden = !result.passed; $('sg-king-choice').hidden = !result.perfect;
     $('sg-king-choice').querySelector('h3').textContent=`10문제 모두 정답! ${king}입니다.`;
@@ -167,8 +175,7 @@ async function initialize() {
       const prompt = document.createElement('p'); prompt.textContent = displayedPrompt(detail.prompt, result.track);
       const answers = document.createElement('p'); answers.className = 'sg-review-answers'; answers.textContent = `내 답: ${detail.answer.trim() || '미응답'} / 정답: ${detail.acceptedAnswers.join(' 또는 ')}`;
       const explanation = document.createElement('p'); explanation.textContent = detail.explanation;
-      const source = document.createElement('p'); source.className = 'sg-small'; source.textContent = detail.source;
-      card.append(heading, prompt, answers, explanation, source, reviewMaterial(lookup(detail.id))); container.append(card);
+      card.append(heading, prompt, answers, explanation, reviewMaterial(lookup(detail.id))); container.append(card);
     });
   }
   function closeCertificate() {
@@ -180,8 +187,8 @@ async function initialize() {
     const result = state.session?.status === 'graded' ? state.session.result : null;
     if (!result?.passed || (kind === 'king' && !result.perfect)) return;
     closeCertificate(); certificateKind = kind; certificateResult = result;
-    const grade=gradesForTrack(result.track)[result.gradeIndex],king=kingName(result.track);
-    $('sg-certificate-title').textContent = kind === 'king' ? `${king}상장 만들기` : `${king} ${grade.label} PDF 합격증 만들기`;
+    const grade=result.track==='statute'?null:gradesForTrack(result.track)[result.gradeIndex],king=kingName(result.track);
+    $('sg-certificate-title').textContent = kind === 'king' ? `${king}상장 만들기` : `${king}${grade?' '+grade.label:''} PDF 합격증 만들기`;
     $('sg-certificate').hidden = false; $('sg-certificate').scrollIntoView({ block: 'start', behavior: 'auto' }); $('sg-name').focus();
   }
   function finishExam() {
@@ -193,14 +200,14 @@ async function initialize() {
     if (now < latest.session.deadlineAt) $('sg-exam-form').querySelectorAll('[data-question]').forEach(input => { latest = updateAnswer(latest, sessionId, input.dataset.question, input.value, now); });
     try {
       const settled = settleExam(latest, sessionId, now); write(settled.state);
-      selectedGrade = settled.result.promoted ? state.unlockedIndex : settled.result.gradeIndex;
+      selectedGrade = track==='statute'?0:settled.result.promoted ? state.unlockedIndex : settled.result.gradeIndex;
       closeCertificate(); renderAll();
       if (!settled.alreadyGraded) $('sg-result').scrollIntoView({ block: 'start', behavior: 'auto' });
     } catch (error) { status(error.message); }
   }
   function switchMode(nextMode) {
     const nextTrack=nextMode==='statute'?'statute':'case';
-    if(nextTrack!==track){track=nextTrack;state=readLatest(track);profiles[track]=state;selectedGrade=state.unlockedIndex;closeCertificate();renderProgress();renderExam();}
+    if(nextTrack!==track){track=nextTrack;state=readLatest(track);profiles[track]=state;selectedGrade=state.unlockedIndex||0;closeCertificate();renderProgress();renderExam();}
     mode = nextMode;
     const summary = $('sg-mode-summary');
     if (summary) summary.textContent = mode === 'source' ? '출처찾기 · 5문제 복습 · 급수 진급에 반영하지 않습니다.' : `${kingName(track)} · 10분 10문제 · 60점부터 합격`;
@@ -244,15 +251,16 @@ async function initialize() {
   }
   function renderAll() { renderProgress(); renderExam(); switchMode(mode); }
   $('sg-grade').addEventListener('change', () => {
+    if(track==='statute')return;
     const latest = readLatest(), next = Number($('sg-grade').value);
     if (!Number.isInteger(next) || next < 0 || next > latest.unlockedIndex || latest.session?.status === 'running') { state = latest; renderProgress(); return; }
     state = latest; selectedGrade = next; renderProgress();
   });
   $('sg-start').addEventListener('click', () => {
     try {
-      const latest = readLatest(), chosen = Number($('sg-grade').value);
-      if (!Number.isInteger(chosen) || chosen > latest.unlockedIndex) throw new Error('잠긴 급수는 선택할 수 없습니다.');
-      write(beginExam(latest, track==='statute'?statuteRecords:records, chosen)); clearSourcePractice(); selectedGrade = chosen; closeCertificate(); switchMode(track==='statute'?'statute':'exam'); renderAll(); status(`${kingName(track)} ${gradesForTrack(track)[chosen].label} 헌3/민4/형3, 10문제를 시작했습니다. 10분 뒤 자동 채점합니다.`);
+      const latest = readLatest(), chosen = track==='statute'?0:Number($('sg-grade').value);
+      if (track==='case'&&(!Number.isInteger(chosen) || chosen > latest.unlockedIndex)) throw new Error('잠긴 급수는 선택할 수 없습니다.');
+      write(beginExam(latest, track==='statute'?statuteRecords:records, chosen)); clearSourcePractice(); selectedGrade = chosen; closeCertificate(); switchMode(track==='statute'?'statute':'exam'); renderAll(); status(`${kingName(track)}${track==='case'?' '+gradesForTrack(track)[chosen].label:''} 헌3/민4/형3, 10문제를 시작했습니다. 10분 뒤 자동 채점합니다.`);
     } catch (error) { status(error.message); }
   });
   $('sg-exam-form').addEventListener('submit', event => { event.preventDefault(); finishExam(); });
@@ -260,39 +268,40 @@ async function initialize() {
   $('sg-start-source').addEventListener('click', () => startPractice('source'));
   $('sg-source-form').addEventListener('submit', event => submitPractice('source', event));
   $('sg-pass-yes').addEventListener('click', () => openCertificate('pass'));
-  $('sg-pass-no').addEventListener('click', () => { closeCertificate(); $('sg-pass-choice-status').textContent = '합격증을 만들지 않았습니다. 급수 합격은 그대로 유지됩니다.'; });
+  $('sg-pass-no').addEventListener('click', () => { closeCertificate(); $('sg-pass-choice-status').textContent = '합격증을 만들지 않았습니다.'; });
   $('sg-king-create').addEventListener('click', () => openCertificate('king'));
   $('sg-certificate-cancel').addEventListener('click', closeCertificate);
   $('sg-certificate-form').addEventListener('submit', async event => {
     event.preventDefault(); if (pdfBusy || !certificateKind || !certificateResult) return;
     const name = $('sg-name').value, birthYear = $('sg-birth-year').value, now = Date.now(), generation = certificateGeneration;
+    let identityValid=false;
     try {
-      validateIdentity(name, birthYear, now); pdfBusy = true; $('sg-pdf-download').disabled = true; $('sg-certificate-status').textContent = '한글 글꼴을 넣어 PDF를 만들고 있습니다.';
-      if (!globalThis.PDFLib || !globalThis.fontkit) throw new Error('PDF 도구를 불러오지 못했습니다. 연결 상태를 확인하고 다시 시도해 주세요.');
-      if (!fontPromise) fontPromise = fetch(new URL('./vendor/game-NanumMyeongjo-Regular.ttf', import.meta.url)).then(response => { if (!response.ok) throw new Error('한글 글꼴을 불러오지 못했습니다.'); return response.arrayBuffer(); }).catch(error => { fontPromise = null; throw error; });
+      validateIdentity(name, birthYear, now);identityValid=true; pdfBusy = true; $('sg-pdf-download').disabled = true; $('sg-certificate-status').textContent = 'PDF를 만드는 중입니다.';
+      if (!globalThis.PDFLib || !globalThis.fontkit) throw new Error('PDF unavailable');
+      if (!fontPromise) fontPromise = fetch(new URL('./vendor/game-NanumMyeongjo-Regular.ttf', import.meta.url)).then(response => { if (!response.ok) throw new Error('PDF unavailable'); return response.arrayBuffer(); }).catch(error => { fontPromise = null; throw error; });
       const kind = certificateKind, result = certificateResult;
       const bytes = await buildCertificatePdf(globalThis.PDFLib, globalThis.fontkit, await fontPromise, { kind, name, birthYear, result, now });
       if (generation !== certificateGeneration) return;
       const url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' })), link = document.createElement('a');
-      link.href = url; link.download = `민법위키_${kingName(result.track)}_${gradesForTrack(result.track)[result.gradeIndex].label}_${kind === 'king' ? '상장' : '학습합격증'}.pdf`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 60000);
-      $('sg-certificate-form').reset(); $('sg-certificate-status').textContent = 'PDF를 내려받았습니다. 입력한 이름과 생년을 화면에서 지웠습니다.'; certificateKind = null; certificateResult = null;
-    } catch (error) { $('sg-certificate-status').textContent = error.message; }
+      link.href = url; link.download = `민법위키_${kingName(result.track)}${result.track==='statute'?'':'_'+gradesForTrack(result.track)[result.gradeIndex].label}_${kind === 'king' ? '상장' : '학습합격증'}.pdf`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 60000);
+      $('sg-certificate-form').reset(); $('sg-certificate-status').textContent = 'PDF를 내려받았습니다.'; certificateKind = null; certificateResult = null;
+    } catch (error) { $('sg-certificate-status').textContent = identityValid?'PDF를 만들지 못했습니다. 다시 시도해 주세요.':error.message; }
     finally { pdfBusy = false; $('sg-pdf-download').disabled = false; }
   });
   window.addEventListener('storage', event => {
     const target=Object.keys(storageKeys).find(key=>storageKeys[key]===event.key);
     if (!target || !storageEnabled) return;
     profiles[target]=restoreProgress(event.newValue,target);
-    if(target===track){state=profiles[target];selectedGrade = Math.min(selectedGrade, state.unlockedIndex); closeCertificate(); renderAll(); status('다른 탭의 학습 기록을 반영했습니다.');}
+    if(target===track){state=profiles[target];selectedGrade = track==='statute'?0:Math.min(selectedGrade, state.unlockedIndex); closeCertificate(); renderAll(); status('다른 탭의 학습 기록을 반영했습니다.');}
     renderPracticeAvailability();
   });
   function expireTracks(){renderTimer();for(const target of ['case','statute']){const latest=readLatest(target);profiles[target]=latest;if(latest.session?.status==='running'&&remainingMs(latest.session)<=0){if(target===track){state=latest;finishExam();}else{try{write(settleExam(latest,latest.session.id).state,target);}catch(_){}}}}renderPracticeAvailability();}
   setInterval(expireTracks,500);document.addEventListener('visibilitychange',expireTracks);
-  profiles.case=readLatest('case');profiles.statute=readLatest('statute');state=profiles[track];selectedGrade = state.unlockedIndex; renderAll();
+  profiles.case=readLatest('case');profiles.statute=readLatest('statute');state=profiles[track];selectedGrade = state.unlockedIndex||0; renderAll();
   try {
-    const response = await fetch(new URL('./standard_cases.json', import.meta.url)); if (!response.ok) throw new Error('표준판례 자료를 읽지 못했습니다. 새로고침 후 다시 확인해 주세요.');
+    const response = await fetch(new URL('./standard_cases.json?v=20261020-clean', import.meta.url)); if (!response.ok) throw new Error('표준판례 자료를 읽지 못했습니다. 새로고침 후 다시 확인해 주세요.');
     const bank = await response.json(); records = validateCaseBank(bank); byId = new Map(records.map(record => [record.id, record])); bankReady = true;ready.case=true;
-    const statuteResponse=await fetch(new URL('./standard_statutes.json',import.meta.url));if(!statuteResponse.ok)throw new Error('조문 워크북 문항을 읽지 못했습니다.');
+    const statuteResponse=await fetch(new URL('./standard_statutes.json?v=20261020-clean',import.meta.url));if(!statuteResponse.ok)throw new Error('조문 문제를 불러오지 못했습니다. 새로고침해 주세요.');
     statuteRecords=validateStatuteBank(await statuteResponse.json());statuteById=new Map(statuteRecords.map(record=>[record.id,record]));ready.statute=true;
     status('게임을 선택하고 도전하세요.'); renderAll();
     if (state.session?.status === 'running' && remainingMs(state.session) <= 0) finishExam();

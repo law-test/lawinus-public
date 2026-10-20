@@ -3,29 +3,6 @@
   "checkedAt": "2026-10-09",
   "source": "발간 대한민국 표준판례 워크북 v026 · 문항_조문 원장",
   "sourceSha256": "fd1347a51f94511344019979bc40fda6691487e2c85d9219a87d6b055343ccb4",
-  "stageNote": "민법위키 학습급수 · 공식 기출 급수 및 판례집 급수와 구별",
-  "learningStages": [
-    {
-      "label": "5급",
-      "count": 50
-    },
-    {
-      "label": "4급",
-      "count": 150
-    },
-    {
-      "label": "3급",
-      "count": 300
-    },
-    {
-      "label": "2급",
-      "count": 400
-    },
-    {
-      "label": "1급",
-      "count": 496
-    }
-  ],
   "subjectQuota": {
     "헌법": 3,
     "민법": 4,
@@ -64,8 +41,6 @@
         "explanation": "위헌정당해산의 실체 요건 — 제4조의 '자유민주적 기본질서'와 문언이 다름",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 1
     },
     {
@@ -99,8 +74,6 @@
         "explanation": "행복추구권 — 일반적 행동자유권·계약자유의 원칙이 도출되는 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 2
     },
     {
@@ -134,8 +107,6 @@
         "explanation": "차별금지사유(성별·종교·사회적 신분) — 평등권 조항의 핵심 문언",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 3
     },
     {
@@ -169,8 +140,6 @@
         "explanation": "민사 법원(法源)의 적용 순서 — 법률, 관습법 다음의 최후 법원",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 4
     },
     {
@@ -204,8 +173,6 @@
         "explanation": "법인 불법행위의 요건 — 대표자 행위의 직무관련성(외형이론)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 5
     },
     {
@@ -239,8 +206,6 @@
         "explanation": "착오취소의 요건 — 법률행위 내용의 중요부분에 관한 착오",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 6
     },
     {
@@ -274,8 +239,6 @@
         "explanation": "권한을 넘은 표현대리의 성립 요건 — 권한이 있다고 믿을 정당한 이유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 7
     },
     {
@@ -309,8 +272,6 @@
         "explanation": "행위시법주의 — 범죄의 성립과 처벌의 기준이 되는 법률",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 8
     },
     {
@@ -344,8 +305,6 @@
         "explanation": "미수범의 성립 요건 — 실행의 착수 시기가 판례 쟁점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 9
     },
     {
@@ -379,8 +338,6 @@
         "explanation": "불능미수의 가벌성 요건 — 결과 발생이 불가능해도 위험성이 있을 것",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 10
     },
     {
@@ -414,8 +371,6 @@
         "explanation": "언론·출판에 대한 검열의 절대적 금지(검열금지원칙)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 11
     },
     {
@@ -449,8 +404,6 @@
         "explanation": "사회적 기본권의 총칙인 인간다운 생활을 할 권리",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 12
     },
     {
@@ -484,8 +437,6 @@
         "explanation": "혼인과 가족생활의 헌법적 기초 — 개인의 존엄과 양성의 평등",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 13
     },
     {
@@ -519,8 +470,6 @@
         "explanation": "소멸시효 중단사유(청구·압류 등·승인)를 정한 본문 — 시효정지와 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 14
     },
     {
@@ -554,8 +503,6 @@
         "explanation": "법률행위에 의한 부동산물권변동의 효력요건 — 등기(형식주의)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 15
     },
     {
@@ -589,8 +536,6 @@
         "explanation": "자주점유의 추정 — 점유취득시효 판례의 출발점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 16
     },
     {
@@ -624,8 +569,6 @@
         "explanation": "점유취득시효의 기간 — 등기부취득시효(10년)와 구별되는 핵심 숫자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 17
     },
     {
@@ -659,8 +602,6 @@
         "explanation": "간접정범의 피이용자 — 처벌되지 아니하는 자 또는 과실범으로 처벌되는 자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 18
     },
     {
@@ -694,8 +635,6 @@
         "explanation": "자수의 상대방 — 수사기관에 대한 자발적 신고(임의적 감면)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 19
     },
     {
@@ -729,8 +668,6 @@
         "explanation": "위증죄의 주체(신분범) — 법률에 의하여 선서한 증인",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 20
     },
     {
@@ -764,8 +701,6 @@
         "explanation": "국회의원 면책특권의 대상 — 직무부수행위 포함 여부가 판례 쟁점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 21
     },
     {
@@ -799,8 +734,6 @@
         "explanation": "헌법개정안의 국회 의결정족수 — 경성헌법의 핵심 숫자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 22
     },
     {
@@ -834,8 +767,6 @@
         "explanation": "권리구제형 헌법소원의 대상 — 공권력의 행사 또는 불행사",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 23
     },
     {
@@ -869,8 +800,6 @@
         "explanation": "법인 아닌 사단의 소유형태 — 총유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 24
     },
     {
@@ -904,8 +833,6 @@
         "explanation": "유치물 사용·대여·담보제공 금지의 예외 — 보존에 필요한 사용",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 25
     },
     {
@@ -939,8 +866,6 @@
         "explanation": "법정지상권의 성립 계기 — 저당물의 경매로 토지와 건물의 소유자가 달라질 것",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 26
     },
     {
@@ -974,8 +899,6 @@
         "explanation": "손해배상 예정액의 감액 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 27
     },
     {
@@ -1009,8 +932,6 @@
         "explanation": "무고죄의 행위 — 객관적 진실에 반하는 허위의 사실 신고",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 28
     },
     {
@@ -1044,8 +965,6 @@
         "explanation": "사문서위조·변조죄의 초과주관적 요소(목적범)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 29
     },
     {
@@ -1079,8 +998,6 @@
         "explanation": "사전자기록위작·변작죄의 목적 — 문서위조의 '행사할 목적'과 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 30
     },
     {
@@ -1114,8 +1031,6 @@
         "explanation": "평화통일정책의 기초 — 제8조 제4항의 '민주적 기본질서'와 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 31
     },
     {
@@ -1149,8 +1064,6 @@
         "explanation": "직업공무원제도의 내용 — 공무원의 신분보장과 정치적 중립성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 32
     },
     {
@@ -1184,8 +1097,6 @@
         "explanation": "헌법상 영장주의 — 영장 신청권자를 검사로 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 33
     },
     {
@@ -1219,8 +1130,6 @@
         "explanation": "채권자취소권 제척기간(1년)의 기산점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 34
     },
     {
@@ -1254,8 +1163,6 @@
         "explanation": "장래채무 보증의 허용 — 계속적 보증의 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 35
     },
     {
@@ -1289,8 +1196,6 @@
         "explanation": "보증채무의 부종성 — 주채무보다 무거운 보증은 주채무의 한도로 감축",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 36
     },
     {
@@ -1324,8 +1229,6 @@
         "explanation": "법정변제충당의 둘째 기준 — 채무자에게 변제이익이 많은 채무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 37
     },
     {
@@ -1359,8 +1262,6 @@
         "explanation": "업무상과실·중과실치사상죄의 가중 근거인 업무상과실",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 38
     },
     {
@@ -1394,8 +1295,6 @@
         "explanation": "강제추행죄의 수단 — 폭행·협박의 정도에 관한 판례 변경",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 39
     },
     {
@@ -1429,8 +1328,6 @@
         "explanation": "주거침입죄의 객체 — 공용부분·위요지의 포함 여부가 판례 쟁점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 40
     },
     {
@@ -1464,8 +1361,6 @@
         "explanation": "소급입법에 의한 참정권 제한·재산권 박탈 금지 — 진정소급입법 판례의 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 41
     },
     {
@@ -1499,8 +1394,6 @@
         "explanation": "교육을 받을 권리의 내용 — 능력에 따른 균등한 교육기회",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 42
     },
     {
@@ -1534,8 +1427,6 @@
         "explanation": "우선적 근로기회의 대상 — '유가족'은 전몰군경의 유가족만 뜻한다고 본 판례 변경(가산점 사건)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 43
     },
     {
@@ -1569,8 +1460,6 @@
         "explanation": "동시이행항변권의 효과 — 상대방이 이행을 제공할 때까지 자기 채무의 이행 거절",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 44
     },
     {
@@ -1604,8 +1493,6 @@
         "explanation": "제3자를 위한 계약에서 제3자 권리의 발생 요건 — 수익의 의사표시",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 45
     },
     {
@@ -1639,8 +1526,6 @@
         "explanation": "해제의 소급효 제한 — 제3자의 권리를 해하지 못함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 46
     },
     {
@@ -1674,8 +1559,6 @@
         "explanation": "해약금에 의한 해제의 시한 — 당사자 일방의 이행 착수 전",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 47
     },
     {
@@ -1709,8 +1592,6 @@
         "explanation": "절도죄의 실행행위 — 점유자의 의사에 반한 점유 이전",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 48
     },
     {
@@ -1744,8 +1625,6 @@
         "explanation": "배임죄의 주체 — 이중매매 등에서 범위가 판례 쟁점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 49
     },
     {
@@ -1779,8 +1658,6 @@
         "explanation": "속지주의 — 대한민국 영역 안에서 범한 죄면 외국인에게도 형법 적용",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 50,
-      "gradeLabel": "5급",
       "learningOrder": 50
     },
     {
@@ -1814,8 +1691,6 @@
         "explanation": "환경권의 내용과 국가·국민의 환경보전 노력의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 51
     },
     {
@@ -1849,8 +1724,6 @@
         "explanation": "임시회 집회요구 정족수 — 국회재적의원 4분의 1 이상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 52
     },
     {
@@ -1884,8 +1757,6 @@
         "explanation": "탄핵소추 사유 — 직무집행에 있어서의 헌법·법률 위배",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 53
     },
     {
@@ -1919,8 +1790,6 @@
         "explanation": "사무관리의 성립 요건 — 타인을 위하여 사무를 처리하는 의사",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 54
     },
     {
@@ -1954,8 +1823,6 @@
         "explanation": "입양의 효과 — 입양한 때부터 혼인 중의 출생자와 같은 친계·촌수",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 55
     },
     {
@@ -1989,8 +1856,6 @@
         "explanation": "재산분할의 대상 — 당사자 쌍방의 협력으로 이룩한 재산",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 56
     },
     {
@@ -2024,8 +1889,6 @@
         "explanation": "상속의 효과 — 피상속인의 재산에 관한 포괄적 권리의무의 승계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 57
     },
     {
@@ -2059,8 +1922,6 @@
         "explanation": "중지범의 필요적 감면 — 장애미수의 임의적 감경과 가르는 효과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 58
     },
     {
@@ -2094,8 +1955,6 @@
         "explanation": "공동정범은 각자를 그 죄의 정범으로 처벌(일부실행 전부책임)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 59
     },
     {
@@ -2129,8 +1988,6 @@
         "explanation": "교사범은 죄를 실행한 자(정범)와 동일한 형으로 처벌",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 60
     },
     {
@@ -2164,8 +2021,6 @@
         "explanation": "긴급재정경제처분·명령의 요건 — 제2항 긴급명령의 '집회가 불가능한 때'와 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 61
     },
     {
@@ -2199,8 +2054,6 @@
         "explanation": "대법원장 임기 6년 단임 — 대법관·법관의 연임 허용과 대비",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 62
     },
     {
@@ -2234,8 +2087,6 @@
         "explanation": "선거관리위원회의 관계 행정기관에 대한 지시권",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 63
     },
     {
@@ -2269,8 +2120,6 @@
         "explanation": "신의성실의 원칙 — 권리 행사와 의무 이행의 기준",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 64
     },
     {
@@ -2304,8 +2153,6 @@
         "explanation": "권리능력의 존속기간 — 출생부터 사망까지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 65
     },
     {
@@ -2339,8 +2186,6 @@
         "explanation": "피한정후견인이 동의 없이 한 동의유보 행위의 효과 — 취소(일상생활 행위는 예외)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 66
     },
     {
@@ -2374,8 +2219,6 @@
         "explanation": "반사회질서 법률행위의 판단 기준",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 67
     },
     {
@@ -2409,8 +2252,6 @@
         "explanation": "종범의 성립 행위 — 방조(사후방조·부작위 방조 판례의 출발점)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 68
     },
     {
@@ -2444,8 +2285,6 @@
         "explanation": "상상적 경합의 처리 — 가장 무거운 죄에 정한 형으로 처벌",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 69
     },
     {
@@ -2479,8 +2318,6 @@
         "explanation": "내란죄의 초과주관적 요소 — 국헌문란의 목적(목적범)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 70
     },
     {
@@ -2514,8 +2351,6 @@
         "explanation": "자치입법권(조례제정권)의 한계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 71
     },
     {
@@ -2549,8 +2384,6 @@
         "explanation": "권한쟁의심판의 청구요건 — 권한 침해 또는 침해의 현저한 위험",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 72
     },
     {
@@ -2584,8 +2417,6 @@
         "explanation": "헌법소원심판의 가처분 — 심판 대상 공권력의 효력정지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 73
     },
     {
@@ -2619,8 +2450,6 @@
         "explanation": "불공정한 법률행위의 주관적 요건(어느 하나로 족함)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 74
     },
     {
@@ -2654,8 +2483,6 @@
         "explanation": "임의규정의 정의 — 사회질서에 관계없는 규정은 당사자 의사가 우선",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 75
     },
     {
@@ -2689,8 +2516,6 @@
         "explanation": "법정대리인 복임권의 책임 경감 요건 — 선임·감독 책임만 짐",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 76
     },
     {
@@ -2724,8 +2549,6 @@
         "explanation": "시효이익의 사전 포기 금지(완성 후 포기는 가능)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 77
     },
     {
@@ -2759,8 +2582,6 @@
         "explanation": "전시폭발물제조죄의 상황 요건 — 전쟁 또는 사변",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 78
     },
     {
@@ -2794,8 +2615,6 @@
         "explanation": "직무유기죄의 실행행위 — 직무의 유기(의식적 방임)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 79
     },
     {
@@ -2829,8 +2648,6 @@
         "explanation": "수뢰죄의 핵심 요건 — 직무에 관하여(직무관련성)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 80
     },
     {
@@ -2864,8 +2681,6 @@
         "explanation": "국제평화주의 — 침략적 전쟁의 부인",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 81
     },
     {
@@ -2899,8 +2714,6 @@
         "explanation": "선거권의 법률유보 — 재외국민·수형자 선거권 결정에서 입법형성의 한계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 82
     },
     {
@@ -2934,8 +2747,6 @@
         "explanation": "공무담임권의 법률유보 — 당연퇴직·승진기회 사건에서 입법형성의 한계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 83
     },
     {
@@ -2969,8 +2780,6 @@
         "explanation": "전점유자의 점유를 아울러 주장하면 그 하자도 승계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 84
     },
     {
@@ -3004,8 +2813,6 @@
         "explanation": "소유권의 권능 — 배타적 사용수익권 포기 판례의 출발점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 85
     },
     {
@@ -3039,8 +2846,6 @@
         "explanation": "부동산 부합의 예외 — 타인의 권원에 의하여 부속된 것",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 86
     },
     {
@@ -3074,8 +2879,6 @@
         "explanation": "총유물의 관리·처분 방법 — 사원총회의 결의",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 87
     },
     {
@@ -3109,8 +2912,6 @@
         "explanation": "공무집행방해의 수단을 위계로 한 규정 — 폭행·협박에 의한 제136조와 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 88
     },
     {
@@ -3144,8 +2945,6 @@
         "explanation": "제2항 '내국에서 유통하는' 외국통화 — 제1항·제3항의 '통용하는'과 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 89
     },
     {
@@ -3179,8 +2978,6 @@
         "explanation": "통화위조 등에 대한 자격정지·벌금의 임의적 병과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 90
     },
     {
@@ -3214,8 +3011,6 @@
         "explanation": "재판청구권 — 헌법과 법률이 정한 법관에 의한 재판",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 91
     },
     {
@@ -3249,8 +3044,6 @@
         "explanation": "국가배상책임과 공무원 개인책임 — 공무원 자신의 책임은 면제되지 않음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 92
     },
     {
@@ -3284,8 +3077,6 @@
         "explanation": "근로3권의 목적 — 근로조건의 향상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 93
     },
     {
@@ -3319,8 +3110,6 @@
         "explanation": "지상권의 목적 — 건물 기타 공작물이나 수목의 소유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 94
     },
     {
@@ -3354,8 +3143,6 @@
         "explanation": "승역지 소유자가 공작물을 공동사용할 때의 비용분담 기준",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 95
     },
     {
@@ -3389,8 +3176,6 @@
         "explanation": "채권질권 설정의 요물성 — 채권증서의 교부",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 96
     },
     {
@@ -3424,8 +3209,6 @@
         "explanation": "근저당의 본질 — 채무의 최고액만 정하고 확정을 장래에 보류",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 97
     },
     {
@@ -3459,8 +3242,6 @@
         "explanation": "존속살해의 가중 요건 — 자기 또는 배우자의 직계존속",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 98
     },
     {
@@ -3494,8 +3275,6 @@
         "explanation": "폭행죄의 행위 — 사람의 신체에 대한 유형력의 행사",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 99
     },
     {
@@ -3529,8 +3308,6 @@
         "explanation": "특수협박의 가중 요건 — 위험한 물건의 휴대",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 100
     },
     {
@@ -3564,8 +3341,6 @@
         "explanation": "일반의결정족수와 가부동수의 처리 — 부결 간주",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 101
     },
     {
@@ -3599,8 +3374,6 @@
         "explanation": "회기계속의 원칙 — 회기 중 의결되지 못한 의안도 폐기되지 않음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 102
     },
     {
@@ -3634,8 +3407,6 @@
         "explanation": "포괄위임금지원칙 — 구체적으로 범위를 정한 위임",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 103
     },
     {
@@ -3669,8 +3440,6 @@
         "explanation": "저당권소멸청구를 할 수 있는 제3취득자의 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 104
     },
     {
@@ -3704,8 +3473,6 @@
         "explanation": "선택할 제3자가 선택할 수 없을 때 선택권의 귀속",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 105
     },
     {
@@ -3739,8 +3506,6 @@
         "explanation": "기한이 없는 채무의 이행지체 시기",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 106
     },
     {
@@ -3774,8 +3539,6 @@
         "explanation": "채무불이행 책임의 귀책사유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 107
     },
     {
@@ -3809,8 +3572,6 @@
         "explanation": "명예훼손죄의 공연성 요건 — 전파가능성 판례의 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 108
     },
     {
@@ -3844,8 +3605,6 @@
         "explanation": "업무방해죄의 수단 — 위력(허위사실 유포·위계는 제313조의 방법)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 109
     },
     {
@@ -3879,8 +3638,6 @@
         "explanation": "친족 사이의 권리행사방해 — 고소가 있어야 공소제기(친고죄)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 110
     },
     {
@@ -3914,8 +3671,6 @@
         "explanation": "국회의 계엄해제 요구 정족수 — 재적의원 과반수의 찬성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 111
     },
     {
@@ -3949,8 +3704,6 @@
         "explanation": "헌법재판소 관장사항 가운데 권한쟁의심판",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 112
     },
     {
@@ -3984,8 +3737,6 @@
         "explanation": "헌법재판관의 신분보장 — 탄핵 또는 금고 이상의 형 선고가 아니면 파면되지 않음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 113
     },
     {
@@ -4019,8 +3770,6 @@
         "explanation": "채권자대위권의 객체에서 제외되는 행사상 일신전속권",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 114
     },
     {
@@ -4054,8 +3803,6 @@
         "explanation": "연대·불가분채무자 1인을 위한 보증인의 다른 채무자에 대한 구상 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 115
     },
     {
@@ -4089,8 +3836,6 @@
         "explanation": "상계적상의 요건 — 같은 종류를 목적으로 한 채무의 대립",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 116
     },
     {
@@ -4124,8 +3869,6 @@
         "explanation": "시효완성 전에 상계적상이었던 채권이면 완성 후에도 상계 가능",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 117
     },
     {
@@ -4159,8 +3902,6 @@
         "explanation": "특수강도의 합동범 — 2인 이상의 합동",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 118
     },
     {
@@ -4194,8 +3935,6 @@
         "explanation": "사기죄의 실행행위 — 기망(부작위에 의한 기망 포함)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 119
     },
     {
@@ -4229,8 +3968,6 @@
         "explanation": "장물죄의 객체 — 장물",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 120
     },
     {
@@ -4264,8 +4001,6 @@
         "explanation": "정당해산결정서의 송달 대상 — 중앙선거관리위원회",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 121
     },
     {
@@ -4299,8 +4034,6 @@
         "explanation": "교육·학예 사무에 관한 권한쟁의에서 교육감의 당사자 지위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 122
     },
     {
@@ -4334,8 +4067,6 @@
         "explanation": "법원의 재판을 대상으로 한 헌법소원 청구서의 첨부서류 — 재판서와 확정증명원",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 123
     },
     {
@@ -4369,8 +4100,6 @@
         "explanation": "경개의 요건 — 채무의 중요한 부분의 변경",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 124
     },
     {
@@ -4404,8 +4133,6 @@
         "explanation": "연착된 승낙은 청약자가 새 청약으로 볼 수 있음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 125
     },
     {
@@ -4439,8 +4166,6 @@
         "explanation": "해지·해제권의 행사 방법",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 126
     },
     {
@@ -4474,8 +4199,6 @@
         "explanation": "매매예약완결권(형성권)의 행사로 매매의 효력 발생",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 127
     },
     {
@@ -4509,8 +4232,6 @@
         "explanation": "장물범과 본범 사이의 친족관계 — 형의 임의적 감면(피해자와의 관계는 제1항)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 128
     },
     {
@@ -4544,8 +4265,6 @@
         "explanation": "속인주의 — 대한민국 영역 밖에서 죄를 범한 내국인에게 형법 적용",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 129
     },
     {
@@ -4579,8 +4298,6 @@
         "explanation": "외국에서 집행된 형의 필요적 산입",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 130
     },
     {
@@ -4614,8 +4331,6 @@
         "explanation": "국민주권원리의 문언 — 주권의 귀속 주체를 정한 핵심어",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 131
     },
     {
@@ -4649,8 +4364,6 @@
         "explanation": "문화국가 목표조항의 문언('민족문화의 창달'); '전통문화'는 '민족문화'와 조각이 겹쳐 피함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 132
     },
     {
@@ -4684,8 +4397,6 @@
         "explanation": "공용침해에 대한 보상의 기준 — 정당한 보상(완전보상); '정당한 보상' 전체는 앞 '대한 보상'과 조각이 겹쳐 '정당한'만 비움",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 133
     },
     {
@@ -4719,8 +4430,6 @@
         "explanation": "하자보수청구의 제한 — 중요하지 않은 하자의 보수에 과다한 비용",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 134
     },
     {
@@ -4754,8 +4463,6 @@
         "explanation": "수임인의 필요비상환청구권 — 지출한 날 이후의 이자 포함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 135
     },
     {
@@ -4789,8 +4496,6 @@
         "explanation": "부당이득의 성립 요건 — 법률상 원인의 흠결",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 136
     },
     {
@@ -4824,8 +4529,6 @@
         "explanation": "일반 불법행위의 성립 요건 — 위법성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 137
     },
     {
@@ -4859,8 +4562,6 @@
         "explanation": "원인에서 자유로운 행위 — 위험 발생의 예견(예견가능성 포함)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 138
     },
     {
@@ -4894,8 +4595,6 @@
         "explanation": "강요된 행위의 수단 — 저항할 수 없는 폭력",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 139
     },
     {
@@ -4929,8 +4628,6 @@
         "explanation": "고의 — 죄의 성립요소인 사실의 인식",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 140
     },
     {
@@ -4964,8 +4661,6 @@
         "explanation": "형사보상청구권의 주체 요건 — 구금되었던 자에 한함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 141
     },
     {
@@ -4999,8 +4694,6 @@
         "explanation": "선거제도 법정주의의 대상 — 비례대표제(1인 1표제 판례)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 142
     },
     {
@@ -5034,8 +4727,6 @@
         "explanation": "의사공개원칙의 예외 요건 — 출석의원 과반수의 찬성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 143
     },
     {
@@ -5069,8 +4760,6 @@
         "explanation": "약혼해제 손해배상(제806조)이 준용되는 경우",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 144
     },
     {
@@ -5104,8 +4793,6 @@
         "explanation": "부부간의 동거·부양·협조의무 — 제1차 부양의무의 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 145
     },
     {
@@ -5139,8 +4826,6 @@
         "explanation": "친생추정 — 혼인 중에 임신한 자녀는 남편의 자녀로 추정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 146
     },
     {
@@ -5174,8 +4859,6 @@
         "explanation": "공동상속인의 협의에 의한 상속재산 분할 — 협의분할의 근거 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 147
     },
     {
@@ -5209,8 +4892,6 @@
         "explanation": "법률의 착오 — 오인에 정당한 이유가 있을 때만 벌하지 않음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 148
     },
     {
@@ -5244,8 +4925,6 @@
         "explanation": "부진정신분범에 가담한 비신분자 — 무거운 형으로 벌하지 않음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 149
     },
     {
@@ -5279,8 +4958,6 @@
         "explanation": "미결구금일수의 전부 산입 — 일부 산입 위헌결정 이후의 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 150,
-      "gradeLabel": "4급",
       "learningOrder": 150
     },
     {
@@ -5314,8 +4991,6 @@
         "explanation": "행정권의 귀속 — 대통령을 수반으로 하는 정부(공수처 판례)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 151
     },
     {
@@ -5349,8 +5024,6 @@
         "explanation": "대통령 권한대행의 사유 — 궐위와 사고의 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 152
     },
     {
@@ -5384,8 +5057,6 @@
         "explanation": "임의적 국민투표 부의의 대상 — 국가안위에 관한 중요정책(신임투표 불허)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 153
     },
     {
@@ -5419,8 +5090,6 @@
         "explanation": "공동상속인 상호 간 담보책임을 매도인의 담보책임과 같게 한 효과 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 154
     },
     {
@@ -5454,8 +5123,6 @@
         "explanation": "미성년자 법률행위의 요건 — 법정대리인의 동의",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 155
     },
     {
@@ -5489,8 +5156,6 @@
         "explanation": "성년후견개시 심판에서 본인의 의사 고려 — 자기결정권 존중",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 156
     },
     {
@@ -5524,8 +5189,6 @@
         "explanation": "법인 성립의 준칙 — 법률의 규정에 의하지 않으면 성립하지 못함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 157
     },
     {
@@ -5559,8 +5222,6 @@
         "explanation": "형기의 기산점 — 판결이 확정된 날",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 158
     },
     {
@@ -5594,8 +5255,6 @@
         "explanation": "내란선동죄의 실행행위 — 선동",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 159
     },
     {
@@ -5629,8 +5288,6 @@
         "explanation": "일반물건방화죄는 구체적 위험범 — 공공의 위험 발생",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 160
     },
     {
@@ -5664,8 +5321,6 @@
         "explanation": "총리령·부령의 근거 — 위임명령(포괄위임금지원칙)과 직권명령",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 161
     },
     {
@@ -5699,8 +5354,6 @@
         "explanation": "법관의 독립 — 헌법과 법률, 양심에 따른 독립 심판",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 162
     },
     {
@@ -5734,8 +5387,6 @@
         "explanation": "천연자원 채취·개발·이용의 법적 형식 — 특허",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 163
     },
     {
@@ -5769,8 +5420,6 @@
         "explanation": "이사 대표권 제한의 대항요건 — 등기",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 164
     },
     {
@@ -5804,8 +5453,6 @@
         "explanation": "임의대리인의 복임권 제한 — 본인의 승낙 또는 부득이한 사유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 165
     },
     {
@@ -5839,8 +5486,6 @@
         "explanation": "무권대리 계약의 효력 — 본인이 추인하지 않으면 본인에게 효력 없음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 166
     },
     {
@@ -5874,8 +5519,6 @@
         "explanation": "무권대리인의 책임 — 상대방의 선택에 따른 이행 또는 손해배상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 167
     },
     {
@@ -5909,8 +5552,6 @@
         "explanation": "실화죄 제2항의 객체 — 자기 소유인 제166조의 물건 또는 제167조의 물건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 168
     },
     {
@@ -5944,8 +5585,6 @@
         "explanation": "유가증권위조죄의 초과주관적 요소 — 행사할 목적",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 169
     },
     {
@@ -5979,8 +5618,6 @@
         "explanation": "허위공문서작성죄의 실행행위 — 허위로 작성하거나 변개",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 170
     },
     {
@@ -6014,8 +5651,6 @@
         "explanation": "권리구제형 헌법소원 청구기간의 핵심 숫자 — 사유가 있음을 안 날부터 90일",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 171
     },
     {
@@ -6049,8 +5684,6 @@
         "explanation": "지정재판부 각하결정의 요건 — 재판관 전원의 일치된 의견",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 172
     },
     {
@@ -6084,8 +5717,6 @@
         "explanation": "국가의 재외국민 보호의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 173
     },
     {
@@ -6119,8 +5750,6 @@
         "explanation": "조건성취 효력의 소급 — 당사자의 의사표시가 있어야 소급",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 174
     },
     {
@@ -6154,8 +5783,6 @@
         "explanation": "조건성취 방해에 따른 성취 의제의 요건 — 신의성실 위반",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 175
     },
     {
@@ -6189,8 +5816,6 @@
         "explanation": "점유권의 성립 요건 — 물건에 대한 사실상 지배",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 176
     },
     {
@@ -6224,8 +5849,6 @@
         "explanation": "방해예방청구권의 내용 — 예방 또는 손해배상의 담보 청구",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 177
     },
     {
@@ -6259,8 +5882,6 @@
         "explanation": "공문서부정행사죄의 실행행위 — 부정행사",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 178
     },
     {
@@ -6294,8 +5915,6 @@
         "explanation": "존속상해·중상해·특수상해·존속폭행 등에 대한 자격정지의 임의적 병과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 179
     },
     {
@@ -6329,8 +5948,6 @@
         "explanation": "체포·감금죄의 실행행위 — 감금(계속범)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 180
     },
     {
@@ -6364,8 +5981,6 @@
         "explanation": "영토조항 — 한반도와 그 부속도서",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 181
     },
     {
@@ -6399,8 +6014,6 @@
         "explanation": "정교분리원칙 — 종교와 정치의 분리",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 182
     },
     {
@@ -6434,8 +6047,6 @@
         "explanation": "청원에 대한 국가의 심사의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 183
     },
     {
@@ -6469,8 +6080,6 @@
         "explanation": "공유물 분할금지 약정의 최장기간 — 5년",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 184
     },
     {
@@ -6504,8 +6113,6 @@
         "explanation": "합유의 종료 사유 — 조합체의 해산 또는 합유물의 양도",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 185
     },
     {
@@ -6539,8 +6146,6 @@
         "explanation": "지상권소멸청구의 요건 — 2년 이상의 지료 연체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 186
     },
     {
@@ -6574,8 +6179,6 @@
         "explanation": "전세권의 담보물권성 — 전세금의 우선변제를 받을 권리",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 187
     },
     {
@@ -6609,8 +6212,6 @@
         "explanation": "강간죄의 수단 — 폭행 또는 협박",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 188
     },
     {
@@ -6644,8 +6245,6 @@
         "explanation": "비밀침해의 죄는 친고죄 — 고소가 있어야 공소제기",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 189
     },
     {
@@ -6679,8 +6278,6 @@
         "explanation": "권리행사방해죄의 객체 — 타인의 점유·권리의 목적이 된 자기의 물건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 190
     },
     {
@@ -6714,8 +6311,6 @@
         "explanation": "기본권 제한의 요건 — 필요한 경우에 한하여(과잉금지원칙)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 191
     },
     {
@@ -6749,8 +6344,6 @@
         "explanation": "국회의원의 자유위임 — 국가이익 우선·양심에 따른 직무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 192
     },
     {
@@ -6784,8 +6377,6 @@
         "explanation": "조약의 체결·비준에 대한 국회의 동의권",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 193
     },
     {
@@ -6819,8 +6410,6 @@
         "explanation": "물상보증인의 구상권 — 보증채무에 관한 규정에 따름",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 194
     },
     {
@@ -6854,8 +6443,6 @@
         "explanation": "권리질권의 목적 — 재산권(부동산 사용·수익 권리는 제외)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 195
     },
     {
@@ -6889,8 +6476,6 @@
         "explanation": "저당권의 효력이 과실에 미치는 시점 — 저당부동산 압류 이후",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 196
     },
     {
@@ -6924,8 +6509,6 @@
         "explanation": "일괄경매청구권 — 건물의 경매대가에서는 우선변제를 받지 못함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 197
     },
     {
@@ -6959,8 +6542,6 @@
         "explanation": "야간주거침입절도죄의 시간적 요건 — 야간",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 198
     },
     {
@@ -6994,8 +6575,6 @@
         "explanation": "강도죄의 객체 — 재물뿐 아니라 재산상의 이익(강제이득)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 199
     },
     {
@@ -7029,8 +6608,6 @@
         "explanation": "업무상과실·중과실 장물죄 — 중대한 과실",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 200
     },
     {
@@ -7064,8 +6641,6 @@
         "explanation": "대통령 임기 5년 단임 — 중임 금지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 201
     },
     {
@@ -7099,8 +6674,6 @@
         "explanation": "국회의 동의를 요하는 사면 — 일반사면(특별사면 아님)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 202
     },
     {
@@ -7134,8 +6707,6 @@
         "explanation": "국무총리의 행정각부 통할권",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 203
     },
     {
@@ -7169,8 +6740,6 @@
         "explanation": "물상보증인 구상권(제341조) 등을 저당권에 준용하는 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 204
     },
     {
@@ -7204,8 +6773,6 @@
         "explanation": "특정물인도채무자의 보존의무 기준 — 선량한 관리자의 주의",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 205
     },
     {
@@ -7239,8 +6806,6 @@
         "explanation": "외화채권의 환산 시기 — 지급할 때(현실 이행 시)의 이행지 환금시가",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 206
     },
     {
@@ -7274,8 +6839,6 @@
         "explanation": "채권자대위권 행사 통지 뒤 채무자의 처분 제한",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 207
     },
     {
@@ -7309,8 +6872,6 @@
         "explanation": "기국주의 — 국외에 있는 대한민국 선박·항공기 내 외국인의 범죄",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 208
     },
     {
@@ -7344,8 +6905,6 @@
         "explanation": "결과적 가중범의 성립 요건 — 무거운 결과의 예견가능성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 209
     },
     {
@@ -7379,8 +6938,6 @@
         "explanation": "정당행위의 일반 기준 — 사회상규에 위배되지 아니하는 행위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 210
     },
     {
@@ -7414,8 +6971,6 @@
         "explanation": "감사원 결산검사 결과의 보고 상대 — 대통령과 차년도국회",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 211
     },
     {
@@ -7449,8 +7004,6 @@
         "explanation": "법원의 위헌법률심판 제청 — 헌법재판소의 심판에 의하여 재판",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 212
     },
     {
@@ -7484,8 +7037,6 @@
         "explanation": "대법원 규칙제정권의 한계 — 법률에 저촉되지 아니하는 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 213
     },
     {
@@ -7519,8 +7070,6 @@
         "explanation": "지명채권양도의 제3자 대항요건 — 확정일자 있는 증서",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 214
     },
     {
@@ -7554,8 +7103,6 @@
         "explanation": "양도통지와 금반언 — 선의인 채무자의 보호",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 215
     },
     {
@@ -7589,8 +7136,6 @@
         "explanation": "상계금지 — 고의의 불법행위로 인한 채무(과실 불법행위와 구별)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 216
     },
     {
@@ -7624,8 +7169,6 @@
         "explanation": "지급금지명령을 받은 뒤 취득한 채권에 의한 상계의 금지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 217
     },
     {
@@ -7659,8 +7202,6 @@
         "explanation": "정당방위의 요건 — 방위행위의 상당한 이유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 218
     },
     {
@@ -7694,8 +7235,6 @@
         "explanation": "예비·음모의 한계 — 실행의 착수에 이르지 아니한 때",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 219
     },
     {
@@ -7729,8 +7268,6 @@
         "explanation": "후단 경합범의 요건 — 금고 이상의 형에 처한 확정판결",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 220
     },
     {
@@ -7764,8 +7301,6 @@
         "explanation": "지방자치단체의 장의 선임방법 등 지방자치 조직의 법률주의",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 221
     },
     {
@@ -7799,8 +7334,6 @@
         "explanation": "경제질서의 기본 — 개인과 기업의 경제상의 자유와 창의 존중",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 222
     },
     {
@@ -7834,8 +7367,6 @@
         "explanation": "위헌법률심판 제청의 요건 — 재판의 전제성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 223
     },
     {
@@ -7869,8 +7400,6 @@
         "explanation": "의사실현에 의한 계약 성립 — 승낙의 의사표시로 인정되는 사실",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 224
     },
     {
@@ -7904,8 +7433,6 @@
         "explanation": "채권자 수령지체 중 쌍방 책임 없는 이행불능 — 채권자 위험부담",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 225
     },
     {
@@ -7939,8 +7466,6 @@
         "explanation": "인도 전 목적물에서 생긴 과실의 귀속 — 매도인",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 226
     },
     {
@@ -7974,8 +7499,6 @@
         "explanation": "준소비대차의 대상 — 금전 기타 대체물의 지급의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 227
     },
     {
@@ -8009,8 +7532,6 @@
         "explanation": "형의 가중·감경 사유가 경합할 때 적용하는 순서",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 228
     },
     {
@@ -8044,8 +7565,6 @@
         "explanation": "제3자뇌물제공죄의 요건 — 직무에 관한 부정한 청탁",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 229
     },
     {
@@ -8079,8 +7598,6 @@
         "explanation": "공무집행방해죄의 객체 — 직무를 집행하는 공무원",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 230
     },
     {
@@ -8114,8 +7631,6 @@
         "explanation": "제청서 기재사항 조문 — 제청의 대상인 '위헌 여부 심판'; '제청서'는 '제청할'에 조각이 남아 피함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 231
     },
     {
@@ -8149,8 +7664,6 @@
         "explanation": "형벌조항 위헌결정의 효력 — 소급하여 효력 상실",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 232
     },
     {
@@ -8184,8 +7697,6 @@
         "explanation": "가처분(효력정지) 규정이 적용되는 심판 — 권한쟁의심판",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 233
     },
     {
@@ -8219,8 +7730,6 @@
         "explanation": "위임 해지에 따른 손해배상의 요건 — 상대방의 불리한 시기",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 234
     },
     {
@@ -8254,8 +7763,6 @@
         "explanation": "화해계약 착오취소의 예외 — 분쟁 이외의 사항에 관한 착오",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 235
     },
     {
@@ -8289,8 +7796,6 @@
         "explanation": "사용자책임의 요건 — 피용자의 사무집행 관련성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 236
     },
     {
@@ -8324,8 +7829,6 @@
         "explanation": "입양의 성립 — 가족관계등록법에 따른 신고",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 237
     },
     {
@@ -8359,8 +7862,6 @@
         "explanation": "공무상표시무효죄의 객체 — 봉인·압류 기타 강제처분의 표시",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 238
     },
     {
@@ -8394,8 +7895,6 @@
         "explanation": "자기소유 일반건조물방화 — 공공의 위험 발생(구체적 위험범)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 239
     },
     {
@@ -8429,8 +7928,6 @@
         "explanation": "일반교통방해죄의 객체 — 육로·수로·교량",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 240
     },
     {
@@ -8464,8 +7961,6 @@
         "explanation": "국선대리인 신청 시 청구기간의 기준일 — 선임신청이 있는 날",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 241
     },
     {
@@ -8499,8 +7994,6 @@
         "explanation": "조약·일반적으로 승인된 국제법규의 국내법적 효력",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 242
     },
     {
@@ -8534,8 +8027,6 @@
         "explanation": "통신의 비밀 보장(판례 핵심어) — 사생활의 비밀과 자유(제17조)와 가르는 말",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 243
     },
     {
@@ -8569,8 +8060,6 @@
         "explanation": "상속재산 분할방법 지정·분할금지의 방식 — 유언",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 244
     },
     {
@@ -8604,8 +8093,6 @@
         "explanation": "유류분 부족분 반환의 내용 — 재산의 가액 지급 청구",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 245
     },
     {
@@ -8639,8 +8126,6 @@
         "explanation": "대습상속·특별수익 규정 등을 유류분에 준용하는 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 246
     },
     {
@@ -8674,8 +8159,6 @@
         "explanation": "처분허락 재산의 요건 — 범위를 정한 허락(포괄적 허락 불가)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 247
     },
     {
@@ -8709,8 +8192,6 @@
         "explanation": "통화위조 예비·음모의 필요적 감면 사유 — 실행 전 자수",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 248
     },
     {
@@ -8744,8 +8225,6 @@
         "explanation": "공문서위조·변조죄의 주관적 요건 — 행사할 목적(목적범)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 249
     },
     {
@@ -8779,8 +8258,6 @@
         "explanation": "공정증서원본 등 부실기재죄의 행위 — 부실의 사실 기재·기록",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 250
     },
     {
@@ -8814,8 +8291,6 @@
         "explanation": "범죄피해자구조청구권의 대상 피해(재산 피해 제외)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 251
     },
     {
@@ -8849,8 +8324,6 @@
         "explanation": "조세법률주의(판례 핵심어) — 납세를 비우면 제39조 국방과 헷갈려 법률을 비움",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 252
     },
     {
@@ -8884,8 +8357,6 @@
         "explanation": "일부거부 금지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 253
     },
     {
@@ -8919,8 +8390,6 @@
         "explanation": "실종선고의 효과 — 실종기간 만료 시 사망 간주(추정 아님)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 254
     },
     {
@@ -8954,8 +8423,6 @@
         "explanation": "생전처분에 의한 재단법인 설립에 준용되는 규정 — 증여",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 255
     },
     {
@@ -8989,8 +8456,6 @@
         "explanation": "제3자의 사기·강박 — 상대방이 알았거나 알 수 있었을 때에만 취소",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 256
     },
     {
@@ -9024,8 +8489,6 @@
         "explanation": "대리권수여표시에 의한 표현대리의 요건 — 수여의 표시",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 257
     },
     {
@@ -9059,8 +8522,6 @@
         "explanation": "도박죄의 예외 — 일시오락 정도에 불과한 경우",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 258
     },
     {
@@ -9094,8 +8555,6 @@
         "explanation": "상해치사죄의 기본행위 — 상해(폭행치사와 구별)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 259
     },
     {
@@ -9129,8 +8588,6 @@
         "explanation": "특수폭행의 행위 태양 — 위험한 물건의 휴대",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 260
     },
     {
@@ -9164,8 +8621,6 @@
         "explanation": "국채 모집·예산 외 부담계약에 대한 국회의 사전 동의권(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 261
     },
     {
@@ -9199,8 +8654,6 @@
         "explanation": "국무총리 등의 국회 출석·발언의 대상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 262
     },
     {
@@ -9234,8 +8687,6 @@
         "explanation": "국회규칙제정권의 대상(판례 핵심어 의사자율권)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 263
     },
     {
@@ -9269,8 +8720,6 @@
         "explanation": "무효행위 전환의 요건 — 당사자의 가정적 의사(의욕)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 264
     },
     {
@@ -9304,8 +8753,6 @@
         "explanation": "3년 단기소멸시효 제1호 채권의 요건 — 1년 이내의 기간으로 정한 정기급부채권",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 265
     },
     {
@@ -9339,8 +8786,6 @@
         "explanation": "시효중단의 인적 범위 — 당사자 및 그 승계인",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 266
     },
     {
@@ -9374,8 +8819,6 @@
         "explanation": "물권법정주의 — 물권 창설의 근거는 법률 또는 관습법",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 267
     },
     {
@@ -9409,8 +8852,6 @@
         "explanation": "미성년자약취·유인죄의 행위 — 약취",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 268
     },
     {
@@ -9444,8 +8885,6 @@
         "explanation": "강간·유사강간·강제추행·준강간 등의 미수범 처벌 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 269
     },
     {
@@ -9479,8 +8918,6 @@
         "explanation": "합동절도의 요건 — 2명 이상의 합동",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 270
     },
     {
@@ -9514,8 +8951,6 @@
         "explanation": "조약에 관한 대통령의 권한",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 271
     },
     {
@@ -9549,8 +8984,6 @@
         "explanation": "대통령 국법상 행위의 요건 — 부서",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 272
     },
     {
@@ -9584,8 +9017,6 @@
         "explanation": "불소추특권의 범위(판례 핵심어 불소추특권)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 273
     },
     {
@@ -9619,8 +9050,6 @@
         "explanation": "과실취득권의 요건 — 선의의 점유자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 274
     },
     {
@@ -9654,8 +9083,6 @@
         "explanation": "수도 등 시설권의 요건 — 시설할 수 없거나 과다한 비용을 요하는 경우",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 275
     },
     {
@@ -9689,8 +9116,6 @@
         "explanation": "주위토지통행권자의 의무 — 손해의 '보상'(배상 아님)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 276
     },
     {
@@ -9724,8 +9149,6 @@
         "explanation": "공유의 개념 표지 — 지분에 의한 수인의 소유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 277
     },
     {
@@ -9759,8 +9182,6 @@
         "explanation": "손괴죄의 행위 — 기타 방법으로 효용을 해함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 278
     },
     {
@@ -9794,8 +9215,6 @@
         "explanation": "특수손괴의 행위 태양 — 단체 또는 다중의 위력",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 279
     },
     {
@@ -9829,8 +9248,6 @@
         "explanation": "외국인의 국외범(보호주의) — 제3조의 내국인과 가르는 말",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 280
     },
     {
@@ -9864,8 +9281,6 @@
         "explanation": "국무회의의 성격 — 심의기관(의결기관 아님)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 281
     },
     {
@@ -9899,8 +9314,6 @@
         "explanation": "감사원의 직무감찰권(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 282
     },
     {
@@ -9934,8 +9347,6 @@
         "explanation": "감사원장 임명의 요건(감사위원의 원장 제청과 대비)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 283
     },
     {
@@ -9969,8 +9380,6 @@
         "explanation": "합유물 보존행위는 합유자 각자가 단독으로 할 수 있음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 284
     },
     {
@@ -10004,8 +9413,6 @@
         "explanation": "유치권의 견련관계 요건 — 그 물건에 관하여 생긴 채권",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 285
     },
     {
@@ -10039,8 +9446,6 @@
         "explanation": "유치권의 불가분성 — 채권 전부를 변제받을 때까지 유치물 전부에 권리 행사",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 286
     },
     {
@@ -10074,8 +9479,6 @@
         "explanation": "저당권의 효력이 미치는 범위 — 부합물과 종물",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 287
     },
     {
@@ -10109,8 +9512,6 @@
         "explanation": "보호주의 적용의 예외 요건(판례 핵심어 외국인의 국외범·재판권)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 288
     },
     {
@@ -10144,8 +9545,6 @@
         "explanation": "작위의무의 발생근거 — 선행행위(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 289
     },
     {
@@ -10179,8 +9578,6 @@
         "explanation": "임의적 몰수(판례 핵심어 임의적 몰수·법관의 재량)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 290
     },
     {
@@ -10214,8 +9611,6 @@
         "explanation": "법원의 조직(판례 핵심어 최고법원·심급제도)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 291
     },
     {
@@ -10249,8 +9644,6 @@
         "explanation": "재판공개 원칙 — 심리와 달리 판결은 비공개할 수 없음",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 292
     },
     {
@@ -10284,8 +9677,6 @@
         "explanation": "선거운동의 기회균등(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 293
     },
     {
@@ -10319,8 +9710,6 @@
         "explanation": "특별손해의 배상 요건 — 특별한 사정에 대한 예견가능성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 294
     },
     {
@@ -10354,8 +9743,6 @@
         "explanation": "과실상계의 효과 — 법원의 필요적 참작(직권 고려)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 295
     },
     {
@@ -10389,8 +9776,6 @@
         "explanation": "채권자지체의 효과 — 이행의 제공이 있는 때부터 지체책임",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 296
     },
     {
@@ -10424,8 +9809,6 @@
         "explanation": "분할채권관계의 원칙 — 균등한 비율로 권리·의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 297
     },
     {
@@ -10459,8 +9842,6 @@
         "explanation": "집행유예 결격사유의 기준(판례 핵심어 결격사유)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 298
     },
     {
@@ -10494,8 +9875,6 @@
         "explanation": "집행유예의 필요적 취소 요건 — 결격사유의 사후 발각",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 299
     },
     {
@@ -10529,8 +9908,6 @@
         "explanation": "벌금 노역장 유치기간의 상한(판례 핵심어 유치기간)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 300,
-      "gradeLabel": "3급",
       "learningOrder": 300
     },
     {
@@ -10564,8 +9941,6 @@
         "explanation": "국토 이용·개발 제한의 헌법적 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 301
     },
     {
@@ -10599,8 +9974,6 @@
         "explanation": "심판기간 — 조문의 핵심 숫자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 302
     },
     {
@@ -10634,8 +10007,6 @@
         "explanation": "권한쟁의·헌법소원심판에 함께 준용되는 법률(판례 핵심어 권한쟁의심판·가처분)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 303
     },
     {
@@ -10669,8 +10040,6 @@
         "explanation": "변제충당의 1차 기준 — 변제자의 지정(지정변제충당)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 304
     },
     {
@@ -10704,8 +10073,6 @@
         "explanation": "법정대위의 요건 — 변제할 정당한 이익",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 305
     },
     {
@@ -10739,8 +10106,6 @@
         "explanation": "계약체결상 과실책임의 상한 — 이행이익(이익액)을 넘지 못함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 306
     },
     {
@@ -10774,8 +10139,6 @@
         "explanation": "이행지체로 인한 해제의 요건 — 상당한 기간을 정한 최고",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 307
     },
     {
@@ -10809,8 +10172,6 @@
         "explanation": "폭발물사용죄의 구성요건적 결과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 308
     },
     {
@@ -10844,8 +10205,6 @@
         "explanation": "직권남용죄의 결과 요건(판례 핵심어 의무 없는 일)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 309
     },
     {
@@ -10879,8 +10238,6 @@
         "explanation": "뇌물의 필요적 몰수 — 제48조의 임의적 몰수와 대비(판례 핵심어 필요적 몰수)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 310
     },
     {
@@ -10914,8 +10271,6 @@
         "explanation": "법률 전부에 대한 위헌결정의 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 311
     },
     {
@@ -10949,8 +10304,6 @@
         "explanation": "탄핵심판절차 정지의 임의성",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 312
     },
     {
@@ -10984,8 +10337,6 @@
         "explanation": "선고 전 파면 시의 결정 형식(판례 핵심어 탄핵심판의 이익)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 313
     },
     {
@@ -11019,8 +10370,6 @@
         "explanation": "이행불능으로 인한 해제의 요건 — 채무자의 귀책사유",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 314
     },
     {
@@ -11054,8 +10403,6 @@
         "explanation": "권리 일부 타인귀속의 담보책임 — 손해배상은 선의의 매수인만",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 315
     },
     {
@@ -11089,8 +10436,6 @@
         "explanation": "수임인의 권리이전의무 — 위임인을 위하여 자기의 명의로 취득한 권리",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 316
     },
     {
@@ -11124,8 +10469,6 @@
         "explanation": "위임의 무상 원칙 — 특별한 약정이 있어야 보수청구",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 317
     },
     {
@@ -11159,8 +10502,6 @@
         "explanation": "위증 후 자백·자수의 필요적 감면(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 318
     },
     {
@@ -11194,8 +10535,6 @@
         "explanation": "현주건조물방화의 객체 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 319
     },
     {
@@ -11229,8 +10568,6 @@
         "explanation": "자기소유물 방화의 결과적 가중범 — 연소",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 320
     },
     {
@@ -11264,8 +10601,6 @@
         "explanation": "정당해산결정의 효력 발생 시점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 321
     },
     {
@@ -11299,8 +10634,6 @@
         "explanation": "권한쟁의 취소결정의 소급효 제한",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 322
     },
     {
@@ -11334,8 +10667,6 @@
         "explanation": "조합계약의 성립 요건 — 상호출자와 공동사업 경영의 약정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 323
     },
     {
@@ -11369,8 +10700,6 @@
         "explanation": "비재산적 손해(위자료)의 배상 근거",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 324
     },
     {
@@ -11404,8 +10733,6 @@
         "explanation": "양육 협의에 대한 가정법원 개입의 기준 — 자(子)의 복리",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 325
     },
     {
@@ -11439,8 +10766,6 @@
         "explanation": "특별대리인 선임의 요건 — 친권자와 자 사이의 이해상반행위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 326
     },
     {
@@ -11474,8 +10799,6 @@
         "explanation": "작성권한 있는 자의 허위 작성 — 위조와 가르는 행위(판례 핵심어 작성권한)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 327
     },
     {
@@ -11509,8 +10832,6 @@
         "explanation": "위조등 공문서행사죄의 실행행위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 328
     },
     {
@@ -11544,8 +10865,6 @@
         "explanation": "음화반포등죄의 객체(판례 핵심어 기타 물건)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 329
     },
     {
@@ -11579,8 +10898,6 @@
         "explanation": "특별수익자의 상속분 — 수증재산이 상속분에 부족한 부분의 한도",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 330
     },
     {
@@ -11614,8 +10931,6 @@
         "explanation": "기여분의 상한 — 재산가액에서 유증의 가액을 공제한 액",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 331
     },
     {
@@ -11649,8 +10964,6 @@
         "explanation": "한정승인의 효과 — 상속으로 취득할 재산의 한도에서 책임",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 332
     },
     {
@@ -11684,8 +10997,6 @@
         "explanation": "유언 방식 법정주의 — 법정된 5종 방식 가운데 하나",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 333
     },
     {
@@ -11719,8 +11030,6 @@
         "explanation": "도박장소개설죄의 목적 요건(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 334
     },
     {
@@ -11754,8 +11063,6 @@
         "explanation": "폭행치사상(결과적 가중범)의 중한 결과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 335
     },
     {
@@ -11789,8 +11096,6 @@
         "explanation": "유기죄 주체의 보호의무 근거(판례 핵심어 법률상 보호의무)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 336
     },
     {
@@ -11824,8 +11129,6 @@
         "explanation": "유류분반환청구권의 단기소멸시효 — 안 때로부터 1년",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 337
     },
     {
@@ -11859,8 +11162,6 @@
         "explanation": "법정대리인의 동의·허락 '취소'(실질은 철회) — 법률행위 전까지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 338
     },
     {
@@ -11894,8 +11195,6 @@
         "explanation": "재산관리인의 권한초과행위 — 법원의 허가",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 339
     },
     {
@@ -11929,8 +11228,6 @@
         "explanation": "사단법인 설립자의 정관 작성·기명날인 의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 340
     },
     {
@@ -11964,8 +11261,6 @@
         "explanation": "특수체포·감금의 가중 정도 — 조문의 핵심 숫자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 341
     },
     {
@@ -11999,8 +11294,6 @@
         "explanation": "준강간·준강제추행의 상태 요건(판례 핵심어 심신상실)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 342
     },
     {
@@ -12034,8 +11327,6 @@
         "explanation": "출판물 명예훼손의 초과주관적 요건(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 343
     },
     {
@@ -12069,8 +11360,6 @@
         "explanation": "사단법인 총회의 소집통지 기간 — 1주간 전 발송",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 344
     },
     {
@@ -12104,8 +11393,6 @@
         "explanation": "도달주의 — 상대방 있는 의사표시의 효력발생 시기를 가르는 말(판례 핵심어 도달주의)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 345
     },
     {
@@ -12139,8 +11426,6 @@
         "explanation": "대리권소멸후 표현대리로 보호받는 상대방의 요건(단서의 무과실과 짝)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 346
     },
     {
@@ -12174,8 +11459,6 @@
         "explanation": "취소의 방식 — 확정된 상대방에 대한 의사표시(판례 핵심어 취소의 의사표시)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 347
     },
     {
@@ -12209,8 +11492,6 @@
         "explanation": "경매·입찰방해죄의 보호법익(판례 핵심어 입찰의 공정)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 348
     },
     {
@@ -12244,8 +11525,6 @@
         "explanation": "인질살해(고의)와 인질치사(결과적 가중범)를 가르는 말",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 349
     },
     {
@@ -12279,8 +11558,6 @@
         "explanation": "강제집행면탈죄의 목적 요건(목적범)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 350
     },
     {
@@ -12314,8 +11591,6 @@
         "explanation": "기한의 이익의 포기 가능성과 그 한계(판례 핵심어 기한의 이익의 포기)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 351
     },
     {
@@ -12349,8 +11624,6 @@
         "explanation": "소멸시효 소급효의 기준 시점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 352
     },
     {
@@ -12384,8 +11657,6 @@
         "explanation": "주된 권리의 시효완성이 미치는 대상 — 종속된 권리(지연손해금 등, 판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 353
     },
     {
@@ -12419,8 +11690,6 @@
         "explanation": "점유개정의 효과 — 양수인이 인도받은 것으로 간주",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 354
     },
     {
@@ -12454,8 +11723,6 @@
         "explanation": "강도상해·치상의 법정형 하한 — 조문의 핵심 숫자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 355
     },
     {
@@ -12489,8 +11756,6 @@
         "explanation": "절도·강도죄의 미수범 처벌(판례 핵심어 절도미수)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 356
     },
     {
@@ -12524,8 +11789,6 @@
         "explanation": "공갈죄의 객체 — 재물과 함께 규정된 이득(판례 핵심어 재산상 이익)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 357
     },
     {
@@ -12559,8 +11822,6 @@
         "explanation": "점유보조자를 점유자와 가르는 요건 — 타인의 지시를 받는 관계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 358
     },
     {
@@ -12594,8 +11855,6 @@
         "explanation": "점유보호청구권의 행사 주체를 간접점유자까지 넓히는 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 359
     },
     {
@@ -12629,8 +11888,6 @@
         "explanation": "소유물반환청구를 막는 항변 사유(판례 핵심어 점유할 권리)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 360
     },
     {
@@ -12664,8 +11921,6 @@
         "explanation": "선의취득의 요건 — 무과실(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 361
     },
     {
@@ -12699,8 +11954,6 @@
         "explanation": "중손괴죄(구체적 위험범)의 결과 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 362
     },
     {
@@ -12734,8 +11987,6 @@
         "explanation": "과실범을 처벌하는 요건(법률의 특별규정)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 363
     },
     {
@@ -12769,8 +12020,6 @@
         "explanation": "피해자 승낙의 주체 요건(법익 처분권자)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 364
     },
     {
@@ -12804,8 +12053,6 @@
         "explanation": "공유물 처분·변경의 요건 — 다른 공유자의 동의(과반수로 하는 관리와 대비)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 365
     },
     {
@@ -12839,8 +12086,6 @@
         "explanation": "전세권자가 상환을 청구할 수 있는 비용은 유익비뿐(판례 핵심어 유익비상환청구권)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 366
     },
     {
@@ -12874,8 +12119,6 @@
         "explanation": "전세권 존속기간의 상한 — 조문의 핵심 숫자",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 367
     },
     {
@@ -12909,8 +12152,6 @@
         "explanation": "질권 피담보채권의 범위 — 채무불이행으로 인한 손해배상(판례 핵심어 지연손해금)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 368
     },
     {
@@ -12944,8 +12185,6 @@
         "explanation": "누범의 기간 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 369
     },
     {
@@ -12979,8 +12218,6 @@
         "explanation": "후단 경합범의 임의적 감면",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 370
     },
     {
@@ -13014,8 +12251,6 @@
         "explanation": "정상참작감경의 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 371
     },
     {
@@ -13049,8 +12284,6 @@
         "explanation": "금전채권 질권자의 직접청구 범위(판례 핵심어 직접청구권·부당이득반환)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 372
     },
     {
@@ -13084,8 +12317,6 @@
         "explanation": "다른 통화로 변제하게 되는 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 373
     },
     {
@@ -13119,8 +12350,6 @@
         "explanation": "민사 법정이율 — 조문의 핵심 숫자(판례 핵심어 법정이율)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 374
     },
     {
@@ -13154,8 +12383,6 @@
         "explanation": "금전채무불이행 손해배상액의 기준(판례 핵심어 법정이율·약정이율)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 375
     },
     {
@@ -13189,8 +12416,6 @@
         "explanation": "선고유예의 필요적 실효사유(자격정지 이상 전과의 발견)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 376
     },
     {
@@ -13224,8 +12449,6 @@
         "explanation": "형의 집행유예에 붙이는 처분",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 377
     },
     {
@@ -13259,8 +12482,6 @@
         "explanation": "간첩죄의 객체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 378
     },
     {
@@ -13294,8 +12515,6 @@
         "explanation": "연대채무의 성립 요건 — 각 채무자의 전부 급부의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 379
     },
     {
@@ -13329,8 +12548,6 @@
         "explanation": "절대적 효력이 인정되는 사유 — 경개",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 380
     },
     {
@@ -13364,8 +12581,6 @@
         "explanation": "구상요건으로서의 사후 통지(판례 핵심어 통지의무)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 381
     },
     {
@@ -13399,8 +12614,6 @@
         "explanation": "양도금지특약을 대항할 수 없는 상대방(판례 핵심어 선의의 제3자)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 382
     },
     {
@@ -13434,8 +12647,6 @@
         "explanation": "공무상비밀누설죄의 객체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 383
     },
     {
@@ -13469,8 +12680,6 @@
         "explanation": "증뢰물전달죄의 목적 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 384
     },
     {
@@ -13504,8 +12713,6 @@
         "explanation": "공용서류무효죄의 객체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 385
     },
     {
@@ -13539,8 +12746,6 @@
         "explanation": "채무자와의 계약에 의한 채무인수의 효력요건(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 386
     },
     {
@@ -13574,8 +12779,6 @@
         "explanation": "변제제공의 원칙적 방법(단서의 구두제공과 대비)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 387
     },
     {
@@ -13609,8 +12812,6 @@
         "explanation": "법정 충당순서 — 일방의 지정으로 바꿀 수 없음(판례 핵심어 변제충당)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 388
     },
     {
@@ -13644,8 +12845,6 @@
         "explanation": "상계 의사표시에 붙일 수 없는 부관(판례 핵심어 상계의 의사표시·소송상 상계)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 389
     },
     {
@@ -13679,8 +12878,6 @@
         "explanation": "도주원조죄의 객체(법률에 의하여 구금된 자)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 390
     },
     {
@@ -13714,8 +12911,6 @@
         "explanation": "범인은닉·도피죄의 행위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 391
     },
     {
@@ -13749,8 +12944,6 @@
         "explanation": "변사체검시방해죄의 보호대상; 한자 병기가 답을 드러내므로 병기까지 빈칸",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 392
     },
     {
@@ -13784,8 +12977,6 @@
         "explanation": "증여 해제의 요건 — 서면에 의하지 아니한 증여(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 393
     },
     {
@@ -13819,8 +13010,6 @@
         "explanation": "종류매매의 완전물급부청구권(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 394
     },
     {
@@ -13854,8 +13043,6 @@
         "explanation": "대물대차에서 차용액을 정하는 기준",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 395
     },
     {
@@ -13889,8 +13076,6 @@
         "explanation": "임대차를 사용대차와 가르는 본질적 요소",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 396
     },
     {
@@ -13924,8 +13109,6 @@
         "explanation": "업무상실화죄의 요건(중실화와 구별)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 397
     },
     {
@@ -13959,8 +13142,6 @@
         "explanation": "수리방해죄의 객체; 한자 병기가 답을 드러내므로 병기까지 빈칸",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 398
     },
     {
@@ -13994,8 +13175,6 @@
         "explanation": "기차등전복죄의 행위 태양(파괴의 의미)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 399
     },
     {
@@ -14029,8 +13208,6 @@
         "explanation": "차임증감청구의 효과 범위 — 소급하지 않음(판례 핵심어 소급효)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 400,
-      "gradeLabel": "2급",
       "learningOrder": 400
     },
     {
@@ -14064,8 +13241,6 @@
         "explanation": "보수 후급의 원칙 — 지급시기·소멸시효 기산점(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 401
     },
     {
@@ -14099,8 +13274,6 @@
         "explanation": "조합재산의 소유형태(판례 핵심어 합유)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 402
     },
     {
@@ -14134,8 +13307,6 @@
         "explanation": "잔여재산 분배비율의 기준(판례 핵심어 출자가액)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 403
     },
     {
@@ -14169,8 +13340,6 @@
         "explanation": "위조유가증권의 행사 외에 행사할 목적으로 하는 행위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 404
     },
     {
@@ -14204,8 +13373,6 @@
         "explanation": "자격모용 공문서작성죄의 모용 대상(사문서의 제232조와 구별)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 405
     },
     {
@@ -14239,8 +13406,6 @@
         "explanation": "자격모용 사문서작성죄의 행위(타인 자격의 모용)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 406
     },
     {
@@ -14274,8 +13439,6 @@
         "explanation": "불법원인급여 반환청구 제한의 예외(단서)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 407
     },
     {
@@ -14309,8 +13472,6 @@
         "explanation": "공동행위자로 의제되는 자(판례 핵심어 과실에 의한 방조)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 408
     },
     {
@@ -14344,8 +13505,6 @@
         "explanation": "부부재산약정을 혼인 중 변경하기 위한 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 409
     },
     {
@@ -14379,8 +13538,6 @@
         "explanation": "재판상 이혼에 준용되는 권리(판례 핵심어 재산분할) — 뒤의 사해행위취소권 부분은 같은 말이 되풀이되어 잘라 냄",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 410
     },
     {
@@ -14414,8 +13571,6 @@
         "explanation": "허위진단서작성죄의 객체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 411
     },
     {
@@ -14449,8 +13604,6 @@
         "explanation": "공연음란죄의 행위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 412
     },
     {
@@ -14484,8 +13637,6 @@
         "explanation": "자살관여죄의 행위(교사·방조)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 413
     },
     {
@@ -14519,8 +13670,6 @@
         "explanation": "친생자관계존부확인의 소의 보충성 — 친생부인의 소와 가르는 말(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 414
     },
     {
@@ -14554,8 +13703,6 @@
         "explanation": "분할 소급효의 제한(판례 핵심어 제3자)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 415
     },
     {
@@ -14589,8 +13736,6 @@
         "explanation": "유언의 요식성(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 416
     },
     {
@@ -14624,8 +13769,6 @@
         "explanation": "포괄적 수증자의 지위(판례 핵심어 포괄적 수증자)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 417
     },
     {
@@ -14659,8 +13802,6 @@
         "explanation": "동시범 특례의 효과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 418
     },
     {
@@ -14694,8 +13835,6 @@
         "explanation": "상습범 가중의 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 419
     },
     {
@@ -14729,8 +13868,6 @@
         "explanation": "과실치상죄의 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 420
     },
     {
@@ -14764,8 +13901,6 @@
         "explanation": "1년 전 증여를 산입하는 요건 — 당사자 쌍방의 가해 인식(판례 핵심어)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 421
     },
     {
@@ -14799,8 +13934,6 @@
         "explanation": "유류분 반환의 순서 — 유증 먼저",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 422
     },
     {
@@ -14834,8 +13967,6 @@
         "explanation": "보통실종의 실종기간 — 조문의 핵심 숫자(판례 핵심어 실종선고)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 423
     },
     {
@@ -14869,8 +14000,6 @@
         "explanation": "법인 권리능력의 한계를 정하는 요건(정관상 목적 범위)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 424
     },
     {
@@ -14904,8 +14033,6 @@
         "explanation": "유기치사의 결과",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 425
     },
     {
@@ -14939,8 +14066,6 @@
         "explanation": "약취·유인죄의 목적 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 426
     },
     {
@@ -14974,8 +14099,6 @@
         "explanation": "미성년자의제강간·강제추행의 연령 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 427
     },
     {
@@ -15009,8 +14132,6 @@
         "explanation": "이사의 직무수행 주의의무의 기준(선관주의)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 428
     },
     {
@@ -15044,8 +14165,6 @@
         "explanation": "귀속권리자 지정이 없을 때 잔여재산을 처분하는 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 429
     },
     {
@@ -15079,8 +14198,6 @@
         "explanation": "청산법인 권리능력의 한계",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 430
     },
     {
@@ -15114,8 +14231,6 @@
         "explanation": "종물의 요건(주물의 상용에 공함); 제2항은 20자 미만",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 431
     },
     {
@@ -15149,8 +14264,6 @@
         "explanation": "명예훼손의 위법성조각 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 432
     },
     {
@@ -15184,8 +14297,6 @@
         "explanation": "모욕죄의 공연성 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 433
     },
     {
@@ -15219,8 +14330,6 @@
         "explanation": "강요죄의 결과(의무 없는 일을 하게 함)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 434
     },
     {
@@ -15254,8 +14363,6 @@
         "explanation": "상대방이 진의 아님을 알았거나 알 수 있었을 때의 효과; 제2항은 제108조 제2항과 문언이 같아 제1항을 택함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 435
     },
     {
@@ -15289,8 +14396,6 @@
         "explanation": "무권대리 상대방이 본인의 추인 전까지 갖는 권리(최고권과 구별)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 436
     },
     {
@@ -15324,8 +14429,6 @@
         "explanation": "일부무효의 원칙적 효과(전부무효), 단서의 가정적 의사와 대비",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 437
     },
     {
@@ -15359,8 +14462,6 @@
         "explanation": "제한능력자의 반환범위(현존이익)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 438
     },
     {
@@ -15394,8 +14495,6 @@
         "explanation": "강도살인과 강도치사를 가르는 말",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 439
     },
     {
@@ -15429,8 +14528,6 @@
         "explanation": "강도강간죄의 주체(강도의 신분)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 440
     },
     {
@@ -15464,8 +14561,6 @@
         "explanation": "친족상도례가 준용되는 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 441
     },
     {
@@ -15499,8 +14594,6 @@
         "explanation": "1년 단기소멸시효 채권의 대표 유형; 본문은 제163조와 기간 숫자만 달라 제1호를 택함",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 442
     },
     {
@@ -15534,8 +14627,6 @@
         "explanation": "판결로 확정된 채권의 소멸시효기간",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 443
     },
     {
@@ -15569,8 +14660,6 @@
         "explanation": "동산물권 양도의 효력요건(공시방법)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 444
     },
     {
@@ -15604,8 +14693,6 @@
         "explanation": "유익비 상환범위(지출금액·증가액)를 고르는 사람",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 445
     },
     {
@@ -15639,8 +14726,6 @@
         "explanation": "부당이득죄의 객체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 446
     },
     {
@@ -15674,8 +14759,6 @@
         "explanation": "배임수재죄의 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 447
     },
     {
@@ -15709,8 +14792,6 @@
         "explanation": "점유회수청구권의 행사기간(제척기간·출소기간)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 448
     },
     {
@@ -15744,8 +14825,6 @@
         "explanation": "구분소유 건물에서 공유로 추정되는 대상(공용부분)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 449
     },
     {
@@ -15779,8 +14858,6 @@
         "explanation": "취득시효기간에 준용되는 규정(취득시효의 중단)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 450
     },
     {
@@ -15814,8 +14891,6 @@
         "explanation": "공유자가 공유물 전부를 사용·수익하는 기준",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 451
     },
     {
@@ -15849,8 +14924,6 @@
         "explanation": "공유자 각자가 단독으로 할 수 있는 행위(관리행위의 과반수 결정과 대비)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 452
     },
     {
@@ -15884,8 +14957,6 @@
         "explanation": "준공동소유(준공유)의 대상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 453
     },
     {
@@ -15919,8 +14990,6 @@
         "explanation": "유질계약 금지의 시기적 요건(변제기 전의 약정만 금지)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 454
     },
     {
@@ -15954,8 +15023,6 @@
         "explanation": "물상대위권 행사의 요건(지급·인도 전 압류)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 455
     },
     {
@@ -15989,8 +15056,6 @@
         "explanation": "질권설정자에게 금지되는 처분의 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 456
     },
     {
@@ -16024,8 +15089,6 @@
         "explanation": "저당권 소멸을 가져오는 피담보채권 소멸사유(부종성)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 457
     },
     {
@@ -16059,8 +15122,6 @@
         "explanation": "저당권 규정이 준용되는 대상(타법률에 의한 저당권)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 458
     },
     {
@@ -16094,8 +15155,6 @@
         "explanation": "이행지체 때 채권자가 수령을 거절하고 청구하는 전보배상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 459
     },
     {
@@ -16129,8 +15188,6 @@
         "explanation": "연대채무 규정 등이 준용되는 채무 유형",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 460
     },
     {
@@ -16164,8 +15221,6 @@
         "explanation": "보증채무에 포함되는 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 461
     },
     {
@@ -16199,8 +15254,6 @@
         "explanation": "주채무자에 대한 시효중단의 효력이 미치는 사람",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 462
     },
     {
@@ -16234,8 +15287,6 @@
         "explanation": "이의를 보류하지 않은 승낙의 요건과 대항사유 단절 효과(본문만 뗌)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 463
     },
     {
@@ -16269,8 +15320,6 @@
         "explanation": "제3자가 채무를 인수하여 채무자를 면책시키는 방식",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 464
     },
     {
@@ -16304,8 +15353,6 @@
         "explanation": "채무자의 의사에 반한 제3자 변제의 허부를 가르는 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 465
     },
     {
@@ -16339,8 +15386,6 @@
         "explanation": "채권자 불확지 변제공탁의 요건(변제자의 무과실)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 466
     },
     {
@@ -16374,8 +15419,6 @@
         "explanation": "압류금지채권을 수동채권으로 할 때 금지되는 것",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 467
     },
     {
@@ -16409,8 +15452,6 @@
         "explanation": "채무자위험부담주의의 요건(쌍방 무책), 제538조와 구별",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 468
     },
     {
@@ -16444,8 +15485,6 @@
         "explanation": "증여의 본질적 표지",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 469
     },
     {
@@ -16479,8 +15518,6 @@
         "explanation": "사인증여에 준용되는 규정",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 470
     },
     {
@@ -16514,8 +15551,6 @@
         "explanation": "매매 쌍방의무의 이행관계(동시이행)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 471
     },
     {
@@ -16549,8 +15584,6 @@
         "explanation": "악의 매수인에게 배제되는 담보책임의 내용(해제는 가능)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 472
     },
     {
@@ -16584,8 +15617,6 @@
         "explanation": "하자담보책임을 배제하는 매수인의 주관적 사정(악의 또는 과실)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 473
     },
     {
@@ -16619,8 +15650,6 @@
         "explanation": "소비대차의 목적물",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 474
     },
     {
@@ -16654,8 +15683,6 @@
         "explanation": "차주의 사망·파산 때 대주의 권리(해지권)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 475
     },
     {
@@ -16689,8 +15716,6 @@
         "explanation": "임대인의 사용·수익 상태 유지의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 476
     },
     {
@@ -16724,8 +15749,6 @@
         "explanation": "임대인이 해지통고한 경우 해지효력이 생기는 기간(임차인 통고 1월과 대비)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 477
     },
     {
@@ -16759,8 +15782,6 @@
         "explanation": "지상물매수청구권의 요건(지상시설의 현존)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 478
     },
     {
@@ -16794,8 +15815,6 @@
         "explanation": "고용에서 약정하는 급부(노무 제공)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 479
     },
     {
@@ -16829,8 +15848,6 @@
         "explanation": "도급의 본질(일의 완성)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 480
     },
     {
@@ -16864,8 +15881,6 @@
         "explanation": "수임인의 주의의무 기준(선관주의)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 481
     },
     {
@@ -16899,8 +15914,6 @@
         "explanation": "손익분배비율을 정하지 않았을 때의 기준",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 482
     },
     {
@@ -16934,8 +15947,6 @@
         "explanation": "조합원 제명의 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 483
     },
     {
@@ -16969,8 +15980,6 @@
         "explanation": "채무불이행 손해배상 규정(제393조 등)이 준용되는 대상",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 484
     },
     {
@@ -17004,8 +16013,6 @@
         "explanation": "불법행위 단기소멸시효의 기산점을 정하는 인식 주체",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 485
     },
     {
@@ -17039,8 +16046,6 @@
         "explanation": "약혼해제 손해배상의 요건(상대방의 과실)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 486
     },
     {
@@ -17074,8 +16079,6 @@
         "explanation": "부부 상호 대리권의 범위",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 487
     },
     {
@@ -17109,8 +16112,6 @@
         "explanation": "인지 소급효의 기준 시점",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 488
     },
     {
@@ -17144,8 +16145,6 @@
         "explanation": "친권자의 권한 소멸 때 부담하는 의무",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 489
     },
     {
@@ -17179,8 +16178,6 @@
         "explanation": "기타 친족 사이 부양의무의 요건(생계를 같이 함)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 490
     },
     {
@@ -17214,8 +16211,6 @@
         "explanation": "대습상속 원인(피대습인의 사망·결격)의 시기적 요건",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 491
     },
     {
@@ -17249,8 +16244,6 @@
         "explanation": "특별한정승인의 요건(상속채무 초과사실을 중대한 과실 없이 모름)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 492
     },
     {
@@ -17284,8 +16277,6 @@
         "explanation": "법정단순승인 사유(상속재산의 처분)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 493
     },
     {
@@ -17319,8 +16310,6 @@
         "explanation": "공정증서유언의 방식 요건(유언취지의 구수)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 494
     },
     {
@@ -17354,8 +16343,6 @@
         "explanation": "직계존속의 유류분 비율(직계비속·배우자 2분의 1과 대비)",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 495
     },
     {
@@ -17389,8 +16376,6 @@
         "explanation": "유류분 산정 기초재산의 평가 기준시",
         "source": "발간 워크북 조문 지문 · 원문 법률어 1곳 빈칸"
       },
-      "gradeThreshold": 496,
-      "gradeLabel": "1급",
       "learningOrder": 496
     }
   ]

@@ -18638,7 +18638,7 @@ section.art.law-subject-article-mode>.pager{display:none}
 <button class="game-tab" id="game-tab-polar" data-game-tab="polar" type="button" role="tab" aria-selected="false" aria-controls="game-panel-polar" tabindex="-1"><span class="gc-card-top"><span class="gc-icon" aria-hidden="true">↗</span><span class="gc-tag">액션 게임</span></span><strong>변시탐험</strong><span class="gc-card-description">달리고 점프하며 지문 확인</span></button>
 <button class="game-tab" id="game-tab-ethics" data-game-tab="ethics" type="button" role="tab" aria-selected="false" aria-controls="game-panel-ethics" tabindex="-1"><span class="gc-card-top"><span class="gc-icon" aria-hidden="true">§</span><span class="gc-tag">윤리 복습</span></span><strong>윤리게임</strong><span class="gc-card-description">법조윤리 기출 O/X</span></button>
 </div>
-<div class="gc-grade-links"><div><strong>급수에 도전하고 싶다면</strong><span>10분 · 10문제 · 오픈북</span></div><div><a href="standard-game.html?mode=exam">도전 판례왕 <span aria-hidden="true">↗</span></a><a href="standard-game.html?mode=statute">도전 조문왕 <span aria-hidden="true">↗</span></a><a href="standard-game.html?mode=source">출처찾기 <span aria-hidden="true">↗</span></a></div></div>
+<div class="gc-grade-links"><div><strong>판례와 조문을 더 연습하려면</strong><span>10분 · 10문제 · 오픈북</span></div><div><a href="standard-game.html?mode=exam">도전 판례왕 <span aria-hidden="true">↗</span></a><a href="standard-game.html?mode=statute">도전 조문왕 <span aria-hidden="true">↗</span></a><a href="standard-game.html?mode=source">출처찾기 <span aria-hidden="true">↗</span></a></div></div>
 </section>
 <div class="gc-workspace-bar" id="gameWorkspace"><p><span>선택한 게임</span><strong id="gameCurrentName" aria-live="polite">OX 퀴즈</strong></p><button class="game-btn" id="gameCatalogBack" type="button">전체 게임 <span aria-hidden="true">↑</span></button></div>
 <div class="game-layout">
@@ -18706,7 +18706,7 @@ section.art.law-subject-article-mode>.pager{display:none}
 <div class="game-target idle" id="blankQuestion">시작을 누르면 도전! 조문왕 문제가 나옵니다.</div>
 <input autocomplete="off" class="game-input" disabled="" id="blankInput" placeholder="빈칸에 들어갈 말" type="text"/>
 <div class="problem-report-row"><button class="problem-report-btn" id="blankReport" type="button" hidden="">오류 신고하기</button></div>
-<div class="game-feed" id="blankFeed">같은 정답 단어가 반복되지 않도록 문제를 구성했습니다.</div>
+<div class="game-feed" id="blankFeed">빈칸에 들어갈 말을 입력하세요.</div>
 </div>
 <div class="game-panel" id="game-panel-caseblank" role="tabpanel" aria-labelledby="game-tab-caseblank" data-game-panel="caseblank" hidden="">
 <h2>도전! 판례왕</h2>
@@ -18996,7 +18996,7 @@ window.__lawinusGameKeyAllowed=function(e,panel){
 </script>
 <div class="game-panel" id="game-panel-ethics" role="tabpanel" aria-labelledby="game-tab-ethics" data-game-panel="ethics" hidden="">
 <h2>윤리게임 <span style="font-size:14px;font-weight:700;color:var(--txt3)">— 법조윤리 기출 OX</span></h2>
-<p class="note">법조윤리시험 기출 atom을 따로 풀어보는 O/X 게임입니다. 문장이 맞으면 <b>O</b>, 틀리면 <b>X</b>.</p>
+<p class="note">법조윤리 기출 OX입니다. 문장이 맞으면 <b>O</b>, 틀리면 <b>X</b>.</p>
 <div class="game-controls">
 <input id="ethicsNick" maxlength="16" placeholder="닉네임" type="text"/>
 <select id="ethicsDuration"><option selected="" value="60">60초</option><option value="90">90초</option><option value="120">120초</option><option value="0">제한없음</option></select>
@@ -19145,8 +19145,8 @@ function gradePrivate(c,ans){if(!c||!c.id)return Promise.reject(new Error('missi
 </section>
 <section class="art" data-art="표준판례" data-pyeon="학습도구" id="표준판례">
 <div class="crumb">민법위키 › 대한민국 표준판례</div><h1>대한민국 표준판례</h1>
-<div class="plus-hero"><span class="plus-eyebrow">대한민국 표준판례 발간</span><h2>헌법·민법·형법, 1,800개 판례로 공부하세요.</h2><p>5급부터 특급까지 판례를 읽고, 오픈북 빈칸 도전으로 한 급씩 올라갑니다. 두 게임 모두 10분 동안 헌법 3문항·민법 4문항·형법 3문항, 60점 이상이면 합격입니다.</p><div class="plus-actions"><a href="standard-game.html">5급부터 도전하기</a><a class="secondary" href="concept-map.html?v=20261011-ui">판례를 3D 지도로 보기</a></div></div>
-<p>급수별 6권·과목별 3권(v033), 워크북(v026)의 선정 판례를 반영했습니다. 급수 범위는 5급 50개 · 4급 150개 · 3급 300개 · 2급 500개 · 1급 1,000개 · 특급 1,800개로 누적됩니다.</p>
+<div class="plus-hero"><span class="plus-eyebrow">대한민국 표준판례 발간</span><h2>헌법·민법·형법, 1,800개 판례로 공부하세요.</h2><p>판례왕은 5급부터 특급까지 도전합니다. 조문왕은 조문 빈칸을 풀어 봅니다. 두 게임 모두 10분 동안 헌법 3문항·민법 4문항·형법 3문항, 60점 이상이면 합격입니다.</p><div class="plus-actions"><a href="standard-game.html">5급부터 도전하기</a><a class="secondary" href="concept-map.html?v=20261011-ui">판례를 3D 지도로 보기</a></div></div>
+<p>급수 범위는 5급 50개 · 4급 150개 · 3급 300개 · 2급 500개 · 1급 1,000개 · 특급 1,800개로 누적됩니다.</p>
 <div id="standardLibrary"><div class="plus-toolbar"><label>과목<select data-standard-subject><option value="">헌법·민법·형법</option><option>헌법</option><option>민법</option><option>형법</option></select></label><label>누적 급수<select data-standard-grade><option value="50">5급 · 50개</option><option value="150">4급 · 150개</option><option value="300">3급 · 300개</option><option value="500">2급 · 500개</option><option value="1000">1급 · 1,000개</option><option value="1800" selected>특급 · 1,800개</option></select></label><label>판례 찾기<input type="search" data-standard-search placeholder="사건번호, 쟁점, 관련 조문"></label></div><p class="plus-status" aria-live="polite">발간 판례를 불러오는 중입니다.</p><div class="standard-grid"></div><button class="plus-button secondary" data-standard-more type="button">판례 더 보기</button></div>
 </section>
 <section class="art" data-art="판례쇼츠" data-pyeon="학습도구" id="판례쇼츠"><div class="crumb">민법위키 › 판례 쇼츠</div><h1>판례 쇼츠로 도전하세요</h1><div class="plus-hero"><h2>한 편의 판례, 한 번의 법학 도전</h2><p>영상으로 판례의 핵심을 읽고 대한민국 표준판례와 법학경시대회로 이어갑니다.</p><div class="plus-actions"><a href="https://lawtest.or.kr/" target="_blank" rel="noopener noreferrer">법학경시대회 알아보기</a><a class="secondary" href="standard-game.html">표준판례 급수 도전</a></div></div><div id="shortsLibrary"><p class="plus-status" aria-live="polite">판례 영상을 불러오는 중입니다.</p><div class="shorts-grid"></div><button class="plus-button secondary" data-shorts-more type="button">영상 더 보기</button></div></section>
@@ -19162,7 +19162,7 @@ function gradePrivate(c,ans){if(!c||!c.id)return Promise.reject(new Error('missi
 <div class="crumb">학습도구 › 자유게시판</div>
 <h1>자유게시판</h1>
 <div class="board-box" id="freeBoard">
-<section class="editorial-archive" id="editorialArchive"><h2>날짜별 운영 학습글</h2><p>게시글이 없던 날짜에 학습 자료를 배정했습니다. 운영팀이 현재 등록한 글이며, 자료 기준일과 실제 등록일을 구분합니다. 기존 이용자 글은 아래에 유지됩니다.</p><p class="plus-status" aria-live="polite">날짜별 자료를 불러오는 중입니다.</p><div class="plus-toolbar"><label>자료 기준일<select aria-label="자료 기준일"></select></label></div><div data-editorial-posts></div></section>
+<section class="editorial-archive" id="editorialArchive"><h2>날짜별 학습글</h2><p class="plus-status" aria-live="polite">날짜별 자료를 불러오는 중입니다.</p><div class="plus-toolbar"><label>날짜<select aria-label="날짜"></select></label></div><div data-editorial-posts></div></section>
 
 <div class="board-form">
 <div class="board-row"><input class="board-nick" maxlength="16" placeholder="닉네임 (비우면 익명)" type="text"/></div>
@@ -19335,7 +19335,7 @@ window.__KCI_BOOT=function(d){
     if(window.__openProblemReport){
       window.__openProblemReport({
         source:btn.dataset.reportSource||'atom',
-        mode:btn.dataset.reportMode||'조문별 기출 atom',
+        mode:btn.dataset.reportMode||'조문별 기출 지문',
         article:btn.dataset.reportArticle||'',
         question:btn.dataset.reportQuestion||'',
         answer:btn.dataset.reportAnswer||'',
@@ -19972,8 +19972,8 @@ function lawAtomRowsToItems(rows){
       link.appendChild(badge);
     }
     badge.textContent=count>99?'99+':String(count);
-    badge.title='이 조문에 기출 atom '+count+'개';
-    badge.setAttribute('aria-label','기출 atom '+count+'개');
+    badge.title='이 조문에 기출 지문 '+count+'개';
+    badge.setAttribute('aria-label','기출 지문 '+count+'개');
     link.classList.add('has-atom');
     link.dataset.atomCount=String(count);
   }
@@ -20047,7 +20047,7 @@ function lawAtomRowsToItems(rows){
     function metaText(r){return [r.tags.join(' · '),r.grade?(r.grade+'급'):'',(r.freq>1?('★'+r.freq+'회'):'')].filter(Boolean).join(' · ');}
     var total=groups.reduce(function(n,g){return n+1+(g.twins?g.twins.length:0);},0);
     function reportButton(r,answer){
-      return '<button class="problem-report-btn atom-report" type="button" data-report-source="atom" data-report-mode="조문별 기출 atom" data-report-article="'+lawSubjectEsc((lawName||subject||'')+' '+(articleNo||''))+'" data-report-question="'+lawSubjectEsc(r.stmt||'')+'" data-report-answer="'+lawSubjectEsc(answer||'')+'" data-report-ref="'+lawSubjectEsc(r.ref||'')+'">오류 신고하기</button>';
+      return '<button class="problem-report-btn atom-report" type="button" data-report-source="atom" data-report-mode="조문별 기출 지문" data-report-article="'+lawSubjectEsc((lawName||subject||'')+' '+(articleNo||''))+'" data-report-question="'+lawSubjectEsc(r.stmt||'')+'" data-report-answer="'+lawSubjectEsc(answer||'')+'" data-report-ref="'+lawSubjectEsc(r.ref||'')+'">오류 신고하기</button>';
     }
     var cards=groups.map(function(r){
       var meta=metaText(r);
@@ -20067,7 +20067,7 @@ function lawAtomRowsToItems(rows){
         +(r.ref?'<p class="atom-ref">근거 · '+lawSubjectEsc(r.ref)+'</p>':'')
         +(twins?'<div class="atom-twins">'+twins+'</div>':'')+'</div></article>';
     }).join('');
-    return '<div class="atom-headline"><div class="atom-title-stack"><h2>조문별 기출 atom <span class="atom-count-pill">'+total+'개</span></h2><p class="note">O 대표 법리 · X 함정 지문 · 출처 회차 (풀이는 CBT)</p></div><a class="atom-cta" href="#학습게임">CBT로 풀기</a></div><div class="atom-list">'+cards+'</div>';
+    return '<div class="atom-headline"><div class="atom-title-stack"><h2>조문별 기출 지문 <span class="atom-count-pill">'+total+'개</span></h2><p class="note">O 대표 법리 · X 함정 지문 · 출처 회차 (풀이는 CBT)</p></div><a class="atom-cta" href="#학습게임">CBT로 풀기</a></div><div class="atom-list">'+cards+'</div>';
   }
   function lawAtomPlaceholder(subject,lawName,articleNo){
     return '<div class="article-atoms" data-atom-subject="'+lawSubjectEsc(subject||'')+'" data-atom-law="'+lawSubjectEsc(lawName||'')+'" data-atom-article="'+lawSubjectEsc(articleNo||'')+'"></div>';
@@ -20075,14 +20075,14 @@ function lawAtomRowsToItems(rows){
   function lawAtomHydrateBox(box){
     if(!box||box.dataset.atomReady)return;
     box.dataset.atomReady='1';
-    box.innerHTML='<div class="atom-empty">\uae30\ucd9c atom\uc744 \ubd88\ub7ec\uc624\ub294 \uc911...</div>';
+    box.innerHTML='<div class="atom-empty">기출 지문을 \ubd88\ub7ec\uc624\ub294 \uc911...</div>';
     lawAtomFetchArticle(box.dataset.atomSubject,box.dataset.atomLaw,box.dataset.atomArticle).then(function(rows){
       var subject=box.dataset.atomSubject,lawName=box.dataset.atomLaw,articleNo=box.dataset.atomArticle;
       var items=lawAtomRowsToItems(lawAtomStrictRows(rows,subject,lawName,articleNo));
       lawAtomUpdateNavBadgeFor(subject,lawName,articleNo,lawAtomCountFor(subject,lawName,articleNo,items));
       var html=lawAtomRender(subject,lawName,articleNo,items);
       if(html)box.innerHTML=html;else box.remove();
-    }).catch(function(){box.innerHTML='<div class="atom-empty">\uae30\ucd9c atom\uc744 \ubd88\ub7ec\uc624\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4.</div>';});
+    }).catch(function(){box.innerHTML='<div class="atom-empty">기출 지문을 \ubd88\ub7ec\uc624\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4.</div>';});
   }
   function lawAtomHydrateContainer(root){
     (root||document).querySelectorAll('.article-atoms[data-atom-article]').forEach(lawAtomHydrateBox);
@@ -21523,7 +21523,7 @@ async function loadExamTerms(){
     function typingStats(){document.getElementById('typingScore').textContent=Math.round(typing.score);document.getElementById('typingTime').textContent=typing.time;document.getElementById('typingCombo').textContent=typing.combo;document.getElementById('typingMult').textContent='x'+typing.mult;}
     function nextTyping(){var mode=document.getElementById('typingBank').value,b=getBank(),pool=b[mode]||b.terms;typing.mode=mode;typing.target=pickDifferent(pool,typing.last);typing.last=typing.target;typing.event=typingRollEvent();typing.mult=randomMultiplier()*typing.event.mult;setTypingBonus(typingBonus,typing.mult,typing.event);typingTarget.classList.remove('idle');typingTarget.textContent=typing.target;typingInput.value='';typingInput.focus();typingStats();}
     function finishTyping(msg){if(!typing.active)return;typing.active=false;clearInterval(typing.timer);typingInput.disabled=true;if(typingDot)typingDot.disabled=true;var total=typing.ok+typing.bad,acc=total?Math.round(typing.ok/total*100):100,modeLabel=typing.mode==='objectiveAtoms'?'객관식 정지문':'타자연습';var detail=modeLabel+' · '+typing.ok+'문항 · 정확도 '+acc+'%',rawScore=typing.score,finalScore=gameAdjustedScore(rawScore);addScore('typing',rawScore,document.getElementById('typingNick').value,detail);typing.score=finalScore;typingTarget.classList.add('idle');typingTarget.textContent='종료! 점수 '+finalScore+'점 · '+detail;typingFeed.className='game-feed good';typingFeed.textContent='상위 점수표를 확인하세요.';typing.mult=1;typing.event=null;setTypingBonus(typingBonus,1,null);typingStats();}
-    document.getElementById('typingStart').addEventListener('click',function(){clearInterval(typing.timer);typingPendingEnter=false;typingEnterLock=false;typingInput.dataset.composing='0';var selectedMode=document.getElementById('typingBank').value;typing={active:true,timer:null,target:'',last:'',mode:selectedMode,score:0,time:parseInt(document.getElementById('typingDuration').value,10)||30,combo:0,perfect:0,ok:0,bad:0,mult:1,event:null};typingInput.disabled=false;if(typingDot)typingDot.disabled=false;typingFeed.className='game-feed';typingFeed.textContent=selectedMode==='objectiveAtoms'?'객관식 정지문 atom을 그대로 입력하세요. Ctrl+V 붙여넣기는 점수에 반영되지 않습니다.':'띄어쓰기·줄바꿈과 상관없이 핵심 단어가 포함되면 정답입니다. Ctrl+V 붙여넣기는 점수에 반영되지 않습니다.';typingStats();nextTyping();typing.timer=setInterval(function(){if(!gameVisible('typing'))return;typing.time--;typingStats();if(typing.time<=0)finishTyping();},1000);});
+    document.getElementById('typingStart').addEventListener('click',function(){clearInterval(typing.timer);typingPendingEnter=false;typingEnterLock=false;typingInput.dataset.composing='0';var selectedMode=document.getElementById('typingBank').value;typing={active:true,timer:null,target:'',last:'',mode:selectedMode,score:0,time:parseInt(document.getElementById('typingDuration').value,10)||30,combo:0,perfect:0,ok:0,bad:0,mult:1,event:null};typingInput.disabled=false;if(typingDot)typingDot.disabled=false;typingFeed.className='game-feed';typingFeed.textContent=selectedMode==='objectiveAtoms'?'객관식 정지문을 그대로 입력하세요. Ctrl+V 붙여넣기는 점수에 반영되지 않습니다.':'띄어쓰기·줄바꿈과 상관없이 핵심 단어가 포함되면 정답입니다. Ctrl+V 붙여넣기는 점수에 반영되지 않습니다.';typingStats();nextTyping();typing.timer=setInterval(function(){if(!gameVisible('typing'))return;typing.time--;typingStats();if(typing.time<=0)finishTyping();},1000);});
     document.getElementById('typingStop').addEventListener('click',function(){finishTyping('force');});
     var typingEnterLock=false,typingPendingEnter=false;
     function scheduleTypingSubmit(){
@@ -21840,7 +21840,7 @@ rainStats();
 })();
 </script>
 
-<script src="assets/wiki-refresh.js?v=20261020-hub"></script>
-<script src="assets/foreign-correspondence.js?v=20261009"></script>
+<script src="assets/wiki-refresh.js?v=20261020-clean"></script>
+<script src="assets/foreign-correspondence.js?v=20261020-clean"></script>
 </body>
 </html>
