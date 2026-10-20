@@ -5,7 +5,8 @@ const root = $('game-main');
 if (root) initialize();
 
 async function initialize() {
-  let records = [], byId = new Map(), statuteRecords = [], statuteById = new Map(), track = 'case', state = freshProgress(), selectedGrade = 0, mode = 'exam', storageEnabled = true, bankReady = false, certificateKind = null, certificateResult = null, certificateGeneration = 0, pdfBusy = false;
+  const requestedMode = new URLSearchParams(location.search).get('mode'), initialMode = ['exam', 'statute', 'source'].includes(requestedMode) ? requestedMode : 'exam';
+  let records = [], byId = new Map(), statuteRecords = [], statuteById = new Map(), track = initialMode === 'statute' ? 'statute' : 'case', state = freshProgress(track), selectedGrade = 0, mode = initialMode, storageEnabled = true, bankReady = false, certificateKind = null, certificateResult = null, certificateGeneration = 0, pdfBusy = false;
   const profiles = {case:freshProgress('case'),statute:freshProgress('statute')}, storageKeys={case:PROGRESS_KEY,statute:STATUTE_PROGRESS_KEY}, ready={case:false,statute:false};
   const kingName = value => value==='statute'?'조문왕':'판례왕';
   const lookup = id => statuteById.get(id)||byId.get(id);
@@ -201,6 +202,8 @@ async function initialize() {
     const nextTrack=nextMode==='statute'?'statute':'case';
     if(nextTrack!==track){track=nextTrack;state=readLatest(track);profiles[track]=state;selectedGrade=state.unlockedIndex;closeCertificate();renderProgress();renderExam();}
     mode = nextMode;
+    const summary = $('sg-mode-summary');
+    if (summary) summary.textContent = mode === 'source' ? '출처찾기 · 5문제 복습 · 급수 진급에 반영하지 않습니다.' : `${kingName(track)} · 10분 10문제 · 60점부터 합격`;
     document.querySelectorAll('[data-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
     ['exam', 'source'].forEach(key => { $(`sg-${key}`).hidden = key === 'exam' ? !['exam','statute'].includes(mode) : key !== mode; });
     $('sg-exam').setAttribute('aria-labelledby',mode==='statute'?'sg-mode-statute':'sg-mode-exam');
@@ -285,7 +288,7 @@ async function initialize() {
   });
   function expireTracks(){renderTimer();for(const target of ['case','statute']){const latest=readLatest(target);profiles[target]=latest;if(latest.session?.status==='running'&&remainingMs(latest.session)<=0){if(target===track){state=latest;finishExam();}else{try{write(settleExam(latest,latest.session.id).state,target);}catch(_){}}}}renderPracticeAvailability();}
   setInterval(expireTracks,500);document.addEventListener('visibilitychange',expireTracks);
-  profiles.case=readLatest('case');profiles.statute=readLatest('statute');state=profiles.case;selectedGrade = state.unlockedIndex; renderAll();
+  profiles.case=readLatest('case');profiles.statute=readLatest('statute');state=profiles[track];selectedGrade = state.unlockedIndex; renderAll();
   try {
     const response = await fetch(new URL('./standard_cases.json', import.meta.url)); if (!response.ok) throw new Error('표준판례 자료를 읽지 못했습니다. 새로고침 후 다시 확인해 주세요.');
     const bank = await response.json(); records = validateCaseBank(bank); byId = new Map(records.map(record => [record.id, record])); bankReady = true;ready.case=true;

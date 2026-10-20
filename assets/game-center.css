@@ -1,0 +1,109 @@
+/* The game catalog is the first destination; play and records follow it. */
+.plus-entry-card.entry-study{background:linear-gradient(120deg,#452068,#68349a);border-color:#7444a1;color:#fff}
+.plus-entry-card.entry-study small{color:#f1e3ff}
+.plus-entry-card.entry-study:hover{background:linear-gradient(120deg,#361750,#542478)}
+.gc-secondary-tools{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:12px;color:#6b5879;margin:0 0 20px}
+.gc-secondary-tools a{color:#674580;min-height:44px;display:inline-flex;align-items:center}
+body.clarity-fix .plus-entry-card.entry-study:focus-visible{outline-color:#51238e}
+body.clarity-fix.game-center-active .plus-feature-nav{display:none}
+body.clarity-fix.game-center-active .quick-start{display:none}
+body.clarity-fix.game-center-active .layout{display:block;max-width:1180px}
+body.clarity-fix.game-center-active .layout>nav{display:none!important}
+body.clarity-fix.game-center-active #navtoggle{display:none!important}
+body.clarity-fix.game-center-active main{width:100%;min-width:0}
+body.clarity-fix.game-center-active main>section.game-page.on{padding:24px!important}
+.game-page .crumb{margin-bottom:8px}
+.game-page h1{margin:0 0 8px;font-size:30px;line-height:1.4}
+.game-page .gc-intro{margin:0 0 23px;color:#62526f;font-size:15px;line-height:1.6;word-break:keep-all}
+.game-page .gc-section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.game-page .gc-section-heading h2{margin:0;padding:0;border:0;font-size:17px;line-height:1.5;color:#39214f}
+.game-page .gc-section-heading h2::before{display:none}
+.game-page .gc-section-heading>span{font-size:12px;color:#6b5a77;white-space:nowrap}
+.game-page .gc-catalog{scroll-margin-top:calc(var(--wiki-header-height,160px) + 16px)}
+.game-page .study-mode-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0}
+.game-page .study-mode-grid .game-tab{min-height:111px;padding:14px 16px;border:1px solid #dcd0e9;border-radius:12px;background:#fff;color:#39214f;box-shadow:none;transition:background .15s,border-color .15s;position:relative;min-width:0}
+.game-page .study-mode-grid .game-tab:last-child{grid-column:span 2}
+.game-page .study-mode-grid .game-tab.gc-priority{background:#fbf7ff;border-color:#af8dca}
+.game-page .study-mode-grid .game-tab:hover{background:#faf5ff;border-color:#9161b7;box-shadow:none}
+body.clarity-fix .game-page .study-mode-grid .game-tab.active{border:2px solid #7837b1;padding:13px 15px;background:#f3eaff;box-shadow:none}
+.game-page .study-mode-grid .game-tab strong{font-size:17px;line-height:1.5;color:#39214f}
+.game-page .study-mode-grid .game-tab span{margin:0}
+.game-page .study-mode-grid .game-tab .gc-card-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.game-page .study-mode-grid .game-tab .gc-icon{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:26px;border-radius:6px;background:#ede3f7;color:#673197;font-size:15px;font-weight:800}
+.game-page .study-mode-grid .game-tab .gc-tag{font-size:11px;font-weight:600;color:#705b80}
+.game-page .study-mode-grid .game-tab .gc-card-description{display:block;font-size:12px;line-height:1.5;color:#655173;font-weight:400;margin-top:3px;word-break:keep-all}
+.game-page .gc-grade-links{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;margin-top:12px;border-radius:10px;background:#f7f4fb;border:1px solid #e7dff0}
+.game-page .gc-grade-links>div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.game-page .gc-grade-links strong{font-size:13px;color:#513765}
+.game-page .gc-grade-links span{font-size:12px;color:#685775}
+.game-page .gc-grade-links a{font-size:13px;font-weight:700;color:#60308a;min-height:40px;display:inline-flex;align-items:center;gap:5px;text-decoration:none}
+.game-page .gc-grade-links a:hover{text-decoration:underline}
+.game-page .gc-workspace-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 10px;scroll-margin-top:calc(var(--wiki-header-height,160px) + 12px)}
+.game-page .gc-workspace-bar p{display:flex;align-items:center;gap:10px;margin:0}
+.game-page .gc-workspace-bar p>span{font-size:12px;color:#705b80}
+.game-page .gc-workspace-bar strong{font-size:17px;color:#47265e}
+.game-page .gc-workspace-bar .game-btn{border:1px solid #d4c0e4;background:#fff;color:#5e3281;border-radius:8px;min-height:42px;padding:8px 12px;font-size:13px;transform:none}
+.game-page .game-layout{grid-template-columns:minmax(0,1fr);gap:4px}
+.game-page .game-layout>div{min-width:0}
+.game-page .game-panel{border-color:#dfd2ea;border-radius:12px;padding:22px;box-shadow:none}
+.game-page .game-panel h2{color:#432b56;font-size:21px}
+.game-page .game-panel h2:focus{outline:none}
+.game-page .game-panel .note{color:#63546e;font-size:13px;line-height:1.7}
+.game-page .game-controls input,.game-page .game-controls select{min-height:44px;max-width:100%;color:#3f304c;background:#fff;border-color:#cbbcd8;border-radius:8px}
+.game-page .game-controls .game-btn{min-height:44px;border-radius:8px;padding:9px 20px;transform:none}
+.game-page .game-controls .game-btn.ghost{border-color:#d2c6dc;color:#665271}
+.game-page .game-input{min-height:48px;border-radius:8px;font-size:16px}
+.game-page .game-statgrid{gap:8px;margin:18px 0 14px}
+.game-page .game-stat{border-color:#ebe3f2;background:#faf7fc;border-radius:10px;padding:11px}
+.game-page .game-stat span,.game-page .game-target.idle,.game-page .game-feed,.game-page .game-help{color:#6c587b}
+.game-page .game-target{border-color:#dfd2eb;border-radius:10px;padding:22px;min-height:94px}
+.game-page .rank-panel{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0;margin:10px 0 0;border-color:#e2d8eb;box-shadow:none;overflow:visible}
+.game-page .recent-score-box{border-bottom:0;background:transparent}
+.game-page .rank-panel>details{border-left:1px solid #e7dfed}
+.game-page .rank-panel summary{min-height:50px;background:#faf7fc;border-radius:0 12px 0 0;color:#513d62}
+.game-page .recent-score-list .recent-score-empty,.game-page .recent-score-rank small{color:#6f5e7b}
+.game-page :is(.gc-grade-links a,.game-tab,.gc-workspace-bar button):focus-visible{outline:3px solid #51238e;outline-offset:3px}
+@media(max-width:900px){
+  .game-page .gc-grade-links{align-items:flex-start;flex-direction:column;gap:5px}
+}
+@media(max-width:700px){
+  body.clarity-fix.game-center-active main>section.game-page.on{padding:16px!important}
+  .game-page h1{font-size:25px}
+  .game-page .gc-intro{font-size:13px;margin-bottom:18px}
+  .game-page .gc-section-heading h2{font-size:15px}
+  .game-page .study-mode-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .game-page .study-mode-grid .game-tab{min-height:88px;padding:10px 12px}
+  body.clarity-fix .game-page .study-mode-grid .game-tab.active{padding:9px 11px}
+  .game-page .study-mode-grid .game-tab strong{font-size:16px}
+  .game-page .study-mode-grid .game-tab .gc-card-top{margin-bottom:4px;gap:6px}
+  .game-page .study-mode-grid .game-tab .gc-icon{min-width:21px;height:21px;font-size:12px}
+  .game-page .study-mode-grid .game-tab .gc-tag{font-size:10px}
+  .game-page .study-mode-grid .game-tab .gc-card-description{font-size:11px;line-height:1.4}
+  .game-page .study-mode-grid .game-tab:last-child{min-height:67px;display:grid;grid-template-columns:1fr 1fr;column-gap:8px;align-items:center}
+  .game-page .study-mode-grid .game-tab:last-child .gc-card-top{grid-column:2;grid-row:1 / span 2;justify-self:end;margin:0}
+  .game-page .gc-grade-links{padding:10px 12px}
+  .game-page .gc-grade-links>div{gap:6px 13px}
+  .game-page .gc-grade-links strong{font-size:12px}
+  .game-page .gc-grade-links span{font-size:11px}
+  .game-page .gc-grade-links a{min-height:38px;font-size:12px}
+  .game-page .gc-workspace-bar{margin-top:22px}
+  .game-page .gc-workspace-bar p{gap:6px;flex-wrap:wrap}
+  .game-page .gc-workspace-bar strong{font-size:16px}
+  .game-page .gc-workspace-bar p>span{font-size:11px}
+  .game-page .gc-workspace-bar .game-btn{white-space:nowrap}
+  .game-page .game-panel{padding:16px 13px;border-radius:10px}
+  .game-page .game-panel h2{font-size:19px}
+  .game-page .game-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .game-page .game-controls input,.game-page .game-controls select{width:100%;min-width:0;font-size:16px;padding:8px}
+  .game-page .game-controls .game-btn{padding:8px;white-space:normal}
+  .game-page .game-stat{padding:10px 4px}
+  .game-page .game-stat b{font-size:19px}
+  .game-page .game-stat span{font-size:11px}
+  .game-page .game-target{padding:16px;font-size:19px;word-break:normal;overflow-wrap:anywhere}
+  .game-page .game-target.idle{font-size:14px}
+  .game-page .rank-panel{grid-template-columns:1fr}
+  .game-page .rank-panel>details{border-left:0;border-top:1px solid #e7dfed}
+  .game-page .rank-panel summary{border-radius:0 0 10px 10px}
+}
+@media(max-height:520px){.game-page :is(.gc-catalog,.gc-workspace-bar){scroll-margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.game-page *{scroll-behavior:auto!important;animation-duration:.01ms!important;transition:none!important}}

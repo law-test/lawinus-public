@@ -4,21 +4,21 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="도전 판례왕! 도전 조문왕! 10분 10문제 오픈북 게임에 도전하고 합격증과 왕상장을 받아 보세요.">
   <title>도전 판례왕! · 도전 조문왕! | 민법위키</title>
-  <link rel="stylesheet" href="assets/standard-game.css">
+  <link rel="stylesheet" href="assets/standard-game.css?v=20261020-hub">
   <script src="assets/vendor/game-pdf-lib.min.js" defer></script>
   <script src="assets/vendor/game-fontkit.umd.min.js" defer></script>
-  <script type="module" src="assets/standard-game.js?v=20261010-court"></script>
+  <script type="module" src="assets/standard-game.js?v=20261020-hub"></script>
 </head>
 <body>
   <a class="skip" href="#game-main">게임으로 바로가기</a>
-  <header class="sg-header"><a class="sg-brand" href="index.html">民 <span>민법위키</span></a><nav aria-label="주 메뉴"><a href="index.html">법학위키</a><a href="standard-game.html" aria-current="page">표준판례 게임</a></nav></header>
+  <header class="sg-header"><a class="sg-brand" href="index.html">民 <span>민법위키</span></a><nav aria-label="주 메뉴"><a href="index.html#학습게임">← CBT 게임센터</a><a href="index.html">조문·판례 읽기</a><a href="standard-game.html" aria-current="page">급수 도전</a></nav></header>
   <main id="game-main">
     <section class="sg-intro"><h1>도전 판례왕! · 도전 조문왕!</h1><p>실물책을 참고해 문제를 풀어 보세요.</p><div class="sg-chips"><span>10분 · 10문제</span><span>헌법 3 · 민법 4 · 형법 3</span><span>오픈북 · 실물책</span><span>60점 합격</span></div></section>
+    <section class="sg-mode-selection" aria-label="게임 선택"><div class="sg-modes"><button type="button" id="sg-mode-exam" data-mode="exam" aria-pressed="true" aria-controls="sg-exam">판례왕</button><button type="button" id="sg-mode-statute" data-mode="statute" aria-pressed="false" aria-controls="sg-exam">조문왕</button><button type="button" id="sg-mode-source" data-mode="source" aria-pressed="false" aria-controls="sg-source">출처찾기</button></div><p id="sg-mode-summary" class="sg-mode-summary" role="status">판례왕 · 10분 10문제 · 60점부터 합격</p></section>
     <section class="sg-progress-panel" aria-label="나의 급수"><div class="sg-progress-heading"><h2 id="sg-progress-title">도전 판례왕! · 나의 급수</h2><p id="sg-earned">5급부터 시작합니다.</p></div><ol class="sg-grade-steps" id="sg-grade-steps"></ol><p id="sg-storage" class="sg-small" hidden></p></section>
     <div id="sg-load-status" class="sg-status" role="status">게임을 준비하고 있습니다.</div>
     <section class="sg-game-shell" aria-label="학습게임">
       <div class="sg-global-controls"><label for="sg-grade">이번 급수<select id="sg-grade" disabled></select></label><div class="sg-timer"><span id="sg-timer-label">급수게임 제한 시간</span><strong id="sg-timer" aria-live="off">10:00</strong><span id="sg-timer-note">책을 찾는 동안에도 시간이 흐릅니다.</span></div></div>
-      <div class="sg-modes" aria-label="게임 선택"><button type="button" id="sg-mode-exam" data-mode="exam" aria-pressed="true" aria-controls="sg-exam">도전 판례왕!</button><button type="button" id="sg-mode-statute" data-mode="statute" aria-pressed="false" aria-controls="sg-exam">도전 조문왕!</button><button type="button" id="sg-mode-source" data-mode="source" aria-pressed="false" aria-controls="sg-source">출처찾기</button></div>
       <section id="sg-exam" aria-labelledby="sg-mode-exam">
         <div class="sg-mode-heading"><div><h2 id="sg-exam-heading">도전 판례왕!</h2></div><button id="sg-start" type="button" class="sg-primary" disabled>5급 10문제 시작</button></div>
         <form id="sg-exam-form" hidden><div id="sg-questions"></div><div class="sg-submit-row"><span id="sg-answer-count">0 / 10문제 작성</span><button type="submit" id="sg-submit" class="sg-primary">답안 제출 · 채점</button></div></form>
@@ -28,6 +28,6 @@
     </section>
     <section id="sg-certificate" class="sg-certificate" aria-labelledby="sg-certificate-title" hidden><h2 id="sg-certificate-title">PDF 합격증 만들기</h2><form id="sg-certificate-form" autocomplete="off"><div class="sg-identity-fields"><label for="sg-name">이름 (30자 이내)<input id="sg-name" name="certificate-name" type="text" maxlength="60" autocomplete="off" required></label><label for="sg-birth-year">생년 (네 자리)<input id="sg-birth-year" name="certificate-birth-year" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" placeholder="예: 2000" required></label></div><div class="sg-button-row"><button type="submit" id="sg-pdf-download" class="sg-primary">PDF 만들고 내려받기</button><button type="button" id="sg-certificate-cancel">취소 · 입력 지우기</button></div></form><p id="sg-certificate-status" role="status"></p></section>
   </main>
-  <footer class="sg-footer"><a href="index.html">민법위키로 돌아가기</a></footer>
+  <footer class="sg-footer"><a href="index.html#학습게임">← CBT 게임센터로 돌아가기</a><a href="index.html">조문·판례 읽기</a></footer>
 </body>
 </html>

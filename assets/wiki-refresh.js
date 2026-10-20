@@ -63,10 +63,17 @@
       }
     });
     let previousHash=decodeURI(location.hash);
+    let gameEntryInteracted=false;
+    ['pointerdown','keydown','wheel','touchstart'].forEach(type=>window.addEventListener(type,()=>{gameEntryInteracted=true;},{once:true,passive:true}));
+    // Native fragment scrolling may run after the initial article route.
+    const showGameEntry=()=>{if(decodeURI(location.hash)==='#학습게임')window.scrollTo({top:0,behavior:'instant'});};
+    window.addEventListener('load',()=>{if(!gameEntryInteracted)requestAnimationFrame(showGameEntry);},{once:true});
     const current=()=>{
       const hash=decodeURI(location.hash),entry=document.querySelector('.plus-entry-cards');
       if(hash!==previousHash){const feedback=document.getElementById('pageSearchStatus');if(feedback){feedback.hidden=true;feedback.textContent='';}}
       previousHash=hash;
+      document.body.classList.toggle('game-center-active',hash==='#학습게임');
+      if(hash==='#학습게임')requestAnimationFrame(showGameEntry);
       if(entry)entry.hidden=!!hash&&hash!=='#제1조';
       bar.querySelectorAll('.mtop[href]').forEach(a=>{if(a.getAttribute('href')===hash)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
     };
