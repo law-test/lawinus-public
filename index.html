@@ -21300,7 +21300,7 @@ async function loadExamTerms(){
     function isParticleTail(tail){return /^(은|는|이|가|을|를|의|에|에게|에서|으로|로|와|과|도|만|부터|까지|마다|처럼|보다|조차|라도|이나|나|든지)/.test(tail||'');}
     function goodBlankOccurrence(text,term){var i=text.indexOf(term);if(i<0)return false;var left=text.charAt(i-1),right=text.charAt(i+term.length),tail=text.slice(i+term.length,i+term.length+4),first=term.charAt(0),last=term.charAt(term.length-1);return !((isHangul(first)&&isHangul(left))||(isHangul(last)&&isHangul(right)&&!isParticleTail(tail)));}
     var examData=await loadExamTerms();
-    var objectiveAtoms=await loadObjectiveAtomStatements();
+    var objectiveAtoms=[];
     var studyTodayCount=document.getElementById('studyTodayCount');
     if(studyTodayCount)studyTodayCount.textContent=(objectiveAtoms.length||0).toLocaleString('ko-KR')+'개';
     var examAll=unique((examData.all||[]).concat(examData.public||[],examData.criminal||[],examData.civil||[]));
