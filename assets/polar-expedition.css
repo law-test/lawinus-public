@@ -30,3 +30,18 @@
 @media(prefers-reduced-motion:reduce){.pe-stack-slots>span,.pe-boss-hud progress::-webkit-progress-value{transition:none}}
 .pe-controls button small{white-space:nowrap}.pe-match-guide>span{font-size:11px;color:#486571}.pe-match-guide b{font-size:10px;color:#365b69}.pe-gameplay-note{line-height:1.7}
 @media(max-width:700px){.pe-settings{grid-template-columns:minmax(0,1fr) 154px}.pe-settings input{min-width:0}.pe-settings select{font-size:14px;padding-inline:8px}.pe-match-guide{display:grid;grid-template-columns:1fr;gap:8px}.pe-match-guide>span{font-size:11px}.pe-match-guide b{font-size:10px;margin-left:auto}.pe-match-guide .pe-dot{width:8px;height:8px}.pe-rack-heading>span{font-size:10px}.pe-help p{font-size:12px}.pe-help summary{font-size:12px}}
+@media(max-width:700px){
+  .game-page .pe-panel:not([hidden]){display:flex;flex-direction:column}
+  .pe-heading{order:0}.pe-journey{order:1}.pe-toolbar{order:2}
+  .pe-stage{order:3;height:clamp(280px,calc(100svh - var(--wiki-header-height,160px) - 96px),450px);flex:none;scroll-margin-top:calc(var(--wiki-header-height,160px) + 8px)}
+  .pe-console{display:contents}.pe-controls{order:4;margin-top:10px;grid-template-columns:1fr 1.16fr 1fr;gap:8px;flex:none}
+  .pe-controls button{min-height:64px;font-size:16px;border-radius:12px;-webkit-tap-highlight-color:transparent}
+  .pe-controls button:active:not(:disabled){background:#cce9ee;border-color:#57a8b8;transform:translateY(1px)}
+  .pe-controls .pe-jump:active:not(:disabled){background:#bde4dd;border-color:#379d8f}
+  .pe-flag-rack{order:5;margin-top:12px}.pe-discovery{order:6;margin-top:12px}.pe-help{order:7}
+  .pe-stage[data-state=running]~.pe-console .pe-controls{touch-action:none}
+  body:has(#game-panel-polar:not([hidden]) .pe-stage[data-state=running]) .ui-top{opacity:0;pointer-events:none}
+}
+.pe-controls button.is-held{background:#cce9ee;border-color:#57a8b8;transform:translateY(1px)}.pe-controls .pe-jump.is-held{background:#bde4dd;border-color:#379d8f}
+.pe-dot.repel{background:#f4cc66;border:1px solid #147b78;box-shadow:0 0 0 1px #f7df9c}
+@media(max-width:700px){.pe-boss-hud{top:96px;padding:6px 10px}.pe-boss-hud p{display:none}.pe-boss-hud progress{margin-top:5px;height:4px}.pe-boss-hud>div{font-size:10px;line-height:14px}.pe-boss-hud .pe-boss-alert{font-size:8px}}
