@@ -18984,10 +18984,11 @@ window.__lawinusGameKeyAllowed=function(e,panel){
   }
   function renderExplanation(c,choice,timedOut){
     var correct=choice===c.a,isArt=/^제[0-9]/.test(c.art||'');
+    var why=String(c.why||'').replace(/변호사시험\s*\d+\s*회\s*예상\s*지문을\s*공개용\s*법리\s*문장으로\s*정리한\s*예상\s*atom입니다\s*\./gi,'').trim();
     var selected=timedOut?'시간 초과':('내 답 '+(choice||'—'));
     var answer='<div class="ux-reveal-head"><div><span class="ux-reveal-label">정답</span><strong class="ux-answer-letter '+(c.a==='O'?'is-o':'is-x')+'">'+esc(c.a)+'</strong></div><span class="ux-answer-comparison">'+esc(selected)+' · '+(correct?'맞혔어요':'다시 확인하세요')+'</span></div>';
     var corrected=(c.a==='X'&&c.rep)?'<section class="ux-reveal-section ux-corrected"><h3>옳은 지문</h3><p>'+esc(c.rep)+'</p></section>':'';
-    var explanation='<section class="ux-reveal-section"><h3>해설</h3>'+(c.trap?'<span class="ox-trap">'+esc(c.trap)+'</span>':'')+'<p>'+esc(c.why||'등록된 해설이 없습니다.')+'</p></section>';
+    var explanation=why?'<section class="ux-reveal-section"><h3>해설</h3>'+(c.trap?'<span class="ox-trap">'+esc(c.trap)+'</span>':'')+'<p>'+esc(why)+'</p></section>':'';
     var source='<section class="ux-reveal-section ux-reveal-source"><h3>근거와 출처</h3><p>'+esc(c.ref||c.tag||'기출')+'</p>'+(isArt?'<a href="#'+encodeURIComponent(c.art)+'">'+esc(c.art)+' 보기 →</a>':'')+(c.freq>1?'<span class="ux-frequency">기출 '+esc(c.freq)+'회</span>':'')+'</section>';
     elRev.innerHTML=answer+corrected+explanation+source;elRev.hidden=false;
   }
