@@ -123,7 +123,10 @@
     }catch(_){failed=true;}finally{loading=false;schedule();}
   }
   function start(){
-    scan();load();const main=document.querySelector('main');if(main)new MutationObserver(changes=>{if(changes.some(change=>!change.target.closest?.('.article-standard-cases,.article-map-actions')))schedule();}).observe(main,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+    scan();load();const main=document.querySelector('main');if(main)new MutationObserver(changes=>{if(changes.some(change=>{
+      const target=change.target.nodeType===1?change.target:change.target.parentElement;
+      return target&&!target.closest('.article-standard-cases,.article-map-actions,#gameCenter,.game-page,[data-game-panel]');
+    }))schedule();}).observe(main,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
     window.addEventListener('hashchange',schedule);window.CivilWikiStandardArticles={rescan:schedule,getCoverage:()=>({loaded,articleKeys:byArticle.size})};
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();

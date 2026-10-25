@@ -23,8 +23,8 @@
   const RUN_SPEED = 52, STRAFE_SPEED = 7.8, DRAG_SCALE = .218 * CAMERA / (CAMERA + PLAYER_Z) - .018;
   const BOSS_PROFILES = [
     {id:'interviewer',name:'꼬리질문 면접관',color:'#305781',accent:'#8ddce8',quote:'마지막 질문 하나만 더요.',projectile:'question'},
-    {id:'witch',name:'졸업사정 학점마녀',color:'#78519f',accent:'#f4cd71',quote:'졸업장은 도장 다음에!',projectile:'stamp'},
-    {id:'clock',name:'시간도둑 과락시계',color:'#b84956',accent:'#ffe5a3',quote:'아는 문제인데 시간이…',projectile:'clock'},
+    {id:'massage',name:'졸시 마사지',color:'#407c87',accent:'#efcf88',quote:'졸업 전에 긴장 좀 풀고 가요.',projectile:'stamp'},
+    {id:'king',name:'오탈의 왕',color:'#9a435f',accent:'#f4ce74',quote:'이 관문을 넘을 수 있겠느냐!',projectile:'clock'},
     {id:'octopus',name:'마감폭주 문어대표',color:'#257b80',accent:'#f2c361',quote:'이거 오늘까지 가능하죠?',projectile:'calendar'},
     {id:'revision',name:'무한수정 문어의뢰인',color:'#825c9b',accent:'#f0b5ce',quote:'최종_진짜최종_수정본!',projectile:'revision'},
     {id:'midnight',name:'새벽카톡 문어의뢰인',color:'#3c6097',accent:'#d7ed91',quote:'주무세요? 급한 건 아닌데…',projectile:'chat'}
@@ -62,7 +62,10 @@
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) { root.querySelector('#polarFeed').textContent = '화면을 준비하지 못했습니다. 다시 열어 주세요.'; return null; }
     const backdrop = document.createElement('canvas'), bg = backdrop.getContext('2d', { alpha: false });
-    const el = id => root.querySelector('#' + id);
+    const scenery = window.LawinusPolarScenery?.create();
+    const elements = new Map(), el = id => {if(!elements.has(id))elements.set(id,root.querySelector('#'+id));return elements.get(id);};
+    const journeyNodes = [...root.querySelectorAll('[data-polar-journey]')], actionButtons = [...root.querySelectorAll('[data-polar-action]')];
+    const section = root.closest('section.art');
     const fields = {
       score: el('polarScore'), time: el('polarTime'), lives: el('polarLives'), combo: el('polarCombo'),
       feed: el('polarFeed'), region: el('polarRegion'), distance: el('polarDistance'), fish: el('polarFish'),
@@ -75,12 +78,12 @@
     let reduced = motion.matches, width = 0, height = 0, dpr = 1, raf = 0, previousTime = 0, destroyed = false;
     const heldDirections = new Set(), controlPointers = new Map();
     let pointer = null, words = [], audio = null, sound = false, hudAge = 1, lastRegion = -1;
-    let frameCount = 0, fps = 60, drawMs = 0;
+    let frameCount = 0, fps = 60, drawMs = 0, layoutVisible = root.getClientRects().length>0;
     let bestScore = 0;
     try { bestScore = Math.max(0, Number(localStorage.getItem('lawinus_polar_best_v1')) || 0); } catch (_) {}
     const removers = [];
     const on = (target, event, handler, settings) => { if (target) { target.addEventListener(event, handler, settings); removers.push(() => target.removeEventListener(event, handler, settings)); } };
-    const visible = () => !document.hidden && !root.hidden && root.getClientRects().length > 0 && (!options.isVisible || options.isVisible(root));
+    const visible = () => !document.hidden && !root.hidden && root.isConnected && layoutVisible && (!options.isVisible || options.isVisible(root));
     const fresh = () => ({
       phase: 'ready', elapsed: 0, totalElapsed: 0, duration: 60, distance: 0, speed: RUN_SPEED, lane: 0, x: 0, lean: 0, horizontalVelocity: 0, steering: 0, steerPulse: 0, dragTarget: null, jumpBuffer: 0, level: 1, stack: [], lastType: '', boss: null, clears: 0, clearedAt: 0, celebration: 0, result: '', displayScore: null, row: 0,
       jump: 0, velocity: 0, step: 0, lives: MAX_LIVES, score: 0, bonus: 0, fish: 0, flags: 0,
@@ -103,48 +106,51 @@
         subject: subject(typeof item === 'string' ? '' : item?.subject)
       })).filter(item => { if (!item.text || seen.has(item.text)) return false; seen.add(item.text); return true; });
     }
-    const message = text => { if (fields.feed) fields.feed.textContent = text; };
-    const setText = (element, value) => { if (element && element.textContent !== String(value)) element.textContent = value; };
+    const setText = (element, value) => {if(!element)return;const text=String(value);if(element.textContent===text)return;if(element.childNodes.length===1&&element.firstChild.nodeType===3)element.firstChild.data=text;else element.textContent=text;};
+    const message = text => setText(fields.feed,text);
+    const setProp = (element,key,value) => {if(element&&element[key]!==value)element[key]=value;};
+    const setAttr = (element,key,value) => {if(!element)return;const text=value===null?null:String(value);if(element.getAttribute(key)!==text){if(text===null)element.removeAttribute(key);else element.setAttribute(key,text);}};
+    const setClass = (element,key,value) => {if(element.classList.contains(key)!==value)element.classList.toggle(key,value);};
 
     function syncHud(force = false) {
       if (!force && hudAge < .09) return;
       hudAge = 0;
       setText(fields.score, Math.floor(state.displayScore ?? state.score).toLocaleString('ko-KR'));
       setText(fields.time, state.boss ? 'BOSS' : Math.max(0, Math.ceil(state.duration - state.elapsed)));
-      if(el('polarTimeUnit'))el('polarTimeUnit').hidden=!!state.boss;
+      setProp(el('polarTimeUnit'),'hidden',!!state.boss);
       setText(el('polarLevel'),'STAGE '+state.level);setText(el('polarGoal'),stageGoal(state.level).name);
       setText(el('polarStageStatus'),state.phase==='finished'?state.result:state.phase==='cleared'?stageGoal(state.level).success:state.boss?'같은 색 3개 또는 무지개로 보스 공격':stageGoal(state.level).success+'에 도전');
       setText(el('polarStackCount'),state.stack.length+' / 10');
-      const rack=el('polarStack');if(rack){if(rack.dataset.signature!==state.stack.join(',')){rack.dataset.signature=state.stack.join(',');rack.replaceChildren(...Array.from({length:10},(_,i)=>{const slot=document.createElement('span'),type=state.stack[i];slot.className='pe-stack-slot'+(type?' is-filled':'');slot.dataset.subject=type||'';slot.textContent=type?SUBJECTS[type].label.charAt(0):'';slot.setAttribute('aria-label',type?SUBJECTS[type].label+' 깃발':'빈 칸');return slot;}));}rack.classList.toggle('warning',state.stack.length>=9);rack.dataset.warning=String(state.stack.length>=9);rack.setAttribute('aria-label','누적 깃발 '+state.stack.length+'개, 최대 10개');}
-      if(el('polarBossHud')){el('polarBossHud').hidden=!state.boss;el('polarBossHud').dataset.theme=bossProfile(state.level).id;}
+      const rack=el('polarStack');if(rack){if(rack.dataset.signature!==state.stack.join(',')){rack.dataset.signature=state.stack.join(',');rack.replaceChildren(...Array.from({length:10},(_,i)=>{const slot=document.createElement('span'),type=state.stack[i];slot.className='pe-stack-slot'+(type?' is-filled':'');slot.dataset.subject=type||'';slot.textContent=type?SUBJECTS[type].label.charAt(0):'';slot.setAttribute('aria-label',type?SUBJECTS[type].label+' 깃발':'빈 칸');return slot;}));}setClass(rack,'warning',state.stack.length>=9);setAttr(rack,'data-warning',state.stack.length>=9);setAttr(rack,'aria-label','누적 깃발 '+state.stack.length+'개, 최대 10개');}
+      setProp(el('polarBossHud'),'hidden',!state.boss);setAttr(el('polarBossHud'),'data-theme',bossProfile(state.level).id);
       setText(el('polarBossName'),bossProfile(state.level).name);setText(el('polarBossHp'),state.boss?state.boss.hp+' / '+state.boss.max:'');
       setText(el('polarBossTactic'),state.boss?(state.boss.attackName?state.boss.attackName+' · ':'')+state.boss.quote:'같은 색 3개 또는 무지개 깃발로 공격');
-      if(el('polarBossBar')&&state.boss){el('polarBossBar').max=state.boss.max;el('polarBossBar').value=state.boss.hp;}
-      root.querySelectorAll('[data-polar-journey]').forEach(node=>{const n=Number(node.dataset.polarJourney),current=Math.min(4,state.level);node.classList.toggle('active',n===current);node.classList.toggle('done',n<current);if(n===current)node.setAttribute('aria-current','step');else node.removeAttribute('aria-current');});
+      if(state.boss){setProp(el('polarBossBar'),'max',state.boss.max);setProp(el('polarBossBar'),'value',state.boss.hp);}
+      journeyNodes.forEach(node=>{const n=Number(node.dataset.polarJourney),current=Math.min(4,state.level);setClass(node,'active',n===current);setClass(node,'done',n<current);setAttr(node,'aria-current',n===current?'step':null);});
       setText(fields.lives, state.lives); setText(fields.combo, state.combo);
-      setText(fields.region, REGIONS[state.region].name); setText(fields.distance, Math.floor(state.distance));
+      setText(fields.region, scenery?scenery.getTheme(state.level).label:REGIONS[state.region].name); setText(fields.distance, Math.floor(state.distance));
       setText(fields.fish, state.fish); setText(fields.best, Math.max(bestScore, Math.floor(state.score)).toLocaleString('ko-KR'));
-      if (fields.progress) fields.progress.style.width = Math.min(100, state.elapsed / state.duration * 100) + '%';
-      stage.dataset.state = state.phase;stage.dataset.boss=String(!!state.boss);stage.dataset.level=String(state.level);stage.classList.toggle('pe-danger',state.lives<=1||state.stack.length>=9);
+      if(fields.progress)setProp(fields.progress.style,'transform','scaleX('+Math.min(1,state.elapsed/state.duration).toFixed(4)+')');
+      setAttr(stage,'data-state',state.phase);setAttr(stage,'data-boss',!!state.boss);setAttr(stage,'data-level',state.level);setClass(stage,'pe-danger',state.lives<=1||state.stack.length>=9);
       if (fields.start) {
-        fields.start.disabled = ['running', 'paused', 'cleared'].includes(state.phase);
-        fields.start.textContent = state.phase === 'finished' ? '다시 탐험' : '탐험 시작';
+        setProp(fields.start,'disabled',['running', 'paused', 'cleared'].includes(state.phase));
+        setText(fields.start,state.phase === 'finished' ? '다시 탐험' : '탐험 시작');
       }
       if (fields.pause) {
-        fields.pause.disabled = !['running', 'paused'].includes(state.phase);
-        fields.pause.textContent = state.phase === 'paused' ? '계속하기' : '일시정지';
-        fields.pause.setAttribute('aria-label', state.phase === 'paused' ? '변시탐험 계속하기' : '변시탐험 일시정지');
+        setProp(fields.pause,'disabled',!['running', 'paused'].includes(state.phase));
+        setText(fields.pause,state.phase === 'paused' ? '계속하기' : '일시정지');
+        setAttr(fields.pause,'aria-label', state.phase === 'paused' ? '변시탐험 계속하기' : '변시탐험 일시정지');
       }
-      if (fields.stop) fields.stop.disabled = !['running', 'paused', 'cleared'].includes(state.phase);
-      if(el('polarDuration'))el('polarDuration').disabled=['running','paused','cleared'].includes(state.phase);
-      root.querySelectorAll('[data-polar-action]').forEach(button => {
+      setProp(fields.stop,'disabled',!['running', 'paused', 'cleared'].includes(state.phase));
+      setProp(el('polarDuration'),'disabled',['running','paused','cleared'].includes(state.phase));
+      actionButtons.forEach(button => {
         const action = button.dataset.polarAction;
-        if (['left', 'right', 'jump'].includes(action)) button.disabled = state.phase !== 'running';
+        if (['left', 'right', 'jump'].includes(action)) setProp(button,'disabled',state.phase !== 'running');
         if (button.closest('#polarOverlay')) {
-          button.hidden = action === 'resume' ? state.phase !== 'paused' : action === 'start' ? state.phase !== 'ready' : action === 'restart' ? state.phase !== 'finished' : action === 'next' || action === 'stop' ? state.phase !== 'cleared' : false;
+          setProp(button,'hidden',action === 'resume' ? state.phase !== 'paused' : action === 'start' ? state.phase !== 'ready' : action === 'restart' ? state.phase !== 'finished' : action === 'next' || action === 'stop' ? state.phase !== 'cleared' : false);
         }
       });
-      if(fields.overlay)fields.overlay.hidden=state.phase==='running'||(state.phase==='cleared'&&!reduced&&state.celebration>1.15);
+      setProp(fields.overlay,'hidden',state.phase==='running'||(state.phase==='cleared'&&!reduced&&state.celebration>1.15));
     }
     function overlay(title, text) { setText(fields.title, title); setText(fields.text, text); syncHud(true); }
     function requestFrame() { if (!raf && !destroyed && (state.phase === 'running' || (state.phase==='cleared'&&state.celebration>0&&!reduced)) && visible()) raf = requestAnimationFrame(frame); }
@@ -298,13 +304,13 @@
         pattern=alternate?'application-gate':'followup';name=alternate?'지원서 압박':'꼬리질문';
         quote=alternate?'양쪽 질문 다 답해 보세요.':'그 답변에 질문 하나만 더요.';
         shots=alternate?[[-1.12,0],[1.12,0]]:[[null,0],[null,.42]];
-      }else if(profile.id==='witch'){
-        pattern=alternate?'stamp-return':'stamp-sweep';name=alternate?'재검토 도장':'학점 일괄검수';
-        quote=alternate?'다시 보니 도장이 하나 빠졌네?':'졸업 도장, 순서대로 찍습니다!';
-        const direction=alternate?-1:1;shots=[[-1.15*direction,0],[0,.30],[1.15*direction,.60]];
-      }else if(profile.id==='clock'){
-        pattern=alternate?'minute-hand':'deadline-pincer';name=alternate?'초침 난사':'시간 압박';
-        quote=alternate?'한 문제만 더 풀고 넘기려 했는데!':'양쪽을 피하면, 가운데도 확인!';
+      }else if(profile.id==='massage'){
+        pattern=alternate?'graduation-press':'shoulder-tap';name=alternate?'졸업 전 전신 압박':'좌우 어깨 두드리기';
+        quote=alternate?'뭉친 긴장, 마지막까지 풀어 드려요!':'왼쪽, 오른쪽… 아직 안 끝났어요!';
+        shots=alternate?[[-1.12,0],[1.12,0],[0,.95]]:[[-1.15,0],[1.15,.35],[-.55,.70]];
+      }else if(profile.id==='king'){
+        pattern=alternate?'minute-hand':'deadline-pincer';name=alternate?'오탈의 칙령':'왕의 포위';
+        quote=alternate?'내 왕국에 빈 답안지는 없다!':'양옆을 막아라! 다음은 가운데다!';
         shots=alternate?[[-1.08,0],[1.08,.28],[-.54,.56],[.54,.84]]:[[-1.12,0],[1.12,0],[0,.95]];
       }else if(profile.id==='revision'){
         pattern=alternate?'rewrite-return':'revision-sweep';name=alternate?'다시 원래대로':'최종본 행진';
@@ -436,7 +442,6 @@
       for(const effect of state.effects)effect.age+=dt;state.effects=state.effects.filter(effect=>effect.age<effect.life);
       for(const float of state.floats){float.life-=dt;float.y-=dt*32;}state.floats=state.floats.filter(f=>f.life>0);
       state.footprint+=dt;if(!reduced&&state.jump<.05&&state.footprint>.12){const p=project(state.x,PLAYER_Z);burst(p.x+Math.sin(state.step)*14,p.y-3,'#f4feff',2);state.footprint=0;}
-      syncHud();
     }
 
     function roadCurve(z) {
@@ -482,23 +487,26 @@
       const sea=bg.createLinearGradient(0,horizon,0,height);sea.addColorStop(0,'#75bdd2');sea.addColorStop(.5,region.water);sea.addColorStop(1,'#126a91');bg.fillStyle=sea;bg.fillRect(0,horizon,width,height-horizon);
       for(let i=0;i<35;i++){const p=i/35,y=horizon+Math.pow(p,1.65)*(height-horizon);bg.strokeStyle=i%3===0?'#c8f6ff80':'#b0e9f23a';bg.lineWidth=.5+p;bg.beginPath();const x=hash(i+31)*width;bg.moveTo(x,y);bg.lineTo(x+width*(.025+p*.07),y);bg.stroke();}
       bg.fillStyle='#dff8ff';bg.beginPath();bg.moveTo(0,horizon+height*.014);bg.lineTo(width*.2,horizon+height*.009);bg.lineTo(width*.29,horizon+height*.032);bg.lineTo(width*.17,horizon+height*.046);bg.lineTo(0,horizon+height*.04);bg.closePath();bg.fill();
+      scenery?.paintBackdrop(bg,width,height,state.level,state.region);
     }
     function drawTrack() {
       const region=REGIONS[state.region];
-      for(let i=71;i>=0;i--){
-        const near=i*5,far=(i+1)*5,a=project(0,near),b=project(0,far),aw=width*.46*a.scale,bw=width*.46*b.scale;
+      const first=Math.floor(state.distance/9),last=Math.floor((state.distance+FAR)/9);
+      for(let segment=last;segment>=first;segment--){
+        const near=Math.max(0,segment*9-state.distance),far=Math.min(FAR,(segment+1)*9-state.distance),a=project(0,near),b=project(0,far),aw=width*.46*a.scale,bw=width*.46*b.scale;
         polygon([[a.x-aw*1.27,a.y+height*.025*a.scale],[b.x-bw*1.27,b.y+height*.025*b.scale],[b.x+bw*1.27,b.y+height*.025*b.scale],[a.x+aw*1.27,a.y+height*.025*a.scale]],'#64b4d1');
-        polygon([[a.x-aw*1.2,a.y],[b.x-bw*1.2,b.y],[b.x+bw*1.2,b.y],[a.x+aw*1.2,a.y]],i%2?'#d7f0f7':'#e1f7fc');
-        const segment=Math.floor((state.distance+near)/9),snow=segment%2===0?region.light:'#e9f6fb';
+        polygon([[a.x-aw*1.2,a.y],[b.x-bw*1.2,b.y],[b.x+bw*1.2,b.y],[a.x+aw*1.2,a.y]],segment%2?'#d7f0f7':'#e1f7fc');
+        const snow=segment%2===0?region.light:'#e9f6fb';
         polygon([[a.x-aw,a.y],[b.x-bw,b.y],[b.x+bw,b.y],[a.x+aw,a.y]],snow);
         const edge=segment%4<2?'#b9e5f3':'#a4d8eb';
         polygon([[a.x-aw,a.y],[b.x-bw,b.y],[b.x-bw*.95,b.y],[a.x-aw*.95,a.y]],edge);
         polygon([[a.x+aw,a.y],[b.x+bw,b.y],[b.x+bw*.95,b.y],[a.x+aw*.95,a.y]],edge);
         if(segment%5===0){const drift=Math.sin(segment*.7)*aw*.6;ellipse(a.x+drift,a.y,aw*.035,Math.max(.5,a.scale),'#d5e9f1');}
       }
-      for(let i=0;i<15;i++){
-        const z=(i*27+13-state.distance%27+405)%405;if(z<12||z>FAR)continue;
-        for(const side of [-1,1]){const p=project(side*2.56,z),s=p.scale;iceberg(p.x,p.y,Math.max(8,width*.075*s),hash(i+side*11));}
+      const firstIce=Math.floor((state.distance-13)/27);
+      for(let i=15;i>=0;i--){
+        const cell=firstIce+i,z=cell*27+13-state.distance;if(z< -20||z>FAR)continue;
+        for(const side of [-1,1]){const p=project(side*2.56,z),s=p.scale;iceberg(p.x,p.y,Math.max(8,width*.075*s),hash(cell+side*11));}
       }
     }
     function iceberg(x,y,size,seed){
@@ -582,21 +590,23 @@
         ctx.save();ctx.translate(-41,27);ctx.rotate(-.16);rounded(-20,-24,40,46,3,'#d7b56e');rounded(-15,-20,30,36,2,'#fff6dc');text('지원서',0,-8,9,'#624f44');for(let n=0;n<3;n++)line([[-9,n*6],[9,n*6]],'#ad9a7b',2);ctx.restore();
         ctx.save();ctx.translate(42,12+swing);ctx.rotate(.22);rounded(-4,-16,8,29,3,'#344c60');ellipse(0,-17,10,13,'#718c9b');line([[-5,-20],[5,-20]],'#c3dce3',2);line([[-5,-15],[5,-15]],'#c3dce3',2);ctx.restore();
         ellipse(47,-53,15,16,accent);polygon([[39,-42],[36,-31],[49,-40]],accent);text('?',47,-53,24,'#234c72');
-      }else if(profile.id==='witch'){
-        polygon([[-25,-15],[-53,52],[-26,43],[-15,59],[0,47],[16,59],[29,43],[53,52],[25,-15]],color);
-        polygon([[-14,-13],[0,10],[14,-13],[8,42],[-8,42]],'#e9c864');line([[0,9],[0,39]],'#a98b3c',2);
-        for(const side of [-1,1]){ctx.save();ctx.translate(side*29,0);ctx.rotate(side*(.7+swing*.015));rounded(-8,-5,16,36,8,color);ellipse(0,28,8,8,'#e9b590');ctx.restore();}
-        ellipse(0,-28,22,24,'#edbd95');polygon([[-24,-41],[-28,-4],[-15,-12],[-19,-39]],'#e6e3e7');polygon([[22,-41],[29,-3],[15,-10],[18,-39]],'#e6e3e7');
-        polygon([[-31,-48],[-10,-79],[7,-65],[14,-72],[31,-48]],color);polygon([[-25,-50],[23,-50],[19,-57],[-21,-57]],accent);rounded(-38,-49,76,8,4,'#3a2c5c');rounded(-5,-58,11,9,2,'#f7df91');
-        line([[-15,-32],[-5,-34]],'#513859',3);line([[5,-34],[15,-32]],'#513859',3);ellipse(-9,-27,2,3,'#513859');ellipse(9,-27,2,3,'#513859');
-        polygon([[0,-25],[-3,-17],[5,-18]],'#d78d75');ctx.strokeStyle='#8c4d5d';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,-14,8,.1,Math.PI-.1);ctx.stroke();
-        ctx.save();ctx.translate(-44,26+swing);ctx.rotate(-.25);rounded(-7,-20,14,17,5,'#d2a659');ellipse(0,-22,12,7,'#f1ca74');rounded(-18,-5,36,24,4,'#78315e');rounded(-14,-2,28,16,2,'#fff5da');text('F',0,7,19,'#ba345f');ctx.restore();
-        ctx.save();ctx.translate(43,27);ctx.rotate(.25);rounded(-12,-20,24,39,3,'#fff5db');ellipse(-13,-18,5,5,'#cbae70');ellipse(13,17,5,5,'#cbae70');text('졸업',0,-4,10,'#725c7c');line([[-7,6],[7,6]],'#b6a483',2);ctx.restore();
-        if(!reduced){text('✦',-53,-30+swing,16,accent);text('✦',46,-55-swing,12,accent);}
-      }else if(profile.id==='clock'){
+      }else if(profile.id==='massage'){
+        rounded(-25,-11,50,62,10,color);polygon([[-15,-12],[0,8],[15,-12]],'#fff5e2');polygon([[-3,0],[3,0],[7,29],[0,35],[-7,29]],accent);
+        for(const side of [-1,1]){
+          ellipse(side*17,53,16,6,'#304a5e');ctx.save();ctx.translate(side*34,-2+side*swing);ctx.rotate(side*(.2+swing*.015));rounded(-10,-2,20,31,7,color);rounded(-11,-9,22,13,3,'#fff6e5');ellipse(0,-22,18,22,'#f2bd95');
+          for(let finger=0;finger<4;finger++)rounded(-14+finger*8,-47+Math.abs(1.5-finger)*3,7,29,4,'#f5c7a0');ellipse(-side*18,-18,7,12,'#efb68e');line([[-8,-18],[7,-16]],'#d9967e',2);ctx.restore();
+        }
+        ellipse(0,-39,25,28,'#efc09b');ellipse(-25,-38,5,7,'#e7ab85');ellipse(25,-38,5,7,'#e7ab85');polygon([[-25,-44],[-24,-60],[-12,-72],[11,-69],[26,-56],[24,-43],[11,-57],[-8,-56]],'#314255');
+        rounded(-26,-59,52,9,4,'#fff6e5');rounded(-4,-59,8,9,2,accent);line([[-16,-43],[-7,-45]],'#354453',3);line([[7,-45],[16,-43]],'#354453',3);ellipse(-10,-38,2,3,'#354453');ellipse(10,-38,2,3,'#354453');ellipse(-17,-30,5,3,'#e89d8a');ellipse(17,-30,5,3,'#e89d8a');
+        ctx.strokeStyle='#a46558';ctx.lineWidth=3;ctx.beginPath();ctx.arc(0,-29,8,0,Math.PI);ctx.stroke();rounded(-25,-13,14,29,4,'#f7f4e3');rounded(12,-13,14,29,4,'#f7f4e3');line([[-21,10],[-15,10]],'#acc9c5',2);line([[16,10],[22,10]],'#acc9c5',2);
+        ctx.save();ctx.translate(-14,39);ctx.rotate(-.12);rounded(-6,-18,12,15,5,'#d2a659');ellipse(0,-20,10,6,accent);rounded(-16,-5,32,21,4,'#426e79');rounded(-12,-2,24,15,2,'#fff5da');text('졸',0,6,14,'#a84f5d');ctx.restore();
+        ctx.save();ctx.translate(29,35);ctx.rotate(.21);rounded(-11,-18,22,36,3,'#fff5db');ellipse(-11,-16,4,4,'#cbae70');ellipse(11,16,4,4,'#cbae70');text('졸업',0,-3,10,'#526878');line([[-6,6],[6,6]],'#b6a483',2);ctx.restore();
+      }else if(profile.id==='king'){
+        polygon([[-30,-40],[-63,-17],[-70,54],[-40,46],[-17,59],[0,49],[18,59],[42,46],[70,54],[63,-17],[30,-40]],hurt?'#c88799':'#673c64');
+        for(const side of [-1,1])line([[side*31,-36],[side*50,-9],[side*59,43]],accent,4);
         for(const side of [-1,1]){line([[side*29,30],[side*37,49],[side*50,51]],color,9);ellipse(side*48,53,13,5,'#36455d');line([[side*41,-3],[side*60,8],[side*57,28]],color,8);}
-        ctx.save();ctx.rotate(-.48);ellipse(-27,-57,20,10,accent);ctx.restore();ctx.save();ctx.rotate(.48);ellipse(27,-57,20,10,accent);ctx.restore();
-        rounded(-7,-77,14,12,3,'#ebc16c');ellipse(0,-9,48,50,color);ellipse(0,-9,41,43,'#fff3d8');ellipse(0,-9,35,37,'#ffe8bf');
+        ellipse(0,-9,48,50,color);ellipse(0,-9,41,43,'#fff3d8');ellipse(0,-9,35,37,'#ffe8bf');
+        polygon([[-33,-49],[-39,-73],[-19,-63],[0,-80],[19,-63],[39,-73],[33,-49]],accent);rounded(-34,-53,68,10,3,'#d8ad59');ellipse(0,-61,5,7,'#af4766');ellipse(-24,-60,3,4,'#f9e9b5');ellipse(24,-60,3,4,'#f9e9b5');
         for(let i=0;i<12;i++){const a=i*Math.PI/6;line([[Math.sin(a)*32,-9-Math.cos(a)*34],[Math.sin(a)*36,-9-Math.cos(a)*38]],i%3===0?color:'#c5a17d',i%3===0?3:2);}
         const hand=reduced?-.45:time*(urgent?2.7:1.8);line([[0,-9],[Math.sin(hand)*22,-9-Math.cos(hand)*24]],color,4);line([[0,-9],[Math.sin(hand*.28+1)*15,-9-Math.cos(hand*.28+1)*16]],'#615875',5);ellipse(0,-9,4,4,'#e46f74');
         line([[-23,-27],[-10,-22]],'#6f344c',4);line([[10,-22],[23,-27]],'#6f344c',4);ellipse(-17,-17,3,4,'#58304c');ellipse(17,-17,3,4,'#58304c');
@@ -630,7 +640,7 @@
       if(type==='question'){
         rounded(-23,-24,46,40,12,'#263f60');rounded(-20,-21,40,33,9,'#e0f3fa');polygon([[-14,11],[-18,25],[-1,12]],'#263f60');polygon([[-12,10],[-14,19],[-4,10]],'#e0f3fa');ctx.fillStyle='#26739d';ctx.font='900 32px Georgia,serif';ctx.fillText('?',0,-2);
       }else if(type==='stamp'){
-        rounded(-8,-33,16,22,5,'#ad6a4a');ellipse(0,-31,15,7,'#ecc480');rounded(-24,-13,48,35,5,'#763353');rounded(-19,-9,38,26,2,'#fff0d2');ctx.strokeStyle='#bd4868';ctx.lineWidth=2;ctx.strokeRect(-15,-5,30,18);ctx.fillStyle='#bd4868';ctx.font='900 23px Georgia,serif';ctx.fillText('F',0,6);
+        rounded(-8,-33,16,22,5,'#ad6a4a');ellipse(0,-31,15,7,'#ecc480');rounded(-24,-13,48,35,5,'#426e79');rounded(-19,-9,38,26,2,'#fff0d2');ctx.strokeStyle='#bd4868';ctx.lineWidth=2;ctx.strokeRect(-15,-5,30,18);ctx.fillStyle='#bd4868';ctx.font='900 16px system-ui';ctx.fillText('졸',0,6);
       }else if(type==='clock'){
         ellipse(-16,-24,10,6,'#e48c7c');ellipse(16,-24,10,6,'#e48c7c');ellipse(0,-1,25,26,'#ac425d');ellipse(0,-1,20,21,'#fff0ce');ctx.strokeStyle='#b69579';ctx.lineWidth=2;for(let i=0;i<4;i++){const a=i*Math.PI/2;ctx.beginPath();ctx.moveTo(Math.sin(a)*15,-1-Math.cos(a)*16);ctx.lineTo(Math.sin(a)*18,-1-Math.cos(a)*19);ctx.stroke();}const a=reduced?.5:state.totalElapsed*6;ctx.strokeStyle='#93475c';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(Math.sin(a)*13,-1-Math.cos(a)*14);ctx.lineTo(0,-1);ctx.lineTo(9,5);ctx.stroke();ellipse(0,-1,3,3,'#ebaa59');
       }else if(type==='calendar'){
@@ -736,7 +746,7 @@
           ctx.save();ctx.globalAlpha=reduced?.3:.2+(1-shot.warning/shot.total)*.18;
           polygon([[near.x-nearRadius,near.y],[far.x-farRadius,far.y],[far.x+farRadius,far.y],[near.x+nearRadius,near.y]],'#ef4861');ctx.globalAlpha=1;
           ctx.strokeStyle='#aa2543';ctx.lineWidth=2;ctx.beginPath();ctx.arc(near.x,near.y-15,Math.max(9,nearRadius*.6),-Math.PI/2,-Math.PI/2+Math.PI*2*(1-shot.warning/shot.total));ctx.stroke();
-          ctx.fillStyle='#a12044';ctx.font='900 12px system-ui';ctx.textAlign='center';ctx.fillText(shot.projectile==='question'?'?':shot.projectile==='stamp'?'F':'!',near.x,near.y-14);ctx.restore();
+          ctx.fillStyle='#a12044';ctx.font='900 12px system-ui';ctx.textAlign='center';ctx.fillText(shot.projectile==='question'?'?':'!',near.x,near.y-14);ctx.restore();
         }
       }
       if(state.phase==='cleared'){
@@ -775,7 +785,7 @@
       ctx.setTransform(dpr,0,0,dpr,0,0);ctx.drawImage(backdrop,0,0,width,height);
       ctx.save();
       if(state.shake>0&&!reduced)ctx.translate(Math.sin(state.totalElapsed*70)*state.shake*9,Math.cos(state.totalElapsed*59)*state.shake*5);
-      drawTrack();drawBoss();
+      drawTrack();scenery?.drawRoadside(ctx,{width,height,level:state.level,distance:state.distance,project,reduced});drawBoss();
       const things=state.objects.filter(item=>{const z=item.world-state.distance;return z>1&&z<FAR;}).sort((a,b)=>b.world-a.world);
       let playerDrawn=false;
       for(const item of things){const z=item.world-state.distance;if(!playerDrawn&&z<PLAYER_Z){penguin();playerDrawn=true;}const p=project(item.lane,z);if(item.kind==='fish')fishSprite(p.x,p.y,p.scale*1.4,state.totalElapsed+item.world);else if(item.kind==='flag')drawFlag(item,p);else drawObstacle(item,p);}
@@ -801,12 +811,16 @@
       if(state.phase!=='running')return;
       if(!visible()){pause('hidden');return;}
       const raw=previousTime?Math.max(0,(time-previousTime)/1000):1/60;previousTime=time;
-      const dt=Math.min(.05,raw),before=performance.now();update(dt);if(state.phase==='running')render();
+      const dt=Math.min(.1,raw),before=performance.now();let remaining=dt;
+      while(remaining>.000001&&state.phase==='running'){const step=Math.min(1/60,remaining);update(step);remaining-=step;}
+      syncHud();if(state.phase==='running')render();
       frameCount++;fps=damp(fps,raw>0?Math.min(120,1/raw):60,3,dt);drawMs=damp(drawMs,performance.now()-before,4,dt);requestFrame();
     }
     function resize() {
-      const bounds=stage.getBoundingClientRect();if(bounds.width<1||bounds.height<1)return;
-      width=bounds.width;height=bounds.height;dpr=Math.min(devicePixelRatio||1,2,Math.sqrt(2500000/(width*height)));
+      const bounds=stage.getBoundingClientRect();layoutVisible=bounds.width>=1&&bounds.height>=1;if(!layoutVisible)return;
+      const nextDpr=Math.min(devicePixelRatio||1,2,Math.sqrt(2500000/(bounds.width*bounds.height)));
+      if(width===bounds.width&&height===bounds.height&&dpr===nextDpr)return;
+      width=bounds.width;height=bounds.height;dpr=nextDpr;
       canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);canvas.style.width='100%';canvas.style.height='100%';
       rebuildBackdrop();render();requestFrame();
     }
@@ -864,17 +878,17 @@
     on(stage,'pointercancel',releaseDrag);on(stage,'lostpointercapture',releaseDrag);
     on(document,'visibilitychange',()=>{if(document.hidden)pause('hidden');});
     on(window,'blur',()=>pause('hidden'));
-    on(document,'lawinus-game-mode-change',()=>{if(!visible())pause('hidden');else{resize();render();}});
+    on(document,'lawinus-game-mode-change',()=>{layoutVisible=root.getClientRects().length>0;if(!visible())pause('hidden');else{resize();render();requestFrame();}});
     on(window,'resize',resize);
     on(motion,'change',event=>{reduced=event.matches;syncHud(true);render();requestFrame();});
-    const observer=new MutationObserver(()=>{if(!visible())pause('hidden');else{resize();render();}});
-    observer.observe(root,{attributes:true,attributeFilter:['class','hidden']});
-    const section=root.closest('section.art');if(section&&section!==root)observer.observe(section,{attributes:true,attributeFilter:['class','hidden']});
+    const observer=new MutationObserver(()=>{layoutVisible=root.getClientRects().length>0;if(!visible())pause('hidden');else{resize();render();requestFrame();}});
+    observer.observe(root,{attributes:true,attributeFilter:['class','hidden','style']});
+    if(section&&section!==root)observer.observe(section,{attributes:true,attributeFilter:['class','hidden','style']});
     const resizing=typeof ResizeObserver==='function'?new ResizeObserver(resize):null;resizing?.observe(stage);
     function getState(){return {phase:state.phase,level:state.level,goal:stageGoal(state.level),elapsed:state.elapsed,totalElapsed:state.totalElapsed,duration:state.duration,distance:state.distance,speed:state.speed,lane:state.lane,x:state.x,steering:state.steering,horizontalVelocity:state.horizontalVelocity,dragTarget:state.dragTarget,jump:state.jump,velocity:state.velocity,lives:state.lives,score:Math.floor(state.score),displayScore:state.displayScore,combo:state.combo,maxCombo:state.maxCombo,fish:state.fish,flags:state.flags,stack:state.stack.slice(),clears:state.clears,boss:state.boss?{...state.boss,attackLanes:state.boss.attackLanes.slice(),attackQueue:state.boss.attackQueue.map(shot=>({...shot}))}:null,invulnerable:state.invulnerable,repelGrace:state.repelGrace,region:REGIONS[state.region].name,reducedMotion:reduced,sound,wordPoolSize:words.length,wordPool:words.map(w=>({...w})),objects:state.objects.map(item=>({id:item.id,kind:item.kind,lane:item.lane,x:item.lane,world:item.world,z:item.world-state.distance,hazard:item.hazard?{...item.hazard}:null,word:item.text||null,subject:item.subject||null,checked:!!item.checked,attackId:item.attackId||null,projectile:item.projectile||null,bossTheme:item.bossTheme||null,warningDuration:item.warningDuration||null})),canvas:{width,height,dpr,pixelWidth:canvas.width,pixelHeight:canvas.height},performance:{frames:frameCount,fps,drawMs},saved:state.saved,pauseReason:state.pauseReason,result:state.result};}
-    function destroy(){if(destroyed)return;destroyed=true;clearSteering();cancelAnimationFrame(raf);observer.disconnect();resizing?.disconnect();removers.forEach(remove=>remove());audio?.close().catch(()=>{});instances.delete(root);delete root.dataset.polarReady;}
+    function destroy(){if(destroyed)return;destroyed=true;clearSteering();cancelAnimationFrame(raf);observer.disconnect();resizing?.disconnect();scenery?.clear();removers.forEach(remove=>remove());audio?.close().catch(()=>{});instances.delete(root);delete root.dataset.polarReady;}
     const api={start,restart:start,nextStage,stop:finish,pause,resume,move,jump,setSound,getState,destroy};instances.set(root,api);root.dataset.polarReady='1';
     readWords();seedCourse();resize();setSound(false);overlay('로스쿨 합격에 도전!', '같은 색 3개로 깃발을 비우세요. 스테이지 끝에는 보스가 기다립니다.');return api;
   }
-  window.LawinusPolar=Object.freeze({mount,version:'20261025-bosses'});
+  window.LawinusPolar=Object.freeze({mount,version:'20261025-scenery'});
 })();

@@ -45,5 +45,7 @@
 .pe-controls button.is-held{background:#cce9ee;border-color:#57a8b8;transform:translateY(1px)}.pe-controls .pe-jump.is-held{background:#bde4dd;border-color:#379d8f}
 .pe-dot.repel{background:#f4cc66;border:1px solid #147b78;box-shadow:0 0 0 1px #f7df9c}
 .pe-boss-hud #polarBossName{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.pe-boss-hud #polarBossHp{flex:none}.pe-boss-hud #polarBossTactic{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pe-boss-hud[data-theme=interviewer]{background:#17334deb;border-color:#8ddce8}.pe-boss-hud[data-theme=witch]{background:#392348eb;border-color:#cdb0e6}.pe-boss-hud[data-theme=clock]{background:#4c2330eb;border-color:#f3b3a3}.pe-boss-hud[data-theme=octopus]{background:#133c41eb;border-color:#94d8cb}.pe-boss-hud[data-theme=revision]{background:#392743eb;border-color:#e6b5d0}.pe-boss-hud[data-theme=midnight]{background:#1f2f50eb;border-color:#b1c9ef}
+.pe-boss-hud[data-theme=interviewer]{background:#17334deb;border-color:#8ddce8}.pe-boss-hud[data-theme=massage]{background:#392348eb;border-color:#cdb0e6}.pe-boss-hud[data-theme=king]{background:#4c2330eb;border-color:#f3b3a3}.pe-boss-hud[data-theme=octopus]{background:#133c41eb;border-color:#94d8cb}.pe-boss-hud[data-theme=revision]{background:#392743eb;border-color:#e6b5d0}.pe-boss-hud[data-theme=midnight]{background:#1f2f50eb;border-color:#b1c9ef}
 @media(max-width:700px){.pe-boss-hud{top:96px;padding:6px 10px}.pe-boss-hud p{display:none}.pe-boss-hud progress{margin-top:5px;height:4px}.pe-boss-hud>div{font-size:10px;line-height:14px}.pe-boss-hud .pe-boss-alert{font-size:8px}}
+
+.pe-stage{contain:layout paint}.pe-progress i{width:100%;transform:scaleX(0);transform-origin:left center;will-change:transform}
