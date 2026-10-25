@@ -965,8 +965,8 @@ section.art.law-subject-article-mode>.pager{display:none}
 <link rel="stylesheet" href="assets/wiki-refresh.css?v=20261011-ui">
 <link rel="stylesheet" href="assets/game-center.css?v=20261020-hub">
 <link rel="stylesheet" href="assets/study-practice.css?v=20261025-study">
-<link rel="stylesheet" href="assets/polar-expedition.css?v=20261020-expedition">
-<script src="assets/polar-expedition.js?v=20261020-expedition"></script>
+<link rel="stylesheet" href="assets/polar-expedition.css?v=20261025-journey">
+<script src="assets/polar-expedition.js?v=20261025-journey"></script>
 <link rel="stylesheet" href="assets/article-standard-cases.css?v=20261011-merged">
 <script defer src="assets/article-standard-cases.js?v=20261011-merged"></script>
 </head>
@@ -18730,17 +18730,20 @@ section.art.law-subject-article-mode>.pager{display:none}
 <div class="game-feed" id="caseFeed">변호사시험 예상판례 문제은행에서 랜덤 출제됩니다.</div>
 </div>
 <div class="game-panel pe-panel" id="game-panel-polar" role="tabpanel" aria-labelledby="game-tab-polar" data-game-panel="polar" hidden>
-  <div class="pe-heading"><div><p class="pe-eyebrow">남극 원정</p><h2>변시탐험</h2><p class="pe-subtitle">눈길을 달리고, 뛰어넘고, 법학 키워드를 모으세요.</p></div><div class="pe-best"><span>나의 최고 점수</span><strong id="polarBest">0</strong></div></div>
-  <div class="pe-toolbar"><div class="pe-settings"><label class="pe-sr" for="polarNick">닉네임</label><input id="polarNick" maxlength="16" placeholder="닉네임" type="text" autocomplete="off"><label class="pe-sr" for="polarDuration">탐험 시간</label><select id="polarDuration"><option value="30">30초 탐험</option><option value="60" selected>60초 탐험</option><option value="90">90초 탐험</option><option value="120">120초 탐험</option></select></div><div class="pe-actions"><button id="polarStart" class="pe-primary" type="button">탐험 시작 <span aria-hidden="true">↗</span></button><button id="polarPause" type="button" disabled aria-label="탐험 일시정지">일시정지</button><button id="polarStop" type="button" disabled>종료</button><button id="polarSound" class="pe-sound" type="button" aria-pressed="false" aria-label="효과음 켜기">소리 끔</button></div></div>
+  <div class="pe-heading"><div><p class="pe-eyebrow">합격을 향한 질주</p><h2>변시탐험</h2><p class="pe-subtitle">로스쿨에서 법정까지. 깃발을 조합하고, 마지막 관문을 돌파하세요.</p></div><div class="pe-best"><span>나의 최고 점수</span><strong id="polarBest">0</strong></div></div>
+  <ol class="pe-journey" aria-label="스테이지 여정"><li data-polar-journey="1" class="active" aria-current="step"><span>01</span><strong>로스쿨 합격</strong></li><li data-polar-journey="2"><span>02</span><strong>졸업시험</strong></li><li data-polar-journey="3"><span>03</span><strong>변호사시험</strong></li><li data-polar-journey="4"><span>04+</span><strong>변호사 생활</strong></li></ol>
+  <div class="pe-toolbar"><div class="pe-settings"><label class="pe-sr" for="polarNick">닉네임</label><input id="polarNick" maxlength="16" placeholder="닉네임" type="text" autocomplete="off"><label class="pe-sr" for="polarDuration">스테이지 주행 시간</label><select id="polarDuration"><option value="30">스테이지당 30초</option><option value="60" selected>스테이지당 60초</option><option value="90">스테이지당 90초</option><option value="120">스테이지당 120초</option></select></div><div class="pe-actions"><button id="polarStart" class="pe-primary" type="button">탐험 시작 <span aria-hidden="true">↗</span></button><button id="polarPause" type="button" disabled aria-label="변시탐험 일시정지">일시정지</button><button id="polarStop" type="button" disabled>종료</button><button id="polarSound" class="pe-sound" type="button" aria-pressed="false" aria-label="효과음 켜기">소리 끔</button></div></div>
   <div id="polarStage" class="pe-stage" tabindex="0" aria-label="변시탐험 게임판" aria-describedby="polarTouchHelp" data-state="ready">
-    <canvas id="polarCanvas" aria-label="펭귄과 함께 달리는 남극 탐험">화살표로 이동하고 스페이스로 점프하세요.</canvas>
-    <div class="pe-hud" aria-label="탐험 현황"><div class="pe-hud-main"><span>점수<strong id="polarScore">0</strong></span><span class="pe-time">남은 시간<strong><b id="polarTime">60</b><small>초</small></strong></span><span class="pe-health">생명<strong id="polarLives">3</strong></span></div><div class="pe-route"><span><i aria-hidden="true"></i><b id="polarRegion">푸른만</b></span><strong><b id="polarDistance">0</b><small>m</small></strong></div></div>
-    <div id="polarOverlay" class="pe-overlay"><div class="pe-overlay-card"><span class="pe-overline">LET’S EXPLORE</span><h3 id="polarOverlayTitle">새로운 발자국을 남겨요</h3><p id="polarOverlayText">얼음 틈을 뛰어넘고 물개를 피하세요.<br>물고기와 깃발을 모으면 점수가 올라갑니다.</p><div class="pe-overlay-actions"><button class="pe-primary" type="button" data-polar-action="start">탐험 시작 <span aria-hidden="true">→</span></button><button class="pe-primary" type="button" data-polar-action="resume" hidden>계속 달리기 <span aria-hidden="true">→</span></button><button class="pe-primary" type="button" data-polar-action="restart" hidden>다시 탐험 <span aria-hidden="true">↗</span></button></div><div class="pe-overlay-keys" aria-hidden="true"><span>← → 이동</span><span>SPACE 점프</span></div></div></div>
-    <div class="pe-stage-bottom"><span class="pe-combo"><strong id="polarCombo">0</strong> 콤보</span><span class="pe-fish"><svg viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"><path d="M17 8c-4-9-12-8-16 0 4 8 12 9 16 0l6 6V2Z" fill="currentColor"/><circle cx="6" cy="6" r="1" fill="#fff"/></svg><strong id="polarFish">0</strong></span><span class="pe-tip">깃발을 모으며 키워드 복습</span></div>
+    <canvas id="polarCanvas" aria-label="깃발을 모아 보스에 도전하는 변시탐험">화살표로 이동하고 스페이스로 점프하세요.</canvas>
+    <div class="pe-hud" aria-label="탐험 현황"><div class="pe-hud-main"><span>점수<strong id="polarScore">0</strong></span><span class="pe-time">보스까지<strong><b id="polarTime">60</b><small id="polarTimeUnit">초</small></strong></span><span class="pe-health">생명<strong id="polarLives">5</strong></span></div><div class="pe-route"><span><b id="polarLevel" class="pe-level">STAGE 1</b><b id="polarGoal">로스쿨 합격</b></span><span class="pe-distance"><b id="polarDistance">0</b><small>m</small></span></div></div>
+    <div id="polarBossHud" class="pe-boss-hud" hidden><div><span class="pe-boss-alert">BOSS</span><strong id="polarBossName">마지막 관문</strong><b id="polarBossHp">3 / 3</b></div><progress id="polarBossBar" max="3" value="3" aria-label="보스 남은 생명"></progress><p>같은 색 3개 또는 무지개 깃발로 공격</p></div>
+    <div id="polarOverlay" class="pe-overlay"><div class="pe-overlay-card"><span class="pe-overline">변시탐험</span><h3 id="polarOverlayTitle">첫 관문, 로스쿨</h3><p id="polarOverlayText">세 가지 법학 깃발을 조합하세요.<br>각 스테이지의 보스를 넘어 다음 관문으로!</p><div class="pe-overlay-actions"><button class="pe-primary" type="button" data-polar-action="start">탐험 시작 <span aria-hidden="true">→</span></button><button class="pe-primary" type="button" data-polar-action="resume" hidden>계속 달리기 <span aria-hidden="true">→</span></button><button class="pe-primary" type="button" data-polar-action="next" hidden>다음 스테이지 <span aria-hidden="true">→</span></button><button class="pe-primary" type="button" data-polar-action="restart" hidden>다시 탐험 <span aria-hidden="true">↗</span></button><button class="pe-finish-run" type="button" data-polar-action="stop" hidden>기록하고 마치기</button></div><div class="pe-overlay-keys" aria-hidden="true"><span>← → 이동</span><span>SPACE 점프</span></div></div></div>
+    <div class="pe-stage-bottom"><span class="pe-combo"><strong id="polarCombo">0</strong> 콤보</span><span class="pe-fish"><svg viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"><path d="M17 8c-4-9-12-8-16 0 4 8 12 9 16 0l6 6V2Z" fill="currentColor"/><circle cx="6" cy="6" r="1" fill="#fff"/></svg><strong id="polarFish">0</strong></span><span class="pe-tip" id="polarRegion">로스쿨 합격을 향해</span></div>
     <div class="pe-progress" aria-hidden="true"><i id="polarProgress"></i></div>
   </div>
-  <div class="pe-console"><div class="pe-controls" id="polarControls" role="group" aria-label="펭귄 조작"><button type="button" data-polar-action="left" aria-label="왼쪽 이동" disabled><span aria-hidden="true">←</span><small>왼쪽</small></button><button class="pe-jump" type="button" data-polar-action="jump" aria-label="점프" disabled><span aria-hidden="true">↑</span><small>점프</small></button><button type="button" data-polar-action="right" aria-label="오른쪽 이동" disabled><span aria-hidden="true">→</span><small>오른쪽</small></button></div><div class="pe-discovery"><span class="pe-discovery-label"><i aria-hidden="true"></i>탐험 노트</span><p id="polarFeed" class="pe-feed" role="status" aria-live="polite">준비되면 탐험을 시작하세요.</p></div></div>
-  <details class="pe-help"><summary>조작 방법과 아이템 <span aria-hidden="true">＋</span></summary><div id="polarTouchHelp"><p><kbd>←</kbd><kbd>→</kbd> 또는 <kbd>A</kbd><kbd>D</kbd> 이동 · <kbd>↑</kbd><kbd>SPACE</kbd> 점프 · <kbd>P</kbd> 일시정지</p><p>휴대폰에서는 아래 버튼을 누르거나 게임판을 좌우로 밀어 이동하고 위로 밀어 점프하세요.</p><div class="pe-legend"><span><i class="pe-dot civil"></i>민사 키워드</span><span><i class="pe-dot criminal"></i>형사 키워드</span><span><i class="pe-dot public"></i>공법 키워드</span></div><p>물고기와 깃발을 모아 점수를 쌓으세요. 얼음 틈과 물개를 피하면 더 멀리 탐험할 수 있습니다.</p></div></details>
+  <div class="pe-flag-rack"><div class="pe-rack-heading"><strong>누적 깃발 <b id="polarStackCount">0 / 10</b></strong><span>10개가 쌓이면 생명 −1</span></div><div id="polarStack" class="pe-stack-slots" role="img" aria-label="누적 깃발 0개"></div><div class="pe-match-guide"><span><i class="pe-dot civil"></i><i class="pe-dot civil"></i><i class="pe-dot civil"></i> 같은 색 3개 <b>상쇄 · 보스 공격</b></span><span><i class="pe-dot civil"></i><i class="pe-dot criminal"></i><i class="pe-dot public"></i> 서로 다른 3개 <b>상쇄</b></span><span><i class="pe-dot rainbow"></i> 무지개 <b>전체 상쇄 · 보스 공격</b></span></div></div>
+  <div class="pe-console"><div class="pe-controls" id="polarControls" role="group" aria-label="펭귄 조작"><button type="button" data-polar-action="left" aria-label="왼쪽 이동" disabled><span aria-hidden="true">←</span><small>왼쪽</small></button><button class="pe-jump" type="button" data-polar-action="jump" aria-label="점프" disabled><span aria-hidden="true">↑</span><small>점프</small></button><button type="button" data-polar-action="right" aria-label="오른쪽 이동" disabled><span aria-hidden="true">→</span><small>오른쪽</small></button></div><div class="pe-discovery"><span class="pe-discovery-label"><i aria-hidden="true"></i><span id="polarStageStatus">첫 관문 · 로스쿨 합격</span></span><p id="polarFeed" class="pe-feed" role="status" aria-live="polite">깃발의 색을 보고 길을 고르세요.</p></div></div>
+  <details class="pe-help"><summary>스테이지·깃발·보스 공략 <span aria-hidden="true">＋</span></summary><div id="polarTouchHelp"><p><kbd>←</kbd><kbd>→</kbd> 또는 <kbd>A</kbd><kbd>D</kbd> 이동 · <kbd>↑</kbd><kbd>SPACE</kbd> 점프 · <kbd>P</kbd> 일시정지</p><p>좌우 키나 이동 버튼을 길게 눌러 연속 이동하세요. 휴대폰에서는 게임판을 좌우로 끌어 움직이고, 위로 밀거나 점프 버튼을 누르세요.</p><div class="pe-legend"><span><i class="pe-dot civil"></i>민사 깃발</span><span><i class="pe-dot criminal"></i>형사 깃발</span><span><i class="pe-dot public"></i>공법 깃발</span></div><p>마지막에 모은 세 깃발이 같은 색이거나 모두 다른 색이면 상쇄됩니다. 10칸이 차기 전에 색을 맞추세요. 무지개 깃발은 누적 깃발을 모두 비웁니다.</p><p>주행 시간이 끝나면 보스전입니다. 같은 색 3개를 맞추거나 무지개를 잡아 보스의 생명을 줄이세요. 폭탄이 오는 길을 피하고, 보스를 쓰러뜨리면 다음 스테이지로 나아갑니다.</p><p>학생 시절에는 독서실 빌런, 변호사가 되면 진상의뢰인의 방해를 피하세요.</p><p>로스쿨 합격 → 졸업시험 합격 → 변호사시험 합격 → 월소득 목표에 도전합니다. 생명을 모두 잃으면 해당 관문에서 도전이 끝납니다.</p></div></details>
 </div>
 
 <style>
@@ -21418,15 +21421,36 @@ async function loadExamTerms(){
     function setRecentScores(rows){localStorage.setItem(recentScoreKey,JSON.stringify((rows||[]).slice(0,30)));}
     var rankLimits=[5,10,50,100,200],rankLevel={typing:0,rain:0,blank:0,caseblank:0,polar:0,ox:0,ethics:0};
     var rankTitles={typing:'타자왕',rain:'산성비킹',blank:'조문왕',caseblank:'판례왕',polar:'변시킹',ox:'OX왕',ethics:'윤리왕'};
+    function polarOutcomeForLevel(level){
+      level=level||1;
+      if(level===1)return {success:'로스쿨 합격',fail:'로스쿨 낙방'};
+      if(level===2)return {success:'졸업시험 합격',fail:'졸업시험 탈락'};
+      if(level===3)return {success:'변호사시험 합격',fail:'오탈'};
+      var income=500*Math.pow(2,level-4);
+      return {success:'월 소득 '+income.toLocaleString('ko-KR')+' 달성',fail:'월 소득 '+income.toLocaleString('ko-KR')+' 실패'};
+    }
     function displayRankDetail(mode,detail){
       detail=detail||'';
       if(mode!=='polar')return detail;
-      var match=detail.match(/(?:Stage|Level)\s+(\d+)/i);
-      if(!match)return detail;
-      var combo=detail.match(/최고콤보\s*\d+/);
-      return '탐험 '+match[1]+'구간'+(combo?' · '+combo[0]:'');
+      var m=detail.match(/Level\s+(\d+)/i);
+      if(!m)return detail.replace(/Level/gi,'Stage');
+      var level=parseInt(m[1],10)||1,goal=polarOutcomeForLevel(level);
+      var outcome=/합격/.test(detail)&&!/오탈/.test(detail)?goal.success:goal.fail;
+      return detail.replace(/^(합격|오탈)\s*·\s*Level\s+\d+/i,outcome+' · Stage '+level).replace(/Level/gi,'Stage');
     }
-    function polarRankName(name){return cleanText(name)||'익명';}
+    function polarRankName(name,detail){
+      name=cleanText(name)||'익명';
+      var m=(detail||'').match(/Stage\s+(\d+)|Level\s+(\d+)/i),level=m?parseInt(m[1]||m[2],10):1;
+      if(level<=1)return '학부생 '+name;
+      if(level===2)return name+' 로스쿨러';
+      if(level===3)return name+' 오탈자';
+      if(level===4)return name+' 백수변';
+      if(level===5)return name+' 어쏘변';
+      if(level===6)return name+' 파트너변';
+      if(level===7)return name+' 대표변';
+      if(level===8)return name+' 변협회장';
+      return name+' 대통령';
+    }
     function gameScoreDays(at){
       var date=at?new Date(at):new Date();
       if(isNaN(date.getTime()))date=new Date();
