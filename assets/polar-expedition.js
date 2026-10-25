@@ -121,7 +121,16 @@
       setText(el('polarLevel'),'STAGE '+state.level);setText(el('polarGoal'),stageGoal(state.level).name);
       setText(el('polarStageStatus'),state.phase==='finished'?state.result:state.phase==='cleared'?stageGoal(state.level).success:state.boss?'같은 색 3개 또는 무지개로 보스 공격':stageGoal(state.level).success+'에 도전');
       setText(el('polarStackCount'),state.stack.length+' / 10');
-      const rack=el('polarStack');if(rack){if(rack.dataset.signature!==state.stack.join(',')){rack.dataset.signature=state.stack.join(',');rack.replaceChildren(...Array.from({length:10},(_,i)=>{const slot=document.createElement('span'),type=state.stack[i];slot.className='pe-stack-slot'+(type?' is-filled':'');slot.dataset.subject=type||'';slot.textContent=type?SUBJECTS[type].label.charAt(0):'';slot.setAttribute('aria-label',type?SUBJECTS[type].label+' 깃발':'빈 칸');return slot;}));}setClass(rack,'warning',state.stack.length>=9);setAttr(rack,'data-warning',state.stack.length>=9);setAttr(rack,'aria-label','누적 깃발 '+state.stack.length+'개, 최대 10개');}
+      const rack=el('polarStack');
+      if(rack){
+        const signature=state.stack.join(',');
+        if(rack.dataset.signature!==signature){
+          if(rack.children.length!==10)rack.replaceChildren(...Array.from({length:10},()=>{const slot=document.createElement('span');slot.className='pe-stack-slot';slot.appendChild(document.createTextNode(''));return slot;}));
+          rack.dataset.signature=signature;
+          for(let i=0;i<10;i++){const slot=rack.children[i],type=state.stack[i];setClass(slot,'is-filled',!!type);setAttr(slot,'data-subject',type||'');setText(slot,type?SUBJECTS[type].label.charAt(0):'');setAttr(slot,'aria-label',type?SUBJECTS[type].label+' 깃발':'빈 칸');}
+        }
+        setClass(rack,'warning',state.stack.length>=9);setAttr(rack,'data-warning',state.stack.length>=9);setAttr(rack,'aria-label','누적 깃발 '+state.stack.length+'개, 최대 10개');
+      }
       setProp(el('polarBossHud'),'hidden',!state.boss);setAttr(el('polarBossHud'),'data-theme',bossProfile(state.level).id);
       setText(el('polarBossName'),bossProfile(state.level).name);setText(el('polarBossHp'),state.boss?state.boss.hp+' / '+state.boss.max:'');
       setText(el('polarBossTactic'),state.boss?(state.boss.attackName?state.boss.attackName+' · ':'')+state.boss.quote:'같은 색 3개 또는 무지개 깃발로 공격');
@@ -890,5 +899,5 @@
     const api={start,restart:start,nextStage,stop:finish,pause,resume,move,jump,setSound,getState,destroy};instances.set(root,api);root.dataset.polarReady='1';
     readWords();seedCourse();resize();setSound(false);overlay('로스쿨 합격에 도전!', '같은 색 3개로 깃발을 비우세요. 스테이지 끝에는 보스가 기다립니다.');return api;
   }
-  window.LawinusPolar=Object.freeze({mount,version:'20261025-scenery'});
+  window.LawinusPolar=Object.freeze({mount,version:'20261025-scenery-final'});
 })();
