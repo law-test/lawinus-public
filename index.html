@@ -19882,7 +19882,7 @@ window.__KCI_BOOT=function(d){
   var LAW_SUBJECT_LOCAL_ARTICLES={
     '민사소송법':{url:'assets/civil_procedure_articles.json?v=20261029a',min:500},
     '상법':{url:'assets/commercial_law_articles.json?v=20261029a',min:1000},
-    '법조윤리':{url:'assets/legal_ethics_articles.json?v=20261029a',min:2015}
+    '법조윤리':{url:'assets/legal_ethics_articles.json?v=20261029b',min:2015}
   };
   var LAW_SUBJECT_COMMENTARY_FILES={
     '민사소송법':'assets/civil_procedure_commentaries.json?v=20260616a',
@@ -20248,7 +20248,7 @@ function lawAtomRowsToItems(rows){
     return fetch(cfg.url).then(function(r){
       if(!r.ok)throw new Error(k+' 로컬 조문 로딩 실패');
       return r.json();
-    }).then(function(data){return data.items||data.rows||[];});
+    }).then(function(data){var rows=data.items||data.rows||[];rows.forEach(function(row){var version=(data.lawSnapshots||{})[row.law_name];if(row.article_no==='제1조'&&version&&version.preamble)row.law_preamble=version.preamble;});return rows;});
   }
   function lawSubjectDataMapFetch(k,fileMap,cache,promises){
     if(cache[k])return Promise.resolve(cache[k]);
@@ -20282,7 +20282,7 @@ function lawAtomRowsToItems(rows){
     }catch(e){return null;}
   }
   function lawSubjectArticleTitle(row){
-    return row.article_no+(row.title?' '+row.title:'')+(row.status==='future'?' · '+row.effective_from+' 시행 예정':'');
+    return row.article_no+(row.title?' '+row.title:'')+(row.status==='future'?' · '+row.effective_from+' 시행 예정':row.status==='historical'?' · 종전 규정(현행 아님)':'');
   }
   function lawSubjectRange(rows){
     if(!rows||!rows.length)return '';
@@ -20413,7 +20413,7 @@ function lawAtomRowsToItems(rows){
     return lawName?rows.filter(function(row){return row.law_name===lawName;}):rows;
   }
   function lawSubjectArticleHeading(row){
-    return row.article_no+(row.title?' ('+row.title+')':'')+(row.status==='future'?' · '+row.effective_from+' 시행 예정':'');
+    return row.article_no+(row.title?' ('+row.title+')':'')+(row.status==='future'?' · '+row.effective_from+' 시행 예정':row.status==='historical'?' · 종전 규정(현행 아님)':'');
   }
   function lawSubjectGroupLabel(row){
     if(row.subject==='민사소송법')return '민사소송법';
@@ -20531,11 +20531,21 @@ function lawAtomRowsToItems(rows){
   }
   function lawSubjectTemporalContent(row){
     var html='';
+    if(row.law_preamble)html+='<details class="law-preamble"><summary>전문</summary><p style="white-space:pre-line">'+lawSubjectEsc(row.law_preamble)+'</p></details>';
     if(row.status==='future')html+='<p class="gist">'+lawSubjectEsc(row.effective_from)+' 시행 예정</p>';
-    (row.future_versions||[]).forEach(function(v){
-      html+='<details class="law-future-version"><summary>'+lawSubjectEsc(v.effective_from)+' 시행 예정: '+lawSubjectEsc(v.title||row.article_no)+'</summary><div class="lawtext"><p>'+lawSubjectEsc(v.body||'')+'</p></div></details>';
-    });
+    if(row.status==='historical')html+='<p class="gist">'+lawSubjectEsc(row.version_label||'종전 규정, 현행 아님')+'</p>';
+    function version(v,label){
+      return '<details class="law-version"><summary>'+lawSubjectEsc(label)+': '+lawSubjectEsc(v.title||row.article_no)+'</summary><div class="lawtext"><p style="white-space:pre-line">'+lawSubjectEsc(v.body||'')+'</p></div>'+(v.source_url?'<p><a href="'+lawSubjectEsc(v.source_url)+'" target="_blank" rel="noopener noreferrer">해당 판본 원문 보기</a></p>':'')+'</details>';
+    }
+    (row.future_versions||[]).forEach(function(v){html+=version(v,v.effective_from+' 시행 예정');});
+    (row.historical_versions||[]).forEach(function(v){html+=version(v,v.version_label||'종전 규정');});
     return html;
+  }
+  function lawSubjectFigures(row){
+    return (row.body_images||[]).map(function(fig){
+      if(!fig.url)return '';
+      return '<figure class="law-official-figure"><a href="'+lawSubjectEsc(fig.url)+'" target="_blank" rel="noopener noreferrer"><img src="'+lawSubjectEsc(fig.url)+'" alt="'+lawSubjectEsc(fig.alt||'법령 도안')+'" loading="lazy" style="max-width:100%;height:auto;background:white;'+(/기표/.test(fig.alt||'')?'width:44px;':'')+'"></a><figcaption>'+lawSubjectEsc(fig.alt||'법령 도안')+'</figcaption></figure>';
+    }).join('');
   }
   function lawSubjectRenderSingleArticle(row,rows){
     var related=(rows||[]).filter(function(r){return r.law_name===row.law_name;});
@@ -20544,7 +20554,8 @@ function lawAtomRowsToItems(rows){
     var chips=lawSubjectStructureLabels(row).slice(2).map(function(label){return '<span>'+lawSubjectEsc(label)+'</span>';}).join('');
     var source=row.source_url||('https://www.law.go.kr/LSW/lsSc.do?menuId=1&subMenuId=15&query='+encodeURIComponent(row.law_name));
     var html='<div class="law-subject-single">'+lawSubjectTemporalContent(row)
-      +'<div class="lawtext"><div class="lbl">조문</div><p>'+lawSubjectEsc(row.body||'')+'</p></div>'
+      +'<div class="lawtext"><div class="lbl">조문</div><p style="white-space:pre-line">'+lawSubjectEsc(row.body||'')+'</p></div>'
+      +lawSubjectFigures(row)
       +(chips?'<div class="law-subject-structure">'+chips+'</div>':'')
       +lawSubjectCommentaryPlaceholder(row)
       +lawAtomPlaceholder(row.subject,row.law_name,row.article_no)
